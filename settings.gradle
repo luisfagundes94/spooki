@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "spooki"
 include ':app'
+include ':ui-components'
+include ':core'
