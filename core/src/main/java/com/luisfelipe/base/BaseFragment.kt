@@ -10,7 +10,7 @@ import androidx.viewbinding.ViewBinding
 import com.luisfelipe.extensions.hideVisibility
 import com.luisfelipe.extensions.showVisibility
 
-abstract class BindFragment<Binding : ViewBinding>(
+abstract class BaseFragment<Binding : ViewBinding>(
     @IdRes private val successViewId: Int,
     @IdRes private val loadingViewId: Int,
     @IdRes private val errorViewId: Int
