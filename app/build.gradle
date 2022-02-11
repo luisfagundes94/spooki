@@ -42,6 +42,12 @@ android {
 
 dependencies {
 
+    // Projects
+    implementation project(':features:home')
+    implementation project(':features:search')
+    implementation project(':features:saved')
+    implementation project(':features:profile')
+
     // Core
     implementation Dependencies.Core.coreKtx
     implementation Dependencies.Core.appCompat

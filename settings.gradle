@@ -16,3 +16,7 @@ rootProject.name = "spooki"
 include ':app'
 include ':ui-components'
 include ':core'
+include ':features:home'
+include ':features:search'
+include ':features:saved'
+include ':features:profile'
