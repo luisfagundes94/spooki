@@ -20,7 +20,7 @@ object Versions {
     const val material = "1.5.0"
     const val coreKtx = "1.7.0"
     const val constraintLayout = "2.1.3"
-    const val navigation = "2.3.1"
+    const val navigation = "2.4.1"
     const val timber = "5.0.1"
 
     // Data
