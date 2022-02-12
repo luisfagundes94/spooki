@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BottomNavigationDarkTheme">
+        <item name="colorPrimary">@color/white</item>
+    </style>
+
+    <style name="BottomNavigationLightTheme">
+        <item name="colorPrimary">@color/purple_heart</item>
+    </style>
+    
+    <style name="ActionBarStyle" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="titleTextColor">@color/white</item>
+        <item name="background">@color/mine_shaft</item>
+        <item name="elevation">10dp</item>
+    </style>
+
+</resources>
