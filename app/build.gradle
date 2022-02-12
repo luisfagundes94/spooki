@@ -1,42 +1,19 @@
 import com.luisfelipe.buildSrc.Versions
-import com.luisfelipe.buildSrc.Dependencies
 
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
 
-android {
-    compileSdk Versions.compileSdk
+apply from: "$rootDir/base_dependencies.gradle"
 
+android {
     defaultConfig {
         applicationId Versions.appId
         minSdk Versions.minSdk
         targetSdk Versions.targetSdk
         versionCode Versions.versionCode
         versionName Versions.versionName
-    }
-
-    buildTypes {
-
-        dev {
-            minifyEnabled false
-            debuggable true
-            shrinkResources false
-        }
-
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = Versions.jvmTargetVersion
     }
 }
 
@@ -47,10 +24,4 @@ dependencies {
     implementation project(':features:search')
     implementation project(':features:saved')
     implementation project(':features:profile')
-
-    // Core
-    implementation Dependencies.Core.coreKtx
-    implementation Dependencies.Core.appCompat
-    implementation Dependencies.Core.material
-    implementation Dependencies.Core.constraintLayout
 }

@@ -9,8 +9,8 @@ object Dependencies {
         const val material = "com.google.android.material:material:${Versions.material}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
-        const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
-        const val navigation_fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+        const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+        const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
         const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     }

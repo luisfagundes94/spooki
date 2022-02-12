@@ -3,9 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_search">Search</string>
     <string name="title_saved">Saved</string>
-    <string name="title_pantry">Pantry</string>
-    <string name="title_recipes">Receitas</string>
-    <string name="recipe_details">Detalhes</string>
+    <string name="title_profile">Perfil</string>
     <string name="generic_error_message">Ops! Algo deu errado. Por favor, tente novamente.</string>
     <string name="generic_error_button_message">Tentar Novamente</string>
 </resources>

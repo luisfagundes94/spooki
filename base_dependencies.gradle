@@ -1,0 +1,61 @@
+import com.luisfelipe.buildSrc.Versions
+import com.luisfelipe.buildSrc.Dependencies
+
+android {
+    compileSdk Versions.compileSdk
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+
+        dev {
+            minifyEnabled false
+            debuggable true
+            shrinkResources false
+        }
+
+        release {
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = Versions.jvmTargetVersion
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
+        unitTests.all {
+            testLoggin {
+                exceptionFormat = "full"
+            }
+        }
+        animationsDisabled = true
+    }
+}
+
+dependencies {
+    // Projects
+    implementation project(":core")
+    implementation project(":ui-components")
+
+    // Core
+    implementation Dependencies.Core.kotlinStdlib
+    implementation Dependencies.Core.appCompat
+    implementation Dependencies.Core.coroutines
+    implementation Dependencies.Core.navigationFragment
+    implementation Dependencies.Core.navigationUi
+    implementation Dependencies.Core.timber
+    implementation Dependencies.Core.constraintLayout
+    implementation Dependencies.Core.material
+}
