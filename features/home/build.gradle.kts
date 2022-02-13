@@ -12,3 +12,8 @@ android {
         minSdk = Versions.minSdk
     }
 }
+
+dependencies {
+    implementation(project(":features:movies"))
+    implementation(project(":features:shows"))
+}

@@ -24,4 +24,5 @@ dependencies {
     implementation project(':features:search')
     implementation project(':features:saved')
     implementation project(':features:profile')
+    implementation project(':features:movies')
 }

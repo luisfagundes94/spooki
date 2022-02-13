@@ -58,4 +58,20 @@ dependencies {
     implementation Dependencies.Core.timber
     implementation Dependencies.Core.constraintLayout
     implementation Dependencies.Core.material
+
+    // Data
+    implementation Dependencies.Data.retrofit
+    implementation Dependencies.Data.gson
+    implementation Dependencies.Data.okHttp
+    implementation Dependencies.Data.loggingInterceptor
+
+    // DI
+    implementation Dependencies.DI.koin
+    implementation Dependencies.DI.koinCore
+
+    // Testing
+    testImplementation Dependencies.Test.mockk
+    testImplementation Dependencies.Test.junit
+    testImplementation Dependencies.Test.coroutines
+    testImplementation Dependencies.Test.archCore
 }

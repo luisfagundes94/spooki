@@ -9,7 +9,9 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
+        gradlePluginPortal()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 rootProject.name = "spooki"
@@ -20,3 +22,5 @@ include ':features:home'
 include ':features:search'
 include ':features:saved'
 include ':features:profile'
+include ':features:movies'
+include ':features:shows'
