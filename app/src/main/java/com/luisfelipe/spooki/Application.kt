@@ -1,7 +1,7 @@
 package com.luisfelipe.spooki
 
 import android.app.Application
-import com.luisfelipe.movies.di.moviesModule
+import com.luisfelipe.movies.di.movieCategoryModule
 import org.koin.android.BuildConfig
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.logger.AndroidLogger
@@ -22,7 +22,7 @@ class Application : Application() {
             androidContext(this@Application)
             logger(setupDependencyInjectionLogger())
             modules(
-                moviesModule,
+                movieCategoryModule,
             )
         }
     }

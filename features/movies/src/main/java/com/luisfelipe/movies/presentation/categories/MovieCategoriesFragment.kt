@@ -19,7 +19,7 @@ class MovieCategoriesFragment : BaseFragment<FragmentMovieCategoriesBinding>(
     errorViewId = R.id.movie_categories_error_container,
 ) {
 
-    private val viewModel: MovieCategoriesViewModel by viewModel()
+    private val viewModel: MovieCategoryViewModel by viewModel()
     private val mostPopularMoviesAdapter: MoviesAdapter by inject()
     private val recentMoviesAdapter: MoviesAdapter by inject()
 
