@@ -8,7 +8,7 @@ import com.luisfelipe.extensions.dp
 import com.luisfelipe.extensions.observe
 import com.luisfelipe.movies.R
 import com.luisfelipe.movies.databinding.FragmentMovieCategoriesBinding
-import com.luisfelipe.movies.presentation.categories.adapter.MoviesAdapter
+import com.luisfelipe.movies.presentation.categories.adapter.MovieAdapter
 import com.luisfelipe.utils.RecyclerViewItemMargin
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -20,8 +20,8 @@ class MovieCategoriesFragment : BaseFragment<FragmentMovieCategoriesBinding>(
 ) {
 
     private val viewModel: MovieCategoryViewModel by viewModel()
-    private val mostPopularMoviesAdapter: MoviesAdapter by inject()
-    private val recentMoviesAdapter: MoviesAdapter by inject()
+    private val mostPopularMoviesAdapter: MovieAdapter by inject()
+    private val nowPlayingMoviesAdapter: MovieAdapter by inject()
 
     override fun onBind() = FragmentMovieCategoriesBinding.inflate(layoutInflater)
 
@@ -42,9 +42,9 @@ class MovieCategoriesFragment : BaseFragment<FragmentMovieCategoriesBinding>(
         this.adapter = this@MovieCategoriesFragment.mostPopularMoviesAdapter
     }
 
-    private fun setupRecentlyReleaseRecyclerView() = with(binding.rvRecentlyReleased) {
+    private fun setupRecentlyReleaseRecyclerView() = with(binding.rvNowPlaying) {
         setupRecyclerView()
-        this.adapter = this@MovieCategoriesFragment.recentMoviesAdapter
+        this.adapter = this@MovieCategoriesFragment.nowPlayingMoviesAdapter
     }
 
     private fun RecyclerView.setupRecyclerView() = with(this) {
@@ -70,8 +70,8 @@ class MovieCategoriesFragment : BaseFragment<FragmentMovieCategoriesBinding>(
             mostPopularMoviesAdapter.updateMovies(this)
         }
 
-        observe(viewModel.viewState.recentlyReleaseMovies) {
-            recentMoviesAdapter.updateMovies(this)
+        observe(viewModel.viewState.nowPlayingMovies) {
+            nowPlayingMoviesAdapter.updateMovies(this)
         }
     }
 
@@ -83,6 +83,7 @@ class MovieCategoriesFragment : BaseFragment<FragmentMovieCategoriesBinding>(
     override fun showError() = with(binding) {
         super.showError()
         movieCategoriesErrorContainer.btnTryAgain.setOnClickListener {
+            showSuccess()
             getMovieCategories()
         }
     }

@@ -6,5 +6,5 @@ import com.luisfelipe.movies.domain.model.Movie
 
 class MovieCategoriesViewState : BaseViewState() {
     val mostPopularMovies = MutableLiveData<List<Movie>>()
-    val recentlyReleaseMovies = MutableLiveData<List<Movie>>()
+    val nowPlayingMovies = MutableLiveData<List<Movie>>()
 }

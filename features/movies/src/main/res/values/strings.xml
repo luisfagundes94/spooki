@@ -2,5 +2,4 @@
 <resources>
     <string name="most_popular">Most popular</string>
     <string name="now_playing">Now playing</string>
-    <string name="recent">Recently Release</string>
 </resources>

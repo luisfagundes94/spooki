@@ -8,9 +8,9 @@ import com.luisfelipe.movies.data.repository.MovieRepositoryImpl
 import com.luisfelipe.movies.data.service.MovieService
 import com.luisfelipe.movies.domain.repository.MovieRepository
 import com.luisfelipe.movies.domain.usecases.GetMostPopularMoviesUseCase
-import com.luisfelipe.movies.domain.usecases.GetRecentMoviesUseCase
+import com.luisfelipe.movies.domain.usecases.GetNowPlayingMoviesUseCase
 import com.luisfelipe.movies.presentation.categories.MovieCategoryViewModel
-import com.luisfelipe.movies.presentation.categories.adapter.MoviesAdapter
+import com.luisfelipe.movies.presentation.categories.adapter.MovieAdapter
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -25,7 +25,7 @@ private const val IMDB_MOVIES_RETROFIT = "IMDB_MOVIES_RETROFIT"
 val movieCategoryModule = module {
 
     // Adapters
-    factory { MoviesAdapter() }
+    factory { MovieAdapter() }
 
     // ViewModel
     viewModel {
@@ -34,7 +34,7 @@ val movieCategoryModule = module {
 
     // UseCases
     factory { GetMostPopularMoviesUseCase(get<MovieRepository>()) }
-    factory { GetRecentMoviesUseCase(get<MovieRepository>()) }
+    factory { GetNowPlayingMoviesUseCase(get<MovieRepository>()) }
 
     // Repositories
     factory {

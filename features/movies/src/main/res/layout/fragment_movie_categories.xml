@@ -8,6 +8,7 @@
     <include
         android:id="@+id/movie_categories_loading_container"
         layout="@layout/layout_generic_loading"
+        android:visibility="gone"
         tools:visibility="gone" />
 
     <include
@@ -43,15 +44,15 @@
         </androidx.recyclerview.widget.RecyclerView>
 
         <TextView
-            android:id="@+id/tvRecents"
+            android:id="@+id/tvNowPlaying"
             style="@style/SmallTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_margin"
-            android:text="@string/recent" />
+            android:text="@string/now_playing" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_recently_released"
+            android:id="@+id/rvNowPlaying"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_vertical_margin"
