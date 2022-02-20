@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.luisfelipe.extensions.load
 import com.luisfelipe.movies.databinding.MovieItemBinding
-import com.luisfelipe.movies.domain.model.Movie
+import com.luisfelipe.movies.domain.model.Media
 
 class MovieAdapter(
-    private val movies: List<Movie>
+    private val media: List<Media>
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -17,16 +17,16 @@ class MovieAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(movies[position])
+        holder.bind(media[position])
     }
 
-    override fun getItemCount() = movies.count()
+    override fun getItemCount() = media.count()
 
     class ViewHolder(
         private val binding: MovieItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movie: Movie) = with(binding) {
+        fun bind(movie: Media) = with(binding) {
             this.imgPoster.load(movie.imageUrl)
         }
     }

@@ -2,12 +2,12 @@ package com.luisfelipe.movies.presentation.categories
 
 import com.luisfelipe.base.BaseViewModel
 import com.luisfelipe.base.BaseViewState
-import com.luisfelipe.movies.domain.model.Movie
 import com.luisfelipe.movies.domain.model.MovieCategory
 import com.luisfelipe.movies.domain.usecases.GetMovieCategoryUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import timber.log.Timber
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieCategoryViewModel(
     private val getMovieCategoryUseCase: GetMovieCategoryUseCase,

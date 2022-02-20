@@ -11,7 +11,6 @@ import com.luisfelipe.movies.domain.factory.MovieCategoryFactoryImpl
 import com.luisfelipe.movies.domain.repository.MovieRepository
 import com.luisfelipe.movies.domain.usecases.GetMovieCategoryUseCase
 import com.luisfelipe.movies.presentation.categories.MovieCategoryViewModel
-import com.luisfelipe.movies.presentation.categories.adapter.MovieAdapter
 import com.luisfelipe.movies.presentation.categories.adapter.MovieCategoryAdapter
 import com.luisfelipe.utils.StringProvider
 import com.luisfelipe.utils.StringProviderImpl

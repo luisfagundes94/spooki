@@ -12,7 +12,6 @@ interface MovieService {
     @GET("discover/movie")
     suspend fun fetchMoviesSortedBy(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
-        @Query("page") pageNumber: Int = DEFAULT_PAGE_NUMBER,
         @Query("sort_by") sortBy: String? = SortBy.POPULARITY_DESC.value,
         @Query("include_adult") includeAdult: Boolean = false,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
@@ -21,22 +20,20 @@ interface MovieService {
     @GET("movie/popular")
     suspend fun fetchPopularMovies(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
-        @Query("page") pageNumber: Int = DEFAULT_PAGE_NUMBER,
+        @Query("include_adult") includeAdult: Boolean = false,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
     ): MovieResultsResponse
 
     @GET("movie/top_rated")
     suspend fun fetchTopRatedMovies(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
-        @Query("page") pageNumber: Int = DEFAULT_PAGE_NUMBER,
+        @Query("include_adult") includeAdult: Boolean = false,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
     ): MovieResultsResponse
 
     @GET("discover/movie")
     suspend fun fetchMoviesReleasedThisYear(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
-        @Query("page") pageNumber: Int = DEFAULT_PAGE_NUMBER,
-        @Query("sort_by") sortBy: String? = SortBy.RELEASE_DATE_DESC.value,
         @Query("include_adult") includeAdult: Boolean = false,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID,
         @Query("primary_release_year") primaryReleaseYear: Int
@@ -45,12 +42,18 @@ interface MovieService {
     @GET("trending/all/day")
     suspend fun fetchTrendingMovies(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
-        @Query("page") pageNumber: Int = DEFAULT_PAGE_NUMBER,
+        @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
+    ): MovieResultsResponse
+
+    @GET("search/movie")
+    suspend fun searchMovies(
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+        @Query("query") query: String,
+        @Query("include_adult") includeAdult: Boolean = false,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
     ): MovieResultsResponse
 
     private companion object {
         const val HORROR_GENRE_ID = 27
-        const val DEFAULT_PAGE_NUMBER = 15
     }
 }

@@ -34,7 +34,7 @@ class GetMovieCategoryUseCase(
                     categories.add(
                         movieCategoryFactory.create(
                             type = POPULAR,
-                            movieList = it
+                            mediaList = it
                         )
                     )
                 },
@@ -49,7 +49,7 @@ class GetMovieCategoryUseCase(
                     categories.add(
                         movieCategoryFactory.create(
                             type = RELEASED_THIS_YEAR,
-                            movieList = it
+                            mediaList = it
                         )
                     )
                 },
@@ -64,7 +64,7 @@ class GetMovieCategoryUseCase(
                     categories.add(
                         movieCategoryFactory.create(
                             type = TOP_RATED,
-                            movieList = it
+                            mediaList = it
                         )
                     )
                 },

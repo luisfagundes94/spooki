@@ -43,7 +43,7 @@ class MovieCategoryAdapter: RecyclerView.Adapter<MovieCategoryAdapter.ViewHolder
         fun bind(category: MovieCategory) = with(binding) {
             tvCategoryTitle.text = category.title
             rvHorizontalMovies.setupHorizontalMoviesRecyclerView(binding.root.context)
-            rvHorizontalMovies.adapter = MovieAdapter(category.movies)
+            rvHorizontalMovies.adapter = MovieAdapter(category.mediaList)
         }
 
         private fun RecyclerView.setupHorizontalMoviesRecyclerView(itemViewContext: Context) {

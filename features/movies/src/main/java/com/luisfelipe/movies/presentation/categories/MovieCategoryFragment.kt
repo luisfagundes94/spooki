@@ -3,7 +3,6 @@ package com.luisfelipe.movies.presentation.categories
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.luisfelipe.base.BaseFragment
 import com.luisfelipe.base.BaseViewState
-import com.luisfelipe.extensions.dp
 import com.luisfelipe.extensions.observe
 import com.luisfelipe.movies.R
 import com.luisfelipe.movies.databinding.FragmentMovieCategoryBinding
