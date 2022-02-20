@@ -18,6 +18,20 @@ interface MovieService {
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
     ): MovieResultsResponse
 
+    @GET("movie/popular")
+    suspend fun fetchPopularMovies(
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+        @Query("page") pageNumber: Int = DEFAULT_PAGE_NUMBER,
+        @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
+    ): MovieResultsResponse
+
+    @GET("movie/top_rated")
+    suspend fun fetchTopRatedMovies(
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+        @Query("page") pageNumber: Int = DEFAULT_PAGE_NUMBER,
+        @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
+    ): MovieResultsResponse
+
     @GET("discover/movie")
     suspend fun fetchMoviesReleasedThisYear(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,

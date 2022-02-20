@@ -32,4 +32,18 @@ class MovieRepositoryImpl(
         }
         return response.mapToDomain()
     }
+
+    override suspend fun fetchPopularMovies(): Response<List<Movie>> {
+        val response = Response.listOf {
+            movieService.fetchPopularMovies().results
+        }
+        return response.mapToDomain()
+    }
+
+    override suspend fun fetchTopRatedMovies(): Response<List<Movie>> {
+        val response = Response.listOf {
+            movieService.fetchTopRatedMovies().results
+        }
+        return response.mapToDomain()
+    }
 }

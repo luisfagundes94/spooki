@@ -5,6 +5,7 @@ import com.luisfelipe.movies.R
 enum class MovieCategoryEnum {
     POPULAR,
     PRIMARY_RELEASED,
+    TOP_RATED,
     TRENDING,
     NOW_PLAYING,
     OSCAR_NOMINEES,
@@ -19,4 +20,5 @@ val MovieCategoryEnum.titleId: Int
         MovieCategoryEnum.PRIMARY_RELEASED -> R.string.primary_released_date_desc
         MovieCategoryEnum.TRENDING -> R.string.trending
         MovieCategoryEnum.RELEASED_THIS_YEAR -> R.string.released_this_year
+        MovieCategoryEnum.TOP_RATED -> R.string.top_rated
     }

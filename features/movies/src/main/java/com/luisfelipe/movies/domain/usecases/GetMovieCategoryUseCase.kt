@@ -2,7 +2,6 @@ package com.luisfelipe.movies.domain.usecases
 
 import com.luisfelipe.base.Response
 import com.luisfelipe.movies.domain.enums.MovieCategoryEnum.*
-import com.luisfelipe.movies.domain.enums.SortBy
 import com.luisfelipe.movies.domain.factory.MovieCategoryFactory
 import com.luisfelipe.movies.domain.model.MovieCategory
 import com.luisfelipe.movies.domain.repository.MovieRepository
@@ -20,8 +19,8 @@ class GetMovieCategoryUseCase(
     private suspend fun getMovieCategories(): Response<List<MovieCategory>> = coroutineScope {
 
         getPopularMoviesAsync().await()
-        getMoviesReleasedThisYear().await()
-        getTrendingMoviesAsync().await()
+        getReleasedThisYearMoviesAsync().await()
+        getTopRatedMoviesAsync().await()
 
         if (error == null) return@coroutineScope Response.Success(categories)
         else return@coroutineScope Response.Error(error ?: Exception())
@@ -29,7 +28,7 @@ class GetMovieCategoryUseCase(
 
 
     private fun CoroutineScope.getPopularMoviesAsync() = async {
-        repository.fetchMoviesSortedBy(SortBy.POPULARITY_DESC.value)
+        repository.fetchPopularMovies()
             .fold(
                 onSuccess = {
                     categories.add(
@@ -43,7 +42,7 @@ class GetMovieCategoryUseCase(
             )
     }
 
-    private fun CoroutineScope.getMoviesReleasedThisYear() = async {
+    private fun CoroutineScope.getReleasedThisYearMoviesAsync() = async {
         repository.fetchMoviesReleasedThisYear()
             .fold(
                 onSuccess = {
@@ -58,13 +57,13 @@ class GetMovieCategoryUseCase(
             )
     }
 
-    private fun CoroutineScope.getTrendingMoviesAsync() = async {
-        repository.fetchMoviesSortedBy(SortBy.PRIMARY_RELEASE_DATE_DESC.value)
+    private fun CoroutineScope.getTopRatedMoviesAsync() = async {
+        repository.fetchTopRatedMovies()
             .fold(
                 onSuccess = {
                     categories.add(
                         movieCategoryFactory.create(
-                            type = PRIMARY_RELEASED,
+                            type = TOP_RATED,
                             movieList = it
                         )
                     )
