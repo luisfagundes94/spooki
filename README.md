@@ -1,7 +1,7 @@
 # Spooki
 An Android application for browsing horror movies, tv shows, games and books.
 
-# Stack
+## Stack
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
 - [Coroutines](https://developer.android.com/kotlin/coroutines) - Official Kotlin's tooling for performing asynchronous work.
 - [Koin](https://insert-koin.io/) - A smart Kotlin injection library
@@ -22,7 +22,7 @@ to keep you focused on your app, not on your tools
 - [Gradle's Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - Gradle’s Kotlin DSL is an alternative syntax to the Groovy DSL with an enhanced editing experience.
 - [buildSrc](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources) - A special module within the project to manage dependencies and whatnot.
 
-# Development Setup
+## Development Setup
 - Create an account in TMDB and include the API_KEY in the local.properties
 - Download or clone this repository to your local machine.
 - Download Android Studio
