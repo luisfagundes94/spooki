@@ -1,9 +1,13 @@
 package com.luisfelipe.movies.domain.repository
 
 import com.luisfelipe.base.Response
-import com.luisfelipe.movies.domain.model.Movie
+import com.luisfelipe.movies.domain.model.Media
 
 interface MovieRepository {
-    suspend fun fetchMostPopularMovies(): Response<List<Movie>>
-    suspend fun fetchRecentMovies(): Response<List<Movie>>
+    suspend fun fetchTopRatedMovies(): Response<List<Media>>
+    suspend fun fetchPopularMovies(): Response<List<Media>>
+    suspend fun fetchMoviesSortedBy(param: String): Response<List<Media>>
+    suspend fun fetchTrendingMovies(): Response<List<Media>>
+    suspend fun fetchMoviesReleasedThisYear(): Response<List<Media>>
+    suspend fun searchMovies(query: String): Response<List<Media>>
 }

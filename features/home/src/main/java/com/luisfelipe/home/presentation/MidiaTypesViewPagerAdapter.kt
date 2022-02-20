@@ -1,10 +1,8 @@
 package com.luisfelipe.home.presentation
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.luisfelipe.movies.presentation.categories.MovieCategoriesFragment
+import com.luisfelipe.movies.presentation.categories.MovieCategoryFragment
 import com.luisfelipe.shows.presentation.categories.ShowCategoriesFragment
 
 
@@ -18,9 +16,9 @@ class MidiaTypesViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(frag
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> MovieCategoriesFragment()
+            0 -> MovieCategoryFragment()
             1 -> ShowCategoriesFragment()
-            else -> MovieCategoriesFragment()
+            else -> MovieCategoryFragment()
         }
     }
 }

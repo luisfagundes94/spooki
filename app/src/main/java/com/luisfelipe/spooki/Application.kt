@@ -2,6 +2,7 @@ package com.luisfelipe.spooki
 
 import android.app.Application
 import com.luisfelipe.movies.di.movieCategoryModule
+import com.luisfelipe.search.di.searchModule
 import org.koin.android.BuildConfig
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.logger.AndroidLogger
@@ -23,6 +24,7 @@ class Application : Application() {
             logger(setupDependencyInjectionLogger())
             modules(
                 movieCategoryModule,
+                searchModule
             )
         }
     }

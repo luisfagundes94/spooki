@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="most_popular">Most popular</string>
+    <string name="most_popular">Popular</string>
     <string name="now_playing">Now playing</string>
-    <string name="recent">Recently Release</string>
+    <string name="btn_see_all">SEE ALL</string>
+    <string name="desc_movies">movies</string>
+    <string name="oscar_nominees">Oscar Nominees</string>
+    <string name="primary_released_date_desc">Primary Released</string>
+    <string name="trending">Trending</string>
+    <string name="released_this_year">Released This Year</string>
+    <string name="top_rated">Top Rated</string>
 </resources>

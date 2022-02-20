@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvCategoryTitle"
+        style="@style/SmallTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="@dimen/default_margin"
+        android:gravity="start"
+        app:layout_constraintEnd_toStartOf="@+id/btnSeeAll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Now Playing" />
+
+    <TextView
+        android:id="@+id/btnSeeAll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:padding="@dimen/default_padding_for_accessibility"
+        android:text="@string/btn_see_all"
+        android:textColor="#651FFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCategoryTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvCategoryTitle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHorizontalMovies"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_vertical_margin"
+        android:clipToPadding="false"
+        android:contentDescription="@string/desc_movies"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCategoryTitle"
+        tools:itemCount="5"
+        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/movie_item"
+        tools:orientation="horizontal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
