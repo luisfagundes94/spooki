@@ -19,7 +19,7 @@ android {
         minSdk = Versions.minSdk
 
         buildConfigField("String", "API_KEY", "\"${getApiKey()}\"")
-        buildConfigField("String", "API_BASE_URL", "\"https://imdb-api.com/API/\"")
+        buildConfigField("String", "API_BASE_URL", "\"https://api.themoviedb.org/3/\"")
     }
 }
 

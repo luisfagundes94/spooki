@@ -22,7 +22,7 @@ class Application : Application() {
             androidContext(this@Application)
             logger(setupDependencyInjectionLogger())
             modules(
-                movieCategoryModule,
+                movieCategoryModule
             )
         }
     }

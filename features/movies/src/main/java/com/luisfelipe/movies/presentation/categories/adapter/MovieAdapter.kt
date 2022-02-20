@@ -7,16 +7,9 @@ import com.luisfelipe.extensions.load
 import com.luisfelipe.movies.databinding.MovieItemBinding
 import com.luisfelipe.movies.domain.model.Movie
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
-
-    private val movies = mutableListOf<Movie>()
-
-    fun updateMovies(movies: List<Movie>) {
-        this.movies.clear()
-        this.movies.addAll(movies)
-
-        notifyDataSetChanged()
-    }
+class MovieAdapter(
+    private val movies: List<Movie>
+) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)

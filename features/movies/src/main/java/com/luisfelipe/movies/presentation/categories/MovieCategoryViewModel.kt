@@ -3,15 +3,14 @@ package com.luisfelipe.movies.presentation.categories
 import com.luisfelipe.base.BaseViewModel
 import com.luisfelipe.base.BaseViewState
 import com.luisfelipe.movies.domain.model.Movie
-import com.luisfelipe.movies.domain.usecases.GetMostPopularMoviesUseCase
-import com.luisfelipe.movies.domain.usecases.GetNowPlayingMoviesUseCase
+import com.luisfelipe.movies.domain.model.MovieCategory
+import com.luisfelipe.movies.domain.usecases.GetMovieCategoryUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import timber.log.Timber
 
 class MovieCategoryViewModel(
-    private val getMostPopularMoviesUseCase: GetMostPopularMoviesUseCase,
-    private val getNowPlayingMoviesUseCase: GetNowPlayingMoviesUseCase,
+    private val getMovieCategoryUseCase: GetMovieCategoryUseCase,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : BaseViewModel<MovieCategoriesViewState, MovieCategoriesViewAction>() {
 
@@ -19,37 +18,26 @@ class MovieCategoryViewModel(
 
     override fun dispatchViewAction(viewAction: MovieCategoriesViewAction) {
         when (viewAction) {
-            is MovieCategoriesViewAction.FetchMostPopularMovies -> getMostPopularMovies()
-            is MovieCategoriesViewAction.FetchRecentMovies -> getNowPlayingMovies()
+            is MovieCategoriesViewAction.FetchMovieCategories -> getMovieCategories()
         }
     }
 
-    private fun getMostPopularMovies() {
+    private fun getMovieCategories() {
+        viewState.state.postValue(BaseViewState.State.LOADING)
         executeCoroutines(dispatcher) {
-            getMostPopularMoviesUseCase.invoke().fold(
-                ::onGetMostPopularMoviesSuccess, ::onGetMoviesFailure
+            getMovieCategoryUseCase.invoke().fold(
+                ::onGetMovieCategoriesSuccess, ::onGetMovieCategoriesFailure
             )
         }
     }
 
-    private fun onGetMostPopularMoviesSuccess(movies: List<Movie>) {
-        viewState.mostPopularMovies.postValue(movies)
+    private fun onGetMovieCategoriesSuccess(categories: List<MovieCategory>) {
+        viewState.state.postValue(BaseViewState.State.SUCCESS)
+        viewState.categories.postValue(categories)
     }
 
-    private fun onGetMoviesFailure(exception: Exception) {
+    private fun onGetMovieCategoriesFailure(exception: Exception) {
         Timber.e(exception)
         viewState.state.postValue(BaseViewState.State.ERROR)
-    }
-
-    private fun getNowPlayingMovies() {
-        executeCoroutines(dispatcher) {
-            getNowPlayingMoviesUseCase.invoke().fold(
-                ::onGetNowPlayingMoviesSucccess, ::onGetMoviesFailure
-            )
-        }
-    }
-
-    private fun onGetNowPlayingMoviesSucccess(movies: List<Movie>) {
-        viewState.nowPlayingMovies.postValue(movies)
     }
 }

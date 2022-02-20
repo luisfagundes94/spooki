@@ -10,16 +10,16 @@ class MovieRepositoryImpl(
     private val movieService: MovieService
 ) : MovieRepository {
 
-    override suspend fun fetchMostPopularMovies(): Response<List<Movie>> {
+    override suspend fun fetchMoviesSortedBy(param: String): Response<List<Movie>> {
         val response = Response.listOf {
-            movieService.fetchMostPopularMovies().results
+            movieService.fetchMoviesSortedBy(sortBy = param).results
         }
         return response.mapToDomain()
     }
 
-    override suspend fun fetchRecentMovies(): Response<List<Movie>> {
+    override suspend fun fetchTrendingMovies(): Response<List<Movie>> {
         val response = Response.listOf {
-            movieService.fetchRecentMovies().results
+            movieService.fetchTrendingMovies().results
         }
         return response.mapToDomain()
     }

@@ -2,4 +2,9 @@
 <resources>
     <string name="most_popular">Most popular</string>
     <string name="now_playing">Now playing</string>
+    <string name="btn_see_all">SEE ALL</string>
+    <string name="desc_movies">movies</string>
+    <string name="oscar_nominees">Oscar Nominees</string>
+    <string name="primary_released_date_desc">Primary Released</string>
+    <string name="trending">Trending</string>
 </resources>

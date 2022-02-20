@@ -51,4 +51,8 @@ dependencies {
     // UI
     implementation Dependencies.UI.picasso
     implementation Dependencies.UI.lottieAnimation
+
+    // DI
+    implementation Dependencies.DI.koin
+    implementation Dependencies.DI.koinCore
 }

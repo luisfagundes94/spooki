@@ -4,6 +4,6 @@ import com.luisfelipe.base.Response
 import com.luisfelipe.movies.domain.model.Movie
 
 interface MovieRepository {
-    suspend fun fetchMostPopularMovies(): Response<List<Movie>>
-    suspend fun fetchRecentMovies(): Response<List<Movie>>
+    suspend fun fetchMoviesSortedBy(param: String): Response<List<Movie>>
+    suspend fun fetchTrendingMovies(): Response<List<Movie>>
 }

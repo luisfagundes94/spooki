@@ -7,11 +7,14 @@ import com.luisfelipe.movies.BuildConfig
 import com.luisfelipe.movies.data.repository.MovieRepositoryImpl
 import com.luisfelipe.movies.data.service.MovieService
 import com.luisfelipe.movies.domain.repository.MovieRepository
-import com.luisfelipe.movies.domain.usecases.GetMostPopularMoviesUseCase
-import com.luisfelipe.movies.domain.usecases.GetNowPlayingMoviesUseCase
+import com.luisfelipe.movies.domain.usecases.GetMovieCategoryUseCase
 import com.luisfelipe.movies.presentation.categories.MovieCategoryViewModel
 import com.luisfelipe.movies.presentation.categories.adapter.MovieAdapter
+import com.luisfelipe.movies.presentation.categories.adapter.MovieCategoryAdapter
+import com.luisfelipe.utils.StringProvider
+import com.luisfelipe.utils.StringProviderImpl
 import okhttp3.OkHttpClient
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -25,16 +28,15 @@ private const val IMDB_MOVIES_RETROFIT = "IMDB_MOVIES_RETROFIT"
 val movieCategoryModule = module {
 
     // Adapters
-    factory { MovieAdapter() }
+    factory { MovieCategoryAdapter() }
 
     // ViewModel
     viewModel {
-        MovieCategoryViewModel(get(), get())
+        MovieCategoryViewModel(get())
     }
 
     // UseCases
-    factory { GetMostPopularMoviesUseCase(get<MovieRepository>()) }
-    factory { GetNowPlayingMoviesUseCase(get<MovieRepository>()) }
+    factory { GetMovieCategoryUseCase(get(), get()) }
 
     // Repositories
     factory {
@@ -55,6 +57,9 @@ val movieCategoryModule = module {
     factory {
         createOkHttpClient()
     }
+
+    // Utils
+    factory { StringProviderImpl(androidContext()) as StringProvider }
 }
 
 
