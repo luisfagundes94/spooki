@@ -7,9 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.luisfelipe.extensions.dp
 import com.luisfelipe.movies.databinding.MovieCategoryBinding
-import com.luisfelipe.movies.domain.model.Movie
 import com.luisfelipe.movies.domain.model.MovieCategory
-import com.luisfelipe.utils.RecyclerViewItemMargin
+import com.luisfelipe.utils.RecyclerViewLeftItemMargin
 
 class MovieCategoryAdapter: RecyclerView.Adapter<MovieCategoryAdapter.ViewHolder>() {
 
@@ -53,7 +52,7 @@ class MovieCategoryAdapter: RecyclerView.Adapter<MovieCategoryAdapter.ViewHolder
                 LinearLayoutManager.HORIZONTAL,
                 false
             )
-            val decoration = RecyclerViewItemMargin(DEFAULT_LEFT_ITEM_MARGIN.dp)
+            val decoration = RecyclerViewLeftItemMargin(DEFAULT_LEFT_ITEM_MARGIN.dp)
 
             setHasFixedSize(true)
             addItemDecoration(decoration)

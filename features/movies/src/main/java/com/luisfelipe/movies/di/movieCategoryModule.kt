@@ -6,6 +6,8 @@ import com.ihsanbal.logging.LoggingInterceptor
 import com.luisfelipe.movies.BuildConfig
 import com.luisfelipe.movies.data.repository.MovieRepositoryImpl
 import com.luisfelipe.movies.data.service.MovieService
+import com.luisfelipe.movies.domain.factory.MovieCategoryFactory
+import com.luisfelipe.movies.domain.factory.MovieCategoryFactoryImpl
 import com.luisfelipe.movies.domain.repository.MovieRepository
 import com.luisfelipe.movies.domain.usecases.GetMovieCategoryUseCase
 import com.luisfelipe.movies.presentation.categories.MovieCategoryViewModel
@@ -34,6 +36,9 @@ val movieCategoryModule = module {
     viewModel {
         MovieCategoryViewModel(get())
     }
+
+    // Factory
+    single { MovieCategoryFactoryImpl(get()) as MovieCategoryFactory }
 
     // UseCases
     factory { GetMovieCategoryUseCase(get(), get()) }

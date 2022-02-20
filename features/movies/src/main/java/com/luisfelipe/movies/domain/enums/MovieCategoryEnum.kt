@@ -7,7 +7,8 @@ enum class MovieCategoryEnum {
     PRIMARY_RELEASED,
     TRENDING,
     NOW_PLAYING,
-    OSCAR_NOMINEES
+    OSCAR_NOMINEES,
+    RELEASED_THIS_YEAR
 }
 
 val MovieCategoryEnum.titleId: Int
@@ -17,4 +18,5 @@ val MovieCategoryEnum.titleId: Int
         MovieCategoryEnum.OSCAR_NOMINEES -> R.string.oscar_nominees
         MovieCategoryEnum.PRIMARY_RELEASED -> R.string.primary_released_date_desc
         MovieCategoryEnum.TRENDING -> R.string.trending
+        MovieCategoryEnum.RELEASED_THIS_YEAR -> R.string.released_this_year
     }

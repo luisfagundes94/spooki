@@ -11,19 +11,19 @@ object MovieMapper {
     fun Response<List<MovieResponse>>.mapToDomain(): Response<List<Movie>> {
         return when (this) {
             is Response.Success -> this.mapToDomain()
-            is Response.Error -> Response.Error(this.error())
+            is Response.Error -> Response.Error(this.getError())
         }
     }
 
     private fun Response.Success<List<MovieResponse>>.mapToDomain(): Response<List<Movie>> {
-        return Response.Success(this.value().map { it.toDomain() })
+        return Response.Success(this.getValue().map { it.toDomain() })
     }
 
     private fun MovieResponse.toDomain(): Movie {
         return Movie(
             id = this.id,
             imageUrl = BASE_IMAGE_URL + this.imageUrl,
-            title = this.title
+            title = this.title ?: ""
         )
     }
 }

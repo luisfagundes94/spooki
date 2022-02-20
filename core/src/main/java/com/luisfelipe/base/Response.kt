@@ -2,25 +2,25 @@ package com.luisfelipe.base
 
 @Suppress("UNCHECKED_CAST")
 sealed class Response<T> {
-    abstract fun value(): T?
-    abstract fun error(): Exception?
+    abstract fun getValue(): T?
+    abstract fun getError(): Exception?
 
-    fun isAnError() = error() != null
+    fun isAnError() = getError() != null
 
     data class Success<T>(private val value: T) : Response<T>() {
-        override fun value() = value
-        override fun error() = null
+        override fun getValue() = value
+        override fun getError() = null
     }
 
     data class Error<T>(private val exception: Exception) : Response<T>() {
-        override fun value() = null
-        override fun error() = exception
+        override fun getValue() = null
+        override fun getError() = exception
     }
 
     fun fold(onSuccess: (T) -> Any, onError: (Exception) -> Any): Any =
         when (this) {
-            is Success -> onSuccess(value())
-            is Error -> onError(error())
+            is Success -> onSuccess(getValue())
+            is Error -> onError(getError())
         }
 
     companion object {

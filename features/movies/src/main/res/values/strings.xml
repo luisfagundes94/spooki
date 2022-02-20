@@ -7,4 +7,5 @@
     <string name="oscar_nominees">Oscar Nominees</string>
     <string name="primary_released_date_desc">Primary Released</string>
     <string name="trending">Trending</string>
+    <string name="released_this_year">Released This Year</string>
 </resources>

@@ -5,6 +5,8 @@ import com.luisfelipe.movies.data.model.MovieResultsResponse
 import com.luisfelipe.movies.domain.enums.SortBy
 import retrofit2.http.GET
 import retrofit2.http.Query
+import java.time.Year
+import java.util.*
 
 interface MovieService {
     @GET("discover/movie")
@@ -14,6 +16,16 @@ interface MovieService {
         @Query("sort_by") sortBy: String? = SortBy.POPULARITY_DESC.value,
         @Query("include_adult") includeAdult: Boolean = false,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
+    ): MovieResultsResponse
+
+    @GET("discover/movie")
+    suspend fun fetchMoviesReleasedThisYear(
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+        @Query("page") pageNumber: Int = DEFAULT_PAGE_NUMBER,
+        @Query("sort_by") sortBy: String? = SortBy.RELEASE_DATE_DESC.value,
+        @Query("include_adult") includeAdult: Boolean = false,
+        @Query("with_genres") withGenres: Int = HORROR_GENRE_ID,
+        @Query("primary_release_year") primaryReleaseYear: Int
     ): MovieResultsResponse
 
     @GET("trending/all/day")
