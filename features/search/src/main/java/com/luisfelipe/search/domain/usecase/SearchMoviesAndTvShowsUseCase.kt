@@ -5,10 +5,10 @@ import com.luisfelipe.domain.model.Media
 import com.luisfelipe.domain.repository.MovieRepository
 
 class SearchMoviesAndTvShowsUseCase(
-    private val movieRepository: com.luisfelipe.domain.repository.MovieRepository,
+    private val movieRepository: MovieRepository,
     //private val tvShowRepository: TvShowRepository,
 ) {
-    suspend operator fun invoke(query: String): Response<List<com.luisfelipe.domain.model.Media>> {
+    suspend operator fun invoke(query: String): Response<List<Media>> {
         if (query.isBlank()) return Response.Success(emptyList())
         return movieRepository.searchMovies(query)
     }

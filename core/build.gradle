@@ -39,6 +39,7 @@ android {
 }
 
 dependencies {
+
     // Core
     implementation Dependencies.Core.kotlinStdlib
     implementation Dependencies.Core.appCompat
@@ -55,4 +56,8 @@ dependencies {
     // DI
     implementation Dependencies.DI.koin
     implementation Dependencies.DI.koinCore
+
+    // Tests
+    testImplementation Dependencies.Test.junit
+    testImplementation Dependencies.Test.coroutines
 }
