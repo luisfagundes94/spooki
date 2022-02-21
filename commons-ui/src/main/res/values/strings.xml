@@ -2,4 +2,5 @@
 <resources>
     <string name="btn_see_all">SEE ALL</string>
     <string name="desc_media">media</string>
+    <string name="desc_media_recycler_view">Media List</string>
 </resources>

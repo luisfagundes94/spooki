@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:focusable="false"
+    android:orientation="vertical"
+    tools:background="@color/chinese_black">
 
     <TextView
         android:id="@+id/tvCategoryTitle"
@@ -14,7 +16,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_horizontal_margin"
         android:layout_marginTop="@dimen/default_margin"
+        android:focusable="true"
         android:gravity="start"
+        android:importantForAccessibility="yes"
         app:layout_constraintEnd_toStartOf="@+id/btnSeeAll"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,25 +29,28 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/default_margin"
+        android:focusable="true"
+        android:importantForAccessibility="yes"
         android:padding="@dimen/default_padding_for_accessibility"
         android:text="@string/btn_see_all"
-        android:textColor="#651FFF"
+        android:textColor="@color/purple_heart"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/tvCategoryTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvCategoryTitle" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvHorizontalMovies"
+        android:id="@+id/rvHorizontalMedia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_vertical_margin"
         android:clipToPadding="false"
-        android:contentDescription="@string/desc_media"
+        android:importantForAccessibility="yes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCategoryTitle"
+        tools:ignore="SpeakableTextPresentCheck"
         tools:itemCount="5"
         tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/media_item"

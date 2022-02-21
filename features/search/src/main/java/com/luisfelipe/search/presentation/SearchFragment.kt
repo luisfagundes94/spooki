@@ -108,14 +108,18 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
 
         observe(viewModel.viewState.mediaList) {
             searchMediaAdapter.updateList(this)
+            announceItemsFoundForAccessibility()
         }
+    }
+
+    private fun announceItemsFoundForAccessibility() {
+        view?.announceForAccessibility(
+            resources.getQuantityText(R.plurals.items_found, searchMediaAdapter.itemCount)
+        )
     }
 
     override fun showError() = with(binding.searchErrorContainer) {
         super.showError()
-        btnTryAgain.setOnClickListener {
-
-        }
     }
 
     private companion object {

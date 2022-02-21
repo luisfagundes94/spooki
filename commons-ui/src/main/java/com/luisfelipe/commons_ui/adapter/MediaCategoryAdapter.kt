@@ -3,14 +3,17 @@ package com.luisfelipe.commons_ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.luisfelipe.commons_ui.R
 import com.luisfelipe.commons_ui.databinding.MediaCategoryBinding
 import com.luisfelipe.extensions.dp
 import com.luisfelipe.domain.model.MediaCategory
+import com.luisfelipe.extensions.readAs
 import com.luisfelipe.utils.RecyclerViewLeftItemMargin
 
-class MediaCategoryAdapter: RecyclerView.Adapter<MediaCategoryAdapter.ViewHolder>() {
+class MediaCategoryAdapter : RecyclerView.Adapter<MediaCategoryAdapter.ViewHolder>() {
 
     private val categories = mutableListOf<MediaCategory>()
 
@@ -41,9 +44,16 @@ class MediaCategoryAdapter: RecyclerView.Adapter<MediaCategoryAdapter.ViewHolder
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(category: MediaCategory) = with(binding) {
+            btnSeeAll.readAs<Button>()
+
             tvCategoryTitle.text = category.title
-            rvHorizontalMovies.setupHorizontalMoviesRecyclerView(binding.root.context)
-            rvHorizontalMovies.adapter = MediaAdapter(category.mediaList)
+            tvCategoryTitle.contentDescription = category.title
+
+            rvHorizontalMedia.contentDescription = root.context.getString(
+                R.string.desc_media_recycler_view
+            )
+            rvHorizontalMedia.setupHorizontalMoviesRecyclerView(binding.root.context)
+            rvHorizontalMedia.adapter = MediaAdapter(category.mediaList)
         }
 
         private fun RecyclerView.setupHorizontalMoviesRecyclerView(itemViewContext: Context) {

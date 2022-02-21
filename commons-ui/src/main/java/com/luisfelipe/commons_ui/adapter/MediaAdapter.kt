@@ -28,6 +28,7 @@ class MediaAdapter(
 
         fun bind(movie: Media) = with(binding) {
             imgPoster.load(movie.imageUrl)
+            imgPoster.contentDescription = movie.title
         }
     }
 }
