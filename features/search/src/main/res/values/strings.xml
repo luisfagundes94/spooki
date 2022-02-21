@@ -3,8 +3,9 @@
     <string name="search_movies_and_tv_shows">Search movies, shows…</string>
     <plurals name="items_found">
         <item quantity="one">%s item found</item>
+        <item quantity="few">%s items found</item>
         <item quantity="many">%s items found</item>
         <item quantity="zero">No items were found</item>
-        <item quantity="other" />
+        <item quantity="other">%s items found</item>
     </plurals>
 </resources>

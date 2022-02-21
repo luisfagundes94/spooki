@@ -113,9 +113,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
     }
 
     private fun announceItemsFoundForAccessibility() {
-        view?.announceForAccessibility(
-            resources.getQuantityText(R.plurals.items_found, searchMediaAdapter.itemCount)
+        val message =  requireContext().resources.getQuantityString(
+            R.plurals.items_found,
+            searchMediaAdapter.itemCount,
+            searchMediaAdapter.itemCount,
         )
+        view?.announceForAccessibility(message)
     }
 
     override fun showError() = with(binding.searchErrorContainer) {
