@@ -29,8 +29,7 @@ class GetMovieCategoryUseCase(
     }
 
     private fun CoroutineScope.getPopularMoviesAsync() = async {
-        repository.fetchPopularMovies()
-            .fold(
+        repository.fetchPopularMovies().fold(
                 onSuccess = { addMovieCategory(MediaCategoryType.POPULAR, it)},
                 onError = { setError(it) }
             )
