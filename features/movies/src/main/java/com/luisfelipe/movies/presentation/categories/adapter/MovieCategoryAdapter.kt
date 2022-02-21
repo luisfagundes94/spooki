@@ -60,7 +60,7 @@ class MovieCategoryAdapter: RecyclerView.Adapter<MovieCategoryAdapter.ViewHolder
         }
 
         private companion object {
-            const val DEFAULT_LEFT_ITEM_MARGIN = 32
+            const val DEFAULT_LEFT_ITEM_MARGIN = 16
         }
     }
 }
