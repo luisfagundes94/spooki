@@ -10,7 +10,7 @@ An Android application for browsing horror movies, tv shows, games and books.
 - [Koin](https://insert-koin.io/) - A smart Kotlin injection library
 to keep you focused on your app, not on your tools 
 - [Android Jetpack Components](https://developer.android.com/jetpack)
-  * [NavigationComponent](https://developer.android.com/topic/libraries/architecture/navigation/) - Navigation is a framework for navigating between screens within an Android application. 
+  * [Navigation](https://developer.android.com/topic/libraries/architecture/navigation/) - Navigation is a framework for navigating between screens within an Android application. 
   * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - An observable data holder class
   * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - The ViewModel is designed to store and manage UI-related data in a lifecycle conscious way.
   * [Room](https://developer.android.com/jetpack/androidx/releases/room) - The Room persistence library provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite.

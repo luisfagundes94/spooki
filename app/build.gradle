@@ -17,6 +17,10 @@ android {
     }
 }
 
+sourceSets {
+    test.java.srcDirs += 'src/commons-testing/utils'
+}
+
 dependencies {
 
     // Projects

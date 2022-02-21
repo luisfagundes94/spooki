@@ -23,5 +23,6 @@ android {
 dependencies {
     implementation(Dependencies.UI.shimmerEffect)
     implementation(project(":domain"))
+    implementation(project(":commons-testing"))
 }
 

@@ -35,11 +35,6 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
         unitTests.includeAndroidResources = true
-        unitTests.all {
-            testLoggin {
-                exceptionFormat = "full"
-            }
-        }
         animationsDisabled = true
     }
 }
