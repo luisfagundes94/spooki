@@ -5,7 +5,8 @@ sealed class Response<T> {
     abstract fun getValue(): T?
     abstract fun getError(): Exception?
 
-    fun isAnError() = getError() != null
+    fun isError() = getError() != null
+    fun isSuccess() = getValue() != null
 
     data class Success<T>(private val value: T) : Response<T>() {
         override fun getValue() = value
