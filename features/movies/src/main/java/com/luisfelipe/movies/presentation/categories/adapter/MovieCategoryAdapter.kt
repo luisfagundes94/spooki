@@ -7,14 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.luisfelipe.extensions.dp
 import com.luisfelipe.movies.databinding.MovieCategoryBinding
-import com.luisfelipe.movies.domain.model.MovieCategory
+import com.luisfelipe.domain.model.MediaCategory
 import com.luisfelipe.utils.RecyclerViewLeftItemMargin
 
 class MovieCategoryAdapter: RecyclerView.Adapter<MovieCategoryAdapter.ViewHolder>() {
 
-    private val categories = mutableListOf<MovieCategory>()
+    private val categories = mutableListOf<MediaCategory>()
 
-    fun updateCategories(categories: List<MovieCategory>) {
+    fun updateCategories(categories: List<MediaCategory>) {
         this.categories.clear()
         this.categories.addAll(categories)
 
@@ -40,7 +40,7 @@ class MovieCategoryAdapter: RecyclerView.Adapter<MovieCategoryAdapter.ViewHolder
         private val binding: MovieCategoryBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(category: MovieCategory) = with(binding) {
+        fun bind(category: MediaCategory) = with(binding) {
             tvCategoryTitle.text = category.title
             rvHorizontalMovies.setupHorizontalMoviesRecyclerView(binding.root.context)
             rvHorizontalMovies.adapter = MovieAdapter(category.mediaList)

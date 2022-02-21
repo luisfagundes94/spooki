@@ -2,7 +2,7 @@ package com.luisfelipe.search.presentation
 
 import com.luisfelipe.base.BaseViewModel
 import com.luisfelipe.base.BaseViewState
-import com.luisfelipe.movies.domain.model.Media
+import com.luisfelipe.domain.model.Media
 import com.luisfelipe.search.domain.usecase.SearchMoviesAndTvShowsUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -30,7 +30,7 @@ class SearchViewModel(
         }
     }
 
-    private fun onSearchMoviesAndTvShowsSuccess(mediaList: List<Media>) {
+    private fun onSearchMoviesAndTvShowsSuccess(mediaList: List<com.luisfelipe.domain.model.Media>) {
         viewState.state.postValue(BaseViewState.State.SUCCESS)
         viewState.mediaList.postValue(mediaList)
     }

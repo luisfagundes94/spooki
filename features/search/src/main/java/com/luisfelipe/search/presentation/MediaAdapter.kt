@@ -1,19 +1,17 @@
 package com.luisfelipe.search.presentation
 
-import android.media.browse.MediaBrowser
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.luisfelipe.extensions.load
-import com.luisfelipe.movies.databinding.MovieItemBinding
-import com.luisfelipe.movies.domain.model.Media
+import com.luisfelipe.domain.model.Media
 import com.luisfelipe.search.databinding.MediaItemBinding
 
 class MediaAdapter: RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
 
-    private val medias = mutableListOf<Media>()
+    private val medias = mutableListOf<com.luisfelipe.domain.model.Media>()
 
-    fun updateList(medias: List<Media>) {
+    fun updateList(medias: List<com.luisfelipe.domain.model.Media>) {
         this.medias.clear()
         this.medias.addAll(medias)
 
@@ -41,7 +39,7 @@ class MediaAdapter: RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
         private val binding: MediaItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(media: Media) = with(binding) {
+        fun bind(media: com.luisfelipe.domain.model.Media) = with(binding) {
             this.imgPoster.load(media.imageUrl)
         }
     }

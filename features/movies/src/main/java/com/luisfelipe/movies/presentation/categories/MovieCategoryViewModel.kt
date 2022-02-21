@@ -2,12 +2,11 @@ package com.luisfelipe.movies.presentation.categories
 
 import com.luisfelipe.base.BaseViewModel
 import com.luisfelipe.base.BaseViewState
-import com.luisfelipe.movies.domain.model.MovieCategory
-import com.luisfelipe.movies.domain.usecases.GetMovieCategoryUseCase
+import com.luisfelipe.domain.model.MediaCategory
+import com.luisfelipe.domain.usecase.GetMovieCategoryUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import timber.log.Timber
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieCategoryViewModel(
     private val getMovieCategoryUseCase: GetMovieCategoryUseCase,
@@ -31,7 +30,7 @@ class MovieCategoryViewModel(
         }
     }
 
-    private fun onGetMovieCategoriesSuccess(categories: List<MovieCategory>) {
+    private fun onGetMovieCategoriesSuccess(categories: List<MediaCategory>) {
         viewState.state.postValue(BaseViewState.State.SUCCESS)
         viewState.categories.postValue(categories)
     }
