@@ -1,4 +1,3 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import com.luisfelipe.buildSrc.Versions
 import com.luisfelipe.buildSrc.Dependencies
 
@@ -24,5 +23,6 @@ dependencies {
     implementation(Dependencies.UI.shimmerEffect)
     implementation(project(":domain"))
     implementation(project(":commons-testing"))
+    implementation(project(":commons-ui"))
 }
 

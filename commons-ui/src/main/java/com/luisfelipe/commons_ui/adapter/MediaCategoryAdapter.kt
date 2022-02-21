@@ -1,16 +1,16 @@
-package com.luisfelipe.movies.presentation.categories.adapter
+package com.luisfelipe.commons_ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.luisfelipe.commons_ui.databinding.MediaCategoryBinding
 import com.luisfelipe.extensions.dp
-import com.luisfelipe.movies.databinding.MovieCategoryBinding
 import com.luisfelipe.domain.model.MediaCategory
 import com.luisfelipe.utils.RecyclerViewLeftItemMargin
 
-class MovieCategoryAdapter: RecyclerView.Adapter<MovieCategoryAdapter.ViewHolder>() {
+class MediaCategoryAdapter: RecyclerView.Adapter<MediaCategoryAdapter.ViewHolder>() {
 
     private val categories = mutableListOf<MediaCategory>()
 
@@ -22,7 +22,7 @@ class MovieCategoryAdapter: RecyclerView.Adapter<MovieCategoryAdapter.ViewHolder
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = MovieCategoryBinding.inflate(
+        val binding = MediaCategoryBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -37,13 +37,13 @@ class MovieCategoryAdapter: RecyclerView.Adapter<MovieCategoryAdapter.ViewHolder
     override fun getItemCount() = categories.count()
 
     class ViewHolder(
-        private val binding: MovieCategoryBinding
+        private val binding: MediaCategoryBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(category: MediaCategory) = with(binding) {
             tvCategoryTitle.text = category.title
             rvHorizontalMovies.setupHorizontalMoviesRecyclerView(binding.root.context)
-            rvHorizontalMovies.adapter = MovieAdapter(category.mediaList)
+            rvHorizontalMovies.adapter = MediaAdapter(category.mediaList)
         }
 
         private fun RecyclerView.setupHorizontalMoviesRecyclerView(itemViewContext: Context) {

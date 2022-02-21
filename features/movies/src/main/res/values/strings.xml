@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="btn_see_all">SEE ALL</string>
-    <string name="desc_movies">movies</string>
+    <string name="desc_media">movies</string>
 </resources>

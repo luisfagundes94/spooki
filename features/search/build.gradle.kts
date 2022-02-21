@@ -18,6 +18,7 @@ dependencies {
     implementation(project(":features:movies"))
     implementation(project(":domain"))
     implementation(project(":data"))
+    implementation(project(":commons-ui"))
 
     // UI
     implementation(Dependencies.UI.picasso)

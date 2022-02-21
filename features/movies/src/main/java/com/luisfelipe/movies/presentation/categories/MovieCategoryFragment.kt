@@ -6,7 +6,7 @@ import com.luisfelipe.base.BaseViewState
 import com.luisfelipe.extensions.observe
 import com.luisfelipe.movies.R
 import com.luisfelipe.movies.databinding.FragmentMovieCategoryBinding
-import com.luisfelipe.movies.presentation.categories.adapter.MovieCategoryAdapter
+import com.luisfelipe.commons_ui.adapter.MediaCategoryAdapter
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -17,7 +17,7 @@ class MovieCategoryFragment : BaseFragment<FragmentMovieCategoryBinding>(
 ) {
 
     private val viewModel: MovieCategoryViewModel by viewModel()
-    private val movieCategoryAdapter: MovieCategoryAdapter by inject()
+    private val movieCategoryAdapter: MediaCategoryAdapter by inject()
 
     override fun onBind() = FragmentMovieCategoryBinding.inflate(layoutInflater)
 
@@ -56,15 +56,10 @@ class MovieCategoryFragment : BaseFragment<FragmentMovieCategoryBinding>(
 
     }
 
-    override fun showError() = with(binding) {
+    override fun showError() = with(binding.movieCategoriesErrorContainer) {
         super.showError()
-        movieCategoriesErrorContainer.btnTryAgain.setOnClickListener {
+        btnTryAgain.setOnClickListener {
             viewModel.dispatchViewAction(MovieCategoriesViewAction.FetchMovieCategories)
         }
     }
-
-    private companion object {
-        const val LAST_ITEM_BOTTOM_MARGIN = 32
-    }
-
 }

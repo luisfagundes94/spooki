@@ -20,7 +20,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
 ) {
 
     private val viewModel: SearchViewModel by viewModel()
-    private val mediaAdapter: MediaAdapter by inject()
+    private val searchMediaAdapter: SearchMediaAdapter by inject()
 
     override fun onBind() = FragmentSearchBinding.inflate(layoutInflater)
 
@@ -51,7 +51,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
         addItemDecoration(itemDecoration)
         setHasFixedSize(true)
         this.layoutManager = layoutManager
-        this.adapter = mediaAdapter
+        this.adapter = searchMediaAdapter
     }
 
     private fun setupSearchView() = with(binding.svRecipes) {
@@ -107,7 +107,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
         }
 
         observe(viewModel.viewState.mediaList) {
-            mediaAdapter.updateList(this)
+            searchMediaAdapter.updateList(this)
         }
     }
 
