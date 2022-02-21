@@ -21,6 +21,7 @@ class GetMovieCategoryUseCase(
         getPopularMoviesAsync().await()
         getReleasedThisYearMoviesAsync().await()
         getTopRatedMoviesAsync().await()
+        getUpcomingMoviesAsync().await()
 
         if (error == null) return@coroutineScope Response.Success(categories)
         else return@coroutineScope Response.Error(error ?: Exception())
@@ -64,6 +65,21 @@ class GetMovieCategoryUseCase(
                     categories.add(
                         movieCategoryFactory.create(
                             type = TOP_RATED,
+                            mediaList = it
+                        )
+                    )
+                },
+                onError = { onGetMovieListError(it) }
+            )
+    }
+
+    private fun CoroutineScope.getUpcomingMoviesAsync() = async {
+        repository.fetchUpcomingMovies()
+            .fold(
+                onSuccess = {
+                    categories.add(
+                        movieCategoryFactory.create(
+                            type = UPCOMING,
                             mediaList = it
                         )
                     )

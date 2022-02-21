@@ -53,4 +53,11 @@ class MovieRepositoryImpl(
         }
         return response.mapToDomain()
     }
+
+    override suspend fun fetchUpcomingMovies(): Response<List<Media>> {
+        val response = Response.listOf {
+            movieService.fetchUpcomingMovies().results
+        }
+        return response.mapToDomain()
+    }
 }

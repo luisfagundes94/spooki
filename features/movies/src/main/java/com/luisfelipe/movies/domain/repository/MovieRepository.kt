@@ -9,5 +9,6 @@ interface MovieRepository {
     suspend fun fetchMoviesSortedBy(param: String): Response<List<Media>>
     suspend fun fetchTrendingMovies(): Response<List<Media>>
     suspend fun fetchMoviesReleasedThisYear(): Response<List<Media>>
+    suspend fun fetchUpcomingMovies(): Response<List<Media>>
     suspend fun searchMovies(query: String): Response<List<Media>>
 }

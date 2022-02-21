@@ -6,6 +6,7 @@ enum class MovieCategoryEnum {
     POPULAR,
     PRIMARY_RELEASED,
     TOP_RATED,
+    UPCOMING,
     TRENDING,
     NOW_PLAYING,
     OSCAR_NOMINEES,
@@ -21,4 +22,5 @@ val MovieCategoryEnum.titleId: Int
         MovieCategoryEnum.TRENDING -> R.string.trending
         MovieCategoryEnum.RELEASED_THIS_YEAR -> R.string.released_this_year
         MovieCategoryEnum.TOP_RATED -> R.string.top_rated
+        MovieCategoryEnum.UPCOMING -> R.string.upcoming
     }

@@ -45,6 +45,12 @@ interface MovieService {
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
     ): MovieResultsResponse
 
+    @GET("movie/upcoming")
+    suspend fun fetchUpcomingMovies(
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+        @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
+    ): MovieResultsResponse
+
     @GET("search/movie")
     suspend fun searchMovies(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
