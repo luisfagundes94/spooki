@@ -8,7 +8,7 @@ import com.luisfelipe.movies.databinding.MovieItemBinding
 import com.luisfelipe.domain.model.Media
 
 class MovieAdapter(
-    private val media: List<com.luisfelipe.domain.model.Media>
+    private val media: List<Media>
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,7 +26,7 @@ class MovieAdapter(
         private val binding: MovieItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movie: com.luisfelipe.domain.model.Media) = with(binding) {
+        fun bind(movie: Media) = with(binding) {
             this.imgPoster.load(movie.imageUrl)
         }
     }

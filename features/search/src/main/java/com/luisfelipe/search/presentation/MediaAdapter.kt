@@ -3,15 +3,15 @@ package com.luisfelipe.search.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.luisfelipe.extensions.load
 import com.luisfelipe.domain.model.Media
 import com.luisfelipe.search.databinding.MediaItemBinding
+import com.luisfelipe.search.extensions.loadPoster
 
 class MediaAdapter: RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
 
-    private val medias = mutableListOf<com.luisfelipe.domain.model.Media>()
+    private val medias = mutableListOf<Media>()
 
-    fun updateList(medias: List<com.luisfelipe.domain.model.Media>) {
+    fun updateList(medias: List<Media>) {
         this.medias.clear()
         this.medias.addAll(medias)
 
@@ -39,8 +39,8 @@ class MediaAdapter: RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
         private val binding: MediaItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(media: com.luisfelipe.domain.model.Media) = with(binding) {
-            this.imgPoster.load(media.imageUrl)
+        fun bind(media: Media) = with(binding) {
+            this.imgPoster.loadPoster(media.imageUrl)
         }
     }
 }

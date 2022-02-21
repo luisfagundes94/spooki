@@ -1,4 +1,5 @@
 import com.luisfelipe.buildSrc.Versions
+import com.luisfelipe.buildSrc.Dependencies
 
 plugins {
     id("com.android.library")
@@ -17,4 +18,7 @@ dependencies {
     implementation(project(":features:movies"))
     implementation(project(":domain"))
     implementation(project(":data"))
+
+    // UI
+    implementation(Dependencies.UI.picasso)
 }
