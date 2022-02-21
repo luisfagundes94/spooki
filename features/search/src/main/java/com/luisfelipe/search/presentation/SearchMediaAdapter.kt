@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.luisfelipe.domain.model.Media
-import com.luisfelipe.search.databinding.MediaItemBinding
+import com.luisfelipe.search.databinding.SearchMediaItemBinding
 import com.luisfelipe.search.extensions.loadPoster
 
-class MediaAdapter: RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
+class SearchMediaAdapter: RecyclerView.Adapter<SearchMediaAdapter.ViewHolder>() {
 
     private val medias = mutableListOf<Media>()
 
@@ -25,7 +25,7 @@ class MediaAdapter: RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = MediaItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = SearchMediaItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -36,7 +36,7 @@ class MediaAdapter: RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
     override fun getItemCount() = medias.count()
 
     class ViewHolder(
-        private val binding: MediaItemBinding
+        private val binding: SearchMediaItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(media: Media) = with(binding) {

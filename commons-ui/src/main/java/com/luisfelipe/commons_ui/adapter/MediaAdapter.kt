@@ -1,18 +1,18 @@
-package com.luisfelipe.movies.presentation.categories.adapter
+package com.luisfelipe.commons_ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.luisfelipe.commons_ui.databinding.MediaItemBinding
 import com.luisfelipe.extensions.load
-import com.luisfelipe.movies.databinding.MovieItemBinding
 import com.luisfelipe.domain.model.Media
 
-class MovieAdapter(
+class MediaAdapter(
     private val media: List<Media>
-) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = MediaItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -23,11 +23,11 @@ class MovieAdapter(
     override fun getItemCount() = media.count()
 
     class ViewHolder(
-        private val binding: MovieItemBinding
+        private val binding: MediaItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: Media) = with(binding) {
-            this.imgPoster.load(movie.imageUrl)
+            imgPoster.load(movie.imageUrl)
         }
     }
 }

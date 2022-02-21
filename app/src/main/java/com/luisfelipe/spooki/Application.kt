@@ -1,6 +1,7 @@
 package com.luisfelipe.spooki
 
 import android.app.Application
+import com.luisfelipe.commons_ui.di.commonsUiModule
 import com.luisfelipe.data.di.dataModule
 import com.luisfelipe.domain.di.domainModule
 import com.luisfelipe.movies.di.movieCategoryModule
@@ -28,7 +29,8 @@ class Application : Application() {
                 dataModule,
                 domainModule,
                 movieCategoryModule,
-                searchModule
+                searchModule,
+                commonsUiModule
             )
         }
     }
