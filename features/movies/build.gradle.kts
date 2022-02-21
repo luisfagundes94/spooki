@@ -17,15 +17,11 @@ android {
 
     defaultConfig {
         minSdk = Versions.minSdk
-
-        buildConfigField("String", "API_KEY", "\"${getApiKey()}\"")
-        buildConfigField("String", "API_BASE_URL", "\"https://api.themoviedb.org/3/\"")
     }
 }
 
 dependencies {
     implementation(Dependencies.UI.shimmerEffect)
+    implementation(project(":domain"))
 }
-
-fun getApiKey() = gradleLocalProperties(rootDir).getProperty("API_KEY")
 

@@ -12,3 +12,7 @@ android {
         minSdk = Versions.minSdk
     }
 }
+
+dependencies {
+    implementation(project(":domain"))
+}

@@ -9,10 +9,12 @@ apply(from = "${rootProject.rootDir}/base_dependencies.gradle")
 
 android {
     defaultConfig {
-        minSdk = com.luisfelipe.buildSrc.Versions.minSdk
+        minSdk = Versions.minSdk
     }
 }
 
 dependencies {
     implementation(project(":features:movies"))
+    implementation(project(":domain"))
+    implementation(project(":data"))
 }
