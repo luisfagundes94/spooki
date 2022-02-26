@@ -20,7 +20,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
 ) {
 
     private val viewModel: SearchViewModel by viewModel()
-    private val searchMediaAdapter: SearchMediaAdapter by inject()
+    private val searchMovieAdapter: SearchMovieAdapter by inject()
 
     override fun onBind() = FragmentSearchBinding.inflate(layoutInflater)
 
@@ -51,7 +51,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
         addItemDecoration(itemDecoration)
         setHasFixedSize(true)
         this.layoutManager = layoutManager
-        this.adapter = searchMediaAdapter
+        this.adapter = searchMovieAdapter
     }
 
     private fun setupSearchView() = with(binding.svRecipes) {
@@ -106,8 +106,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
             }
         }
 
-        observe(viewModel.viewState.mediaList) {
-            searchMediaAdapter.updateList(this)
+        observe(viewModel.viewState.movies) {
+            searchMovieAdapter.updateList(this)
             announceItemsFoundForAccessibility()
         }
     }
@@ -115,8 +115,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
     private fun announceItemsFoundForAccessibility() {
         val message =  requireContext().resources.getQuantityString(
             R.plurals.items_found,
-            searchMediaAdapter.itemCount,
-            searchMediaAdapter.itemCount,
+            searchMovieAdapter.itemCount,
+            searchMovieAdapter.itemCount,
         )
         view?.announceForAccessibility(message)
     }

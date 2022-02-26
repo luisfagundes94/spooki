@@ -5,7 +5,7 @@ import androidx.lifecycle.Observer
 import com.luisfelipe.base.BaseViewState
 import com.luisfelipe.base.Response
 import com.luisfelipe.common_testing.utils.CoroutinesTestRule
-import com.luisfelipe.domain.model.MediaCategory
+import com.luisfelipe.domain.model.MovieCategory
 import com.luisfelipe.domain.usecase.GetMovieCategoryUseCase
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -41,7 +41,7 @@ class MovieCategoryViewModelTest {
     fun `dispatchViewAction SHOULD delegate call to useCase when viewAction is FetchMovieCategories`() {
         runBlockingTest {
             // Arrange
-            val response: Response<List<MediaCategory>> = mockk()
+            val response: Response<List<MovieCategory>> = mockk()
             coEvery { useCase.invoke() } returns response
 
             // Act
@@ -56,7 +56,7 @@ class MovieCategoryViewModelTest {
     fun `dispatchViewAction SHOULD should return success state viewAction is FetchMovieCategories`() {
         runBlockingTest {
             // Arrange
-            val movieCategoryList: List<MediaCategory> = mockk()
+            val movieCategoryList: List<MovieCategory> = mockk()
             val response = Response.Success(movieCategoryList)
 
             coEvery { useCase.invoke() } returns response
@@ -77,7 +77,7 @@ class MovieCategoryViewModelTest {
         runBlockingTest {
             // Arrange
             val exception: Exception = mockk()
-            val response = Response.Error<List<MediaCategory>>(exception)
+            val response = Response.Error<List<MovieCategory>>(exception)
 
             coEvery { useCase.invoke() } returns response
 

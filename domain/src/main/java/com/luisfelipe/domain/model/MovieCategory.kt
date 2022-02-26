@@ -1,6 +1,6 @@
 package com.luisfelipe.domain.model
 
-data class MediaCategory(
+data class MovieCategory(
     val title: String,
-    val mediaList: List<Media>
+    val movieList: List<Movie>
 )

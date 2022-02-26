@@ -1,33 +1,29 @@
 package com.luisfelipe.data.service
 
 import com.luisfelipe.data.BuildConfig
+import com.luisfelipe.data.model.MovieDetailsResponse
+import com.luisfelipe.data.model.MovieResultsResponse
 import com.luisfelipe.domain.enum.SortByType
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 import java.util.*
 
 interface MovieService {
-    @GET("discover/movie")
-    suspend fun fetchMoviesSortedBy(
-        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
-        @Query("sort_by") sortBy: String? = SortByType.POPULARITY_DESC.value,
-        @Query("include_adult") includeAdult: Boolean = false,
-        @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
-    ): com.luisfelipe.data.model.MovieResultsResponse
 
     @GET("movie/popular")
     suspend fun fetchPopularMovies(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
         @Query("include_adult") includeAdult: Boolean = false,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
-    ): com.luisfelipe.data.model.MovieResultsResponse
+    ): MovieResultsResponse
 
     @GET("movie/top_rated")
     suspend fun fetchTopRatedMovies(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
         @Query("include_adult") includeAdult: Boolean = false,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
-    ): com.luisfelipe.data.model.MovieResultsResponse
+    ): MovieResultsResponse
 
     @GET("discover/movie")
     suspend fun fetchMoviesReleasedThisYear(
@@ -35,19 +31,19 @@ interface MovieService {
         @Query("include_adult") includeAdult: Boolean = false,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID,
         @Query("primary_release_year") primaryReleaseYear: Int
-    ): com.luisfelipe.data.model.MovieResultsResponse
+    ): MovieResultsResponse
 
     @GET("trending/all/day")
     suspend fun fetchTrendingMovies(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
-    ): com.luisfelipe.data.model.MovieResultsResponse
+    ): MovieResultsResponse
 
     @GET("movie/upcoming")
     suspend fun fetchUpcomingMovies(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
-    ): com.luisfelipe.data.model.MovieResultsResponse
+    ): MovieResultsResponse
 
     @GET("search/movie")
     suspend fun searchMovies(
@@ -55,7 +51,13 @@ interface MovieService {
         @Query("query") query: String,
         @Query("include_adult") includeAdult: Boolean = false,
         @Query("with_genres") withGenres: Int = HORROR_GENRE_ID
-    ): com.luisfelipe.data.model.MovieResultsResponse
+    ): MovieResultsResponse
+
+    @GET("movie/{movie_id}")
+    suspend fun fetchMovieDetails(
+        @Path("movie_id") id: Int,
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY
+    ): MovieDetailsResponse
 
     private companion object {
         const val HORROR_GENRE_ID = 27

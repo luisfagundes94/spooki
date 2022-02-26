@@ -2,7 +2,7 @@ package com.luisfelipe.movies.presentation.categories
 
 import com.luisfelipe.base.BaseViewModel
 import com.luisfelipe.base.BaseViewState
-import com.luisfelipe.domain.model.MediaCategory
+import com.luisfelipe.domain.model.MovieCategory
 import com.luisfelipe.domain.usecase.GetMovieCategoryUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -30,7 +30,7 @@ class MovieCategoryViewModel(
         }
     }
 
-    private fun onGetMovieCategoriesSuccess(categories: List<MediaCategory>) {
+    private fun onGetMovieCategoriesSuccess(categories: List<MovieCategory>) {
         viewState.state.postValue(BaseViewState.State.SUCCESS)
         viewState.categories.postValue(categories)
     }

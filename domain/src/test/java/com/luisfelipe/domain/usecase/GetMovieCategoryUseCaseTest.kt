@@ -1,9 +1,9 @@
 package com.luisfelipe.domain.usecase
 
 import com.luisfelipe.base.Response
-import com.luisfelipe.domain.factory.MediaCategoryFactory
-import com.luisfelipe.domain.model.Media
-import com.luisfelipe.domain.model.MediaCategory
+import com.luisfelipe.domain.factory.MovieCategoryFactory
+import com.luisfelipe.domain.model.Movie
+import com.luisfelipe.domain.model.MovieCategory
 import com.luisfelipe.domain.repository.MovieRepository
 import io.mockk.coEvery
 import io.mockk.coVerifySequence
@@ -17,7 +17,7 @@ import org.junit.Test
 class GetMovieCategoryUseCaseTest {
 
     private val repository: MovieRepository = mockk()
-    private val factory: MediaCategoryFactory = mockk()
+    private val factory: MovieCategoryFactory = mockk()
     private lateinit var useCase: GetMovieCategoryUseCase
 
     @Before
@@ -31,7 +31,7 @@ class GetMovieCategoryUseCaseTest {
     @Test
     fun `SHOULD delegate call to repository WHEN executed`() = runBlockingTest {
         // Arrange
-        val response: Response<List<Media>> = mockk()
+        val response: Response<List<Movie>> = mockk()
 
         coEvery { response.fold(any(), any()) } returns Any()
 
@@ -55,10 +55,10 @@ class GetMovieCategoryUseCaseTest {
     @Test
     fun `SHOULD return success WHEN executed`() = runBlockingTest {
         // Arrange
-        val movies: List<Media> = mockk()
+        val movies: List<Movie> = mockk()
         val response = Response.Success(movies)
 
-        val movieCategory: MediaCategory = mockk()
+        val movieCategory: MovieCategory = mockk()
 
         coEvery { factory.create(any(), any()) } returns movieCategory
 
@@ -78,9 +78,9 @@ class GetMovieCategoryUseCaseTest {
     fun `SHOULD return error WHEN executed`() = runBlockingTest {
         // Arrange
         val exception: Exception = mockk()
-        val response = Response.Error<List<Media>>(exception)
+        val response = Response.Error<List<Movie>>(exception)
 
-        val movieCategory: MediaCategory = mockk()
+        val movieCategory: MovieCategory = mockk()
 
         coEvery { factory.create(any(), any()) } returns movieCategory
 
@@ -100,12 +100,12 @@ class GetMovieCategoryUseCaseTest {
     fun `SHOULD return error WHEN at least one repository call fails`() = runBlockingTest {
         // Arrange
         val exception: Exception = mockk()
-        val errorResponse = Response.Error<List<Media>>(exception)
+        val errorResponse = Response.Error<List<Movie>>(exception)
 
-        val movies: List<Media> = mockk()
+        val movies: List<Movie> = mockk()
         val successResponse = Response.Success(movies)
 
-        val movieCategory: MediaCategory = mockk()
+        val movieCategory: MovieCategory = mockk()
 
         coEvery { factory.create(any(), any()) } returns movieCategory
 

@@ -5,6 +5,7 @@ apply(from = "${rootProject.rootDir}/base_dependencies.gradle")
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -15,5 +16,5 @@ android {
 
 dependencies {
     implementation(project(":features:movies"))
-    implementation(project(":features:shows"))
+    implementation(project(":commons-ui"))
 }

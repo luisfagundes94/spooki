@@ -1,23 +1,26 @@
 package com.luisfelipe.movies.presentation.categories
 
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.luisfelipe.base.BaseFragment
 import com.luisfelipe.base.BaseViewState
+import com.luisfelipe.commons_ui.adapter.MovieCategoryAdapter
 import com.luisfelipe.extensions.observe
 import com.luisfelipe.movies.R
 import com.luisfelipe.movies.databinding.FragmentMovieCategoryBinding
-import com.luisfelipe.commons_ui.adapter.MediaCategoryAdapter
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class MovieCategoryFragment : BaseFragment<FragmentMovieCategoryBinding>(
     successViewId = R.id.movie_categories_success_container,
     loadingViewId = R.id.movie_categories_loading_container,
     errorViewId = R.id.movie_categories_error_container,
 ) {
-
     private val viewModel: MovieCategoryViewModel by viewModel()
-    private val movieCategoryAdapter: MediaCategoryAdapter by inject()
+    private val movieCategoryAdapter by inject<MovieCategoryAdapter> {
+        parametersOf({ id: Int -> navigateToMovieDetails(id) })
+    }
 
     override fun onBind() = FragmentMovieCategoryBinding.inflate(layoutInflater)
 
@@ -26,6 +29,13 @@ class MovieCategoryFragment : BaseFragment<FragmentMovieCategoryBinding>(
         setupObservers()
 
         viewModel.dispatchViewAction(MovieCategoriesViewAction.FetchMovieCategories)
+    }
+
+    override fun showError() = with(binding.movieCategoriesErrorContainer) {
+        super.showError()
+        btnTryAgain.setOnClickListener {
+            viewModel.dispatchViewAction(MovieCategoriesViewAction.FetchMovieCategories)
+        }
     }
 
     private fun setupViews() {
@@ -53,13 +63,10 @@ class MovieCategoryFragment : BaseFragment<FragmentMovieCategoryBinding>(
         observe(viewModel.viewState.categories) {
             movieCategoryAdapter.updateCategories(this)
         }
-
     }
 
-    override fun showError() = with(binding.movieCategoriesErrorContainer) {
-        super.showError()
-        btnTryAgain.setOnClickListener {
-            viewModel.dispatchViewAction(MovieCategoriesViewAction.FetchMovieCategories)
-        }
+    private fun navigateToMovieDetails(id: Int) {
+        val destination = MovieCategoryFragmentDirections.navigateToMovieDetails(id)
+        findNavController().navigate(destination)
     }
 }

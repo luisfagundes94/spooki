@@ -45,6 +45,7 @@ dependencies {
     implementation Dependencies.Core.appCompat
     implementation Dependencies.Core.coroutines
     implementation Dependencies.Core.navigationUi
+    implementation Dependencies.Core.navigationFragment
     implementation Dependencies.Core.timber
     implementation Dependencies.Core.constraintLayout
     implementation Dependencies.Core.material

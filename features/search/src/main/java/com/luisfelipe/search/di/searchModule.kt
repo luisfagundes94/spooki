@@ -1,7 +1,7 @@
 package com.luisfelipe.search.di
 
-import com.luisfelipe.search.domain.usecase.SearchMoviesAndTvShowsUseCase
-import com.luisfelipe.search.presentation.SearchMediaAdapter
+import com.luisfelipe.search.domain.usecase.SearchMoviesUseCase
+import com.luisfelipe.search.presentation.SearchMovieAdapter
 import com.luisfelipe.search.presentation.SearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -10,11 +10,11 @@ import org.koin.dsl.module
 val searchModule = module {
 
     // Adapters
-    factory { SearchMediaAdapter() }
+    factory { SearchMovieAdapter() }
 
     // ViewModels
     viewModel { SearchViewModel(get()) }
 
     // Usecases
-    factory { SearchMoviesAndTvShowsUseCase(get()) }
+    factory { SearchMoviesUseCase(get()) }
 }

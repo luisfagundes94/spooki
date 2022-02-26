@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="btn_see_all">SEE ALL</string>
-    <string name="desc_media">media</string>
-    <string name="desc_media_recycler_view">Media List</string>
+    <string name="desc_movie">movie</string>
+    <string name="desc_movie_recycler_view">Movie List</string>
 </resources>

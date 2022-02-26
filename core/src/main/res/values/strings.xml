@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title_home">Home</string>
+    <string name="title_movies">Movies</string>
+    <string name="title_movie_details">Movie Details</string>
     <string name="title_search">Search</string>
     <string name="title_saved">Saved</string>
     <string name="title_profile">Perfil</string>
     <string name="generic_error_message">Ops! Algo deu errado. Por favor, tente novamente.</string>
     <string name="generic_error_button_message">Tentar Novamente</string>
+
+    <!-- Deep Links -->
+    <string name="deep_link_movie_details">android-app://com.luisfelipe.spooki/movie-details/{id}</string>
+    <string name="deep_link_movie_details_impl">android-app://com.luisfelipe.spooki/movie-details/%1$d</string>
+
+    <string name="deep_link_home">android-app://com.luisfelipe.spooki/home</string>
 </resources>

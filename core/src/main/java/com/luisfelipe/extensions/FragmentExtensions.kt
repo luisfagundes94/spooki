@@ -5,8 +5,14 @@ import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
+import androidx.navigation.NavController
 import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigator
+import org.koin.core.component.getScopeName
+import timber.log.Timber
+import java.lang.Exception
 
 fun <F : Fragment> F.requireString(any: Any?) = requireContext().requireString(any)
 
@@ -15,12 +21,14 @@ fun <F : Fragment, L> F.observe(
     onChanged: L.() -> Unit
 ) = liveData.observe(viewLifecycleOwner, onChanged)
 
-fun Fragment.navigateWithDeepLink(deepLinkDestination: String) {
-    val request = NavDeepLinkRequest.Builder
-        .fromUri(deepLinkDestination.toUri())
-        .build()
-
-    findNavController(requireView()).navigate(request)
+fun NavController.navigateWithDeepLink(
+    deepLinkDestination: String
+) {
+    try {
+        navigate(deepLinkDestination.toUri())
+    } catch (exception: Exception) {
+        Timber.e(exception)
+    }
 }
 
 fun Fragment.getColor(id: Int) = ContextCompat.getColor(requireContext(), id)

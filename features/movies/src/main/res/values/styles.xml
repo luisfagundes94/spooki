@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TagTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/small_title_size</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="background">@drawable/rounded_tag_background</item>
+        <item name="android:background">@drawable/rounded_tag_background</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

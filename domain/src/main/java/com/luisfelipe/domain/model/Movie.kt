@@ -1,7 +1,7 @@
 package com.luisfelipe.domain.model
 
-data class Media(
-    val id: String,
+data class Movie(
+    val id: Int,
     val imageUrl: String,
     val title: String,
 )

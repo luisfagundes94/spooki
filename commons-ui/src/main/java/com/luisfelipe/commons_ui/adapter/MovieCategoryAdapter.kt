@@ -7,17 +7,19 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.luisfelipe.commons_ui.R
-import com.luisfelipe.commons_ui.databinding.MediaCategoryBinding
+import com.luisfelipe.commons_ui.databinding.MovieCategoryBinding
+import com.luisfelipe.domain.model.MovieCategory
 import com.luisfelipe.extensions.dp
-import com.luisfelipe.domain.model.MediaCategory
 import com.luisfelipe.extensions.readAs
 import com.luisfelipe.utils.RecyclerViewLeftItemMargin
 
-class MediaCategoryAdapter : RecyclerView.Adapter<MediaCategoryAdapter.ViewHolder>() {
+class MovieCategoryAdapter(
+    private val navigateToMovieDetails: (id: Int) -> Unit,
+) : RecyclerView.Adapter<MovieCategoryAdapter.ViewHolder>() {
 
-    private val categories = mutableListOf<MediaCategory>()
+    private val categories = mutableListOf<MovieCategory>()
 
-    fun updateCategories(categories: List<MediaCategory>) {
+    fun updateCategories(categories: List<MovieCategory>) {
         this.categories.clear()
         this.categories.addAll(categories)
 
@@ -25,12 +27,12 @@ class MediaCategoryAdapter : RecyclerView.Adapter<MediaCategoryAdapter.ViewHolde
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = MediaCategoryBinding.inflate(
+        val binding = MovieCategoryBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
-        return ViewHolder(binding)
+        return ViewHolder(binding, navigateToMovieDetails)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -40,20 +42,21 @@ class MediaCategoryAdapter : RecyclerView.Adapter<MediaCategoryAdapter.ViewHolde
     override fun getItemCount() = categories.count()
 
     class ViewHolder(
-        private val binding: MediaCategoryBinding
+        private val binding: MovieCategoryBinding,
+        private val navigateToMovieDetails: (id: Int) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(category: MediaCategory) = with(binding) {
+        fun bind(category: MovieCategory) = with(binding) {
             btnSeeAll.readAs<Button>()
 
             tvCategoryTitle.text = category.title
             tvCategoryTitle.contentDescription = category.title
 
-            rvHorizontalMedia.contentDescription = root.context.getString(
-                R.string.desc_media_recycler_view
+            rvHorizontalMovies.contentDescription = root.context.getString(
+                R.string.desc_movie_recycler_view
             )
-            rvHorizontalMedia.setupHorizontalMoviesRecyclerView(binding.root.context)
-            rvHorizontalMedia.adapter = MediaAdapter(category.mediaList)
+            rvHorizontalMovies.setupHorizontalMoviesRecyclerView(binding.root.context)
+            rvHorizontalMovies.adapter = MovieAdapter(navigateToMovieDetails, category.movieList)
         }
 
         private fun RecyclerView.setupHorizontalMoviesRecyclerView(itemViewContext: Context) {

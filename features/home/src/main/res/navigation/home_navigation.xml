@@ -9,6 +9,9 @@
         android:id="@+id/homeFragment"
         android:name="com.luisfelipe.home.presentation.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+
+        <deepLink app:uri="@string/deep_link_home" />
+    </fragment>
 
 </navigation>

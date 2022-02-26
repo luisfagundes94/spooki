@@ -33,6 +33,7 @@ object Dependencies {
         const val lottieAnimation = "com.airbnb.android:lottie:${Versions.lottieAnimation}"
         const val shimmerEffect = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
         const val tagGroup = "com.github.pchmn:MaterialChipsInput:${Versions.tagGroup}"
+        const val fadingEdgeLayout = "com.github.bosphere.android-fadingedgelayout:fadingedgelayout:${Versions.fadingEdgeLayout}"
     }
 
     object DI {
@@ -45,6 +46,8 @@ object Dependencies {
         const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val ktlintPlugin = "com.pinterest:ktlint:${Versions.ktlint}"
         const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+        const val kotlinx = "org.jetbrains.kotlin:kotlin-android-extensions:${Versions.kotlin}"
     }
 
     object Test {

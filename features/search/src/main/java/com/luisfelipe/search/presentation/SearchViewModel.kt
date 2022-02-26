@@ -2,14 +2,14 @@ package com.luisfelipe.search.presentation
 
 import com.luisfelipe.base.BaseViewModel
 import com.luisfelipe.base.BaseViewState
-import com.luisfelipe.domain.model.Media
-import com.luisfelipe.search.domain.usecase.SearchMoviesAndTvShowsUseCase
+import com.luisfelipe.domain.model.Movie
+import com.luisfelipe.search.domain.usecase.SearchMoviesUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import timber.log.Timber
 
 class SearchViewModel(
-    private val searchMoviesAndTvShowsUseCase: SearchMoviesAndTvShowsUseCase,
+    private val searchMoviesUseCase: SearchMoviesUseCase,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : BaseViewModel<SearchViewState, SearchViewAction>() {
 
@@ -17,25 +17,25 @@ class SearchViewModel(
 
     override fun dispatchViewAction(viewAction: SearchViewAction) {
         when (viewAction) {
-            is SearchViewAction.SearchMoviesAndTvShows -> searchMoviesAndTvShows(viewAction.query)
+            is SearchViewAction.SearchMoviesAndTvShows -> searchMovies(viewAction.query)
         }
     }
 
-    private fun searchMoviesAndTvShows(query: String) {
+    private fun searchMovies(query: String) {
         viewState.state.postValue(BaseViewState.State.LOADING)
         executeCoroutines(dispatcher) {
-            searchMoviesAndTvShowsUseCase.invoke(query = query).fold(
-                ::onSearchMoviesAndTvShowsSuccess, ::onSearchMoviesAndTvShowsError
+            searchMoviesUseCase.invoke(query = query).fold(
+                ::onSearchMoviesSuccess, ::onSearchMoviesError
              )
         }
     }
 
-    private fun onSearchMoviesAndTvShowsSuccess(mediaList: List<com.luisfelipe.domain.model.Media>) {
+    private fun onSearchMoviesSuccess(movieList: List<Movie>) {
         viewState.state.postValue(BaseViewState.State.SUCCESS)
-        viewState.mediaList.postValue(mediaList)
+        viewState.movies.postValue(movieList)
     }
 
-    private fun onSearchMoviesAndTvShowsError(exception: Exception) {
+    private fun onSearchMoviesError(exception: Exception) {
         Timber.e(exception)
         viewState.state.postValue(BaseViewState.State.ERROR)
     }

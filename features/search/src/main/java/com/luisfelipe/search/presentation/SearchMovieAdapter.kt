@@ -3,17 +3,17 @@ package com.luisfelipe.search.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.luisfelipe.domain.model.Media
-import com.luisfelipe.search.databinding.SearchMediaItemBinding
+import com.luisfelipe.domain.model.Movie
+import com.luisfelipe.search.databinding.SearchMovieItemBinding
 import com.luisfelipe.search.extensions.loadPoster
 
-class SearchMediaAdapter: RecyclerView.Adapter<SearchMediaAdapter.ViewHolder>() {
+class SearchMovieAdapter: RecyclerView.Adapter<SearchMovieAdapter.ViewHolder>() {
 
-    private val medias = mutableListOf<Media>()
+    private val medias = mutableListOf<Movie>()
 
-    fun updateList(medias: List<Media>) {
+    fun updateList(movies: List<Movie>) {
         this.medias.clear()
-        this.medias.addAll(medias)
+        this.medias.addAll(movies)
 
         notifyDataSetChanged()
     }
@@ -25,7 +25,7 @@ class SearchMediaAdapter: RecyclerView.Adapter<SearchMediaAdapter.ViewHolder>() 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = SearchMediaItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = SearchMovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -36,11 +36,11 @@ class SearchMediaAdapter: RecyclerView.Adapter<SearchMediaAdapter.ViewHolder>() 
     override fun getItemCount() = medias.count()
 
     class ViewHolder(
-        private val binding: SearchMediaItemBinding
+        private val binding: SearchMovieItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(media: Media) = with(binding) {
-            this.imgPoster.loadPoster(media.imageUrl)
+        fun bind(movie: Movie) = with(binding) {
+            this.imgPoster.loadPoster(movie.imageUrl)
         }
     }
 }

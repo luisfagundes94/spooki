@@ -1,8 +1,9 @@
 package com.luisfelipe.domain.di
 
-import com.luisfelipe.domain.factory.MediaCategoryFactory
-import com.luisfelipe.domain.factory.MediaCategoryFactoryImpl
+import com.luisfelipe.domain.factory.MovieCategoryFactory
+import com.luisfelipe.domain.factory.MovieCategoryFactoryImpl
 import com.luisfelipe.domain.usecase.GetMovieCategoryUseCase
+import com.luisfelipe.domain.usecase.GetMovieDetailsUseCase
 import com.luisfelipe.utils.StringProvider
 import com.luisfelipe.utils.StringProviderImpl
 import org.koin.android.ext.koin.androidContext
@@ -15,7 +16,11 @@ val domainModule = module {
     }
 
     factory {
-        MediaCategoryFactoryImpl(get()) as MediaCategoryFactory
+        GetMovieDetailsUseCase(get())
+    }
+
+    factory {
+        MovieCategoryFactoryImpl(get()) as MovieCategoryFactory
     }
 
     factory {
