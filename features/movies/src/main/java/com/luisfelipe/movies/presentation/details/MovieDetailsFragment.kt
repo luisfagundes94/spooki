@@ -1,7 +1,5 @@
 package com.luisfelipe.movies.presentation.details
 
-import androidx.activity.OnBackPressedCallback
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.luisfelipe.base.BaseFragment
 import com.luisfelipe.base.BaseViewState
@@ -24,6 +22,7 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>(
     override fun onBind() = FragmentMovieDetailsBinding.inflate(layoutInflater)
 
     override fun FragmentMovieDetailsBinding.onViewCreated() {
+        setupUpActionButton()
         setupObservers()
 
         viewModel.dispatchViewAction(MovieDetailsViewAction.FetchMovieDetails(args.movieId))
