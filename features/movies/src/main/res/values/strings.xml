@@ -2,4 +2,5 @@
 <resources>
     <string name="desc_movie">movies</string>
     <string name="tmdb_title">TMDb</string>
+    <string name="title_overview">Overview</string>
 </resources>

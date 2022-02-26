@@ -10,4 +10,8 @@
     <style name="SmallTitle" parent="Title">
         <item name="android:textSize">@dimen/small_title_size</item>
     </style>
+
+    <style name="SuperSmallTitle" parent="Title">
+        <item name="android:textSize">@dimen/super_small_title_size</item>
+    </style>
 </resources>

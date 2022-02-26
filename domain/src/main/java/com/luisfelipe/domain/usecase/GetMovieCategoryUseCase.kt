@@ -24,18 +24,24 @@ class GetMovieCategoryUseCase(
         getTopRatedMoviesAsync().await()
         getUpcomingMoviesAsync().await()
 
-        if (error == null) {
-            val tempCategories = getTempCategories()
-            return@coroutineScope Response.Success(tempCategories)
-        } else {
-            categories.clear()
-            return@coroutineScope Response.Error(error ?: Exception())
-        }
+        if (error == null) return@coroutineScope getSuccessResponse()
+        else return@coroutineScope getErrorResponse()
+    }
+
+    private fun getErrorResponse(): Response.Error<List<MovieCategory>> {
+        categories.clear()
+        return Response.Error(error ?: Exception())
+    }
+
+    private fun getSuccessResponse(): Response.Success<List<MovieCategory>> {
+        val tempCategories = getTempCategories()
+        return Response.Success(tempCategories)
     }
 
     private fun getTempCategories(): MutableList<MovieCategory> {
         val tempCategories = mutableListOf<MovieCategory>()
         tempCategories.addAll(categories)
+        
         categories.clear()
 
         return tempCategories
@@ -82,4 +88,3 @@ class GetMovieCategoryUseCase(
         error = exception
     }
 }
-
