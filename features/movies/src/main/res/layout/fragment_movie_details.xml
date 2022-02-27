@@ -17,81 +17,109 @@
         android:visibility="gone"
         tools:visibility="gone" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/success_movie_details_container"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <com.bosphere.fadingedgelayout.FadingEdgeLayout
-            android:id="@+id/imgBackdropContainer"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/success_movie_details_container"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/movie_backdrop_height"
-            app:fel_size_bottom="@dimen/movie_backdrop_fading_edge"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:background="@color/purple_heart">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/imgBackdrop"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
-
-        </com.bosphere.fadingedgelayout.FadingEdgeLayout>
-
-        <TextView
-            android:id="@+id/tvTmdbScore"
-            style="@style/TagTextView"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_vertical_margin"
-            app:layout_constraintEnd_toEndOf="@+id/tvTmdbScoreTitle"
-            app:layout_constraintStart_toStartOf="@+id/tvTmdbScoreTitle"
-            app:layout_constraintTop_toBottomOf="@+id/tvTmdbScoreTitle"
-            tools:text="7.5" />
-
-        <TextView
-            android:id="@+id/tvTmdbScoreTitle"
-            android:layout_width="0dp"
-            style="@style/SuperSmallTitle"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_horizontal_margin"
-            android:text="@string/tmdb_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgBackdropContainer"
-            tools:text="TMDb" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/default_horizontal_margin"
-            android:layout_marginTop="@dimen/default_margin"
-            android:layout_marginEnd="@dimen/default_horizontal_margin"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTmdbScore">
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvOverviewTitle"
-                style="@style/SmallTitle"
-                android:layout_width="match_parent"
+                android:id="@+id/tvTitle"
+                style="@style/Title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/title_overview" />
+                android:layout_margin="@dimen/default_horizontal_margin"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBackdropContainer"
+                app:layout_constraintStart_toStartOf="@+id/imgBackdropContainer"
+                tools:text="Midsommar" />
+
+            <com.bosphere.fadingedgelayout.FadingEdgeLayout
+                android:id="@+id/imgBackdropContainer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/movie_backdrop_height"
+                app:fel_edge="bottom"
+                app:fel_size_bottom="@dimen/movie_backdrop_fading_edge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgBackdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+            </com.bosphere.fadingedgelayout.FadingEdgeLayout>
 
             <TextView
-                android:id="@+id/tvOverview"
-                android:layout_width="match_parent"
+                android:id="@+id/tvTmdbScoreTitle"
+                style="@style/SuperSmallTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_horizontal_margin"
+                android:text="@string/tmdb_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgBackdropContainer"
+                tools:text="TMDb" />
+
+            <TextView
+                android:id="@+id/tvTmdbScore"
+                style="@style/TagTextView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/small_vertical_margin"
-                android:paddingLeft="@dimen/default_padding_for_accessibility"
-                tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
-        </LinearLayout>
+                app:layout_constraintEnd_toEndOf="@+id/tvTmdbScoreTitle"
+                app:layout_constraintStart_toStartOf="@+id/tvTmdbScoreTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTmdbScoreTitle"
+                tools:text="7.5" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_horizontal_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_horizontal_margin"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTmdbScore">
+
+                <TextView
+                    android:id="@+id/tvOverviewTitle"
+                    style="@style/SmallTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_overview" />
+
+                <TextView
+                    android:id="@+id/tvOverview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_vertical_margin"
+                    android:paddingLeft="@dimen/default_padding_for_accessibility"
+                    tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
+
+                <TextView
+                    android:id="@+id/tvCastTitle"
+                    style="@style/SmallTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_vertical_margin"
+                    android:text="@string/title_cast" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_vertical_margin" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

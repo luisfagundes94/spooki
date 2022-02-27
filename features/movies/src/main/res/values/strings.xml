@@ -3,4 +3,5 @@
     <string name="desc_movie">movies</string>
     <string name="tmdb_title">TMDb</string>
     <string name="title_overview">Overview</string>
+    <string name="title_cast">Cast</string>
 </resources>

@@ -2,12 +2,16 @@ package com.luisfelipe.spooki
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.luisfelipe.extensions.hideVisibility
+import com.luisfelipe.extensions.showVisibility
 import com.luisfelipe.spooki.databinding.ActivityNavigationBinding
 
 class NavigationActivity : AppCompatActivity() {
@@ -33,8 +37,22 @@ class NavigationActivity : AppCompatActivity() {
             )
         )
 
+        setupImmersiveView(navController, bottomNavView)
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavView.setupWithNavController(navController)
+    }
+
+    private fun setupImmersiveView(
+        navController: NavController,
+        bottomNavView: BottomNavigationView
+    ) {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                com.luisfelipe.movies.R.id.movieDetailsFragment -> bottomNavView.hideVisibility()
+                else -> bottomNavView.showVisibility()
+            }
+        }
     }
 
     private fun setViewBinding() {
