@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.annotation.IdRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.luisfelipe.extensions.hideVisibility
@@ -83,12 +84,6 @@ abstract class BaseFragment<Binding : ViewBinding>(
         loadingView.hideVisibility()
     }
 
-    protected fun Fragment.onBackPressed(action: () -> Unit) {
-        requireActivity().onBackPressedDispatcher.addCallback(requireActivity(), object :
-            OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                action.invoke()
-            }
-        })
-    }
+    open fun setupUpActionButton() =
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 }
