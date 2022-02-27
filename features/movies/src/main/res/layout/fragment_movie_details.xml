@@ -27,16 +27,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvTitle"
-                style="@style/Title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_horizontal_margin"
-                app:layout_constraintBottom_toBottomOf="@+id/imgBackdropContainer"
-                app:layout_constraintStart_toStartOf="@+id/imgBackdropContainer"
-                tools:text="Midsommar" />
-
             <com.bosphere.fadingedgelayout.FadingEdgeLayout
                 android:id="@+id/imgBackdropContainer"
                 android:layout_width="match_parent"
@@ -53,6 +43,18 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop" />
             </com.bosphere.fadingedgelayout.FadingEdgeLayout>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_horizontal_margin"
+                android:gravity="start"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBackdropContainer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/imgBackdropContainer"
+                tools:text="Midsommar" />
 
             <TextView
                 android:id="@+id/tvTmdbScoreTitle"
