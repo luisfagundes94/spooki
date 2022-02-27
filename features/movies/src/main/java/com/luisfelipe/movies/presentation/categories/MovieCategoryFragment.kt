@@ -66,7 +66,8 @@ class MovieCategoryFragment : BaseFragment<FragmentMovieCategoryBinding>(
     }
 
     private fun navigateToMovieDetails(id: Int) {
-        val destination = MovieCategoryFragmentDirections.navigateToMovieDetails(id)
+        val destination = MovieCategoryFragmentDirections
+            .actionMovieCategoryFragmentToMovieDetailsFragment(id)
         findNavController().navigate(destination)
     }
 }

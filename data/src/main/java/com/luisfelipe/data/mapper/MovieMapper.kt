@@ -3,6 +3,7 @@ package com.luisfelipe.data.mapper
 import com.luisfelipe.base.Response
 import com.luisfelipe.data.model.MovieResponse
 import com.luisfelipe.domain.model.Movie
+import com.luisfelipe.extensions.empty
 
 object MovieMapper {
 
@@ -23,7 +24,7 @@ object MovieMapper {
         return Movie(
             id = this.id,
             imageUrl = BASE_IMAGE_URL + this.imageUrl,
-            title = this.title ?: ""
+            title = this.title ?: String.empty()
         )
     }
 }

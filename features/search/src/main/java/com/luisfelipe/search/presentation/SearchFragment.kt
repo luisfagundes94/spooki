@@ -4,14 +4,16 @@ import android.widget.ImageView
 import com.luisfelipe.base.BaseFragment
 import com.luisfelipe.base.BaseViewState
 import android.widget.SearchView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.luisfelipe.extensions.emptyString
+import com.luisfelipe.extensions.empty
 import com.luisfelipe.extensions.observe
 import com.luisfelipe.search.R
 import com.luisfelipe.search.databinding.FragmentSearchBinding
 import com.luisfelipe.utils.GridSpacingItemDecoration
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(
     successViewId = R.id.search_success_container,
@@ -20,7 +22,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
 ) {
 
     private val viewModel: SearchViewModel by viewModel()
-    private val searchMovieAdapter: SearchMovieAdapter by inject()
+    private val searchMovieAdapter: SearchMovieAdapter by inject {
+        parametersOf({ id: Int -> navigateToMovieDetails(id) })
+    }
 
     override fun onBind() = FragmentSearchBinding.inflate(layoutInflater)
 
@@ -92,7 +96,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
     }
 
     private fun SearchView.setDefaultSearchViewState() {
-        setQuery(emptyString(), false)
+        setQuery(String.empty(), false)
         clearFocus()
     }
 
@@ -119,6 +123,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
             searchMovieAdapter.itemCount,
         )
         view?.announceForAccessibility(message)
+    }
+
+    private fun navigateToMovieDetails(id: Int) {
+        val destination = SearchFragmentDirections
+            .actionSearchFragmentToMovieDetailsFragment(id)
+        findNavController().navigate(destination)
     }
 
     override fun showError() = with(binding.searchErrorContainer) {

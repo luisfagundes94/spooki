@@ -9,6 +9,20 @@
         android:id="@+id/searchFragment"
         android:name="com.luisfelipe.search.presentation.SearchFragment"
         android:label="@string/title_search"
-        label:layout="@layout/fragment_search" />
+        label:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/action_searchFragment_to_movieDetailsFragment"
+            app:destination="@+id/movie_details_navigation">
+
+
+            <argument
+                android:name="movieId"
+                app:argType="integer" />
+        </action>
+
+    </fragment>
+
+    <include app:graph="@navigation/movie_details_navigation" />
 
 </navigation>

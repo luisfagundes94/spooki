@@ -4,6 +4,7 @@ import com.luisfelipe.buildSrc.Dependencies
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 apply(from = "${rootProject.rootDir}/base_dependencies.gradle")

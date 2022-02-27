@@ -12,19 +12,16 @@
         tools:layout="@layout/fragment_movie_category">
 
         <action
-            android:id="@+id/navigateToMovieDetails"
-            app:destination="@id/movieDetailsFragment" />
+            android:id="@+id/action_movieCategoryFragment_to_movieDetailsFragment"
+            app:destination="@id/movie_details_navigation">
+
+            <argument
+                android:name="movieId"
+                app:argType="integer" />
+        </action>
+
     </fragment>
 
-    <fragment
-        android:id="@+id/movieDetailsFragment"
-        android:name="com.luisfelipe.movies.presentation.details.MovieDetailsFragment"
-        android:label="@string/title_movie_details"
-        tools:layout="@layout/fragment_movie_details">
-
-        <argument
-            android:name="movieId"
-            app:argType="integer" />
-    </fragment>
+    <include app:graph="@navigation/movie_details_navigation" />
 
 </navigation>

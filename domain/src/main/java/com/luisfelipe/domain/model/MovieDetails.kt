@@ -11,5 +11,6 @@ data class MovieDetails(
     val popularity: Float,
     val status: String,
     val voteAverage: Float,
-    val voteCount: Int
+    val voteCount: Int,
+    val releaseDate: String?
 )

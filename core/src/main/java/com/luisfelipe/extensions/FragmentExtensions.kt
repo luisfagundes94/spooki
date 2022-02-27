@@ -38,5 +38,3 @@ fun Fragment.showToast(message: String, duration: Int = Toast.LENGTH_SHORT) =
 
 fun Fragment.showToast(messageList: List<CharSequence>, duration: Int = Toast.LENGTH_SHORT) =
     Toast.makeText(requireContext(), messageList.toString(), duration).show()
-
-fun Fragment.emptyString() = ""

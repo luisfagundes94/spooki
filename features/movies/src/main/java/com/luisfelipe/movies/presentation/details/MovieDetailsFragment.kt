@@ -4,6 +4,7 @@ import androidx.navigation.fragment.navArgs
 import com.luisfelipe.base.BaseFragment
 import com.luisfelipe.base.BaseViewState
 import com.luisfelipe.domain.model.MovieDetails
+import com.luisfelipe.extensions.loadPoster
 import com.luisfelipe.extensions.observe
 import com.luisfelipe.movies.R
 import com.luisfelipe.movies.databinding.FragmentMovieDetailsBinding
@@ -48,6 +49,8 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>(
 
     private fun setupMovieDetails(movie: MovieDetails) = with(binding) {
         tvTitle.text = movie.title
+        tvReleaseDate.text = movie.releaseDate
+        imgPoster.imgPoster.loadPoster(movie.posterUrl)
         tvTmdbScore.text = movie.voteAverage.toString()
         tvOverview.text = movie.overview
         imgBackdrop.loadBackdrop(movie.backDropUrl)

@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 
 fun Context.requireString(any: Any?): String = when (any) {
-    null -> ""
+    null -> String.empty()
     is Int -> try {
         getString(any)
     } catch (exception: Resources.NotFoundException) {

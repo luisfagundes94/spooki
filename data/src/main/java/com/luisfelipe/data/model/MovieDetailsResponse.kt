@@ -15,5 +15,6 @@ data class MovieDetailsResponse(
     @SerializedName("imdb_id") val imdbId: String,
     @SerializedName("status") val status: String,
     @SerializedName("vote_average") val voteAverage: Float,
-    @SerializedName("vote_count") val voteCount: Int
+    @SerializedName("vote_count") val voteCount: Int,
+    @SerializedName("release_date") val releaseDate: String?
 )

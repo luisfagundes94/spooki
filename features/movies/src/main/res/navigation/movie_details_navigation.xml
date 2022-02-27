@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movie_details_navigation"
+    app:startDestination="@id/movieDetailsFragment">
+
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.luisfelipe.movies.presentation.details.MovieDetailsFragment"
+        android:label="@string/title_movie_details"
+        tools:layout="@layout/fragment_movie_details">
+
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>

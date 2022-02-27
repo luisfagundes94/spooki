@@ -10,7 +10,9 @@ import org.koin.dsl.module
 val searchModule = module {
 
     // Adapters
-    factory { SearchMovieAdapter() }
+    factory { (navigateToMovieDetails: ((id: Int) -> Unit)) ->
+        SearchMovieAdapter(navigateToMovieDetails)
+    }
 
     // ViewModels
     viewModel { SearchViewModel(get()) }
