@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.luisfelipe.profile.presentation.ProfileFragment"
+        android:name="com.luisfagundes.profile.presentation.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/profile_fragment" />
 

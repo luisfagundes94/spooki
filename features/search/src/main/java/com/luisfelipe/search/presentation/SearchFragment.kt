@@ -1,16 +1,18 @@
 package com.luisfelipe.search.presentation
 
+import android.view.Menu
+import android.view.MenuInflater
 import android.widget.ImageView
-import com.luisfelipe.base.BaseFragment
-import com.luisfelipe.base.BaseViewState
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.luisfelipe.extensions.empty
-import com.luisfelipe.extensions.observe
+import com.luisfagundes.base.BaseFragment
+import com.luisfagundes.base.BaseViewState
+import com.luisfagundes.extensions.hideVisibility
+import com.luisfagundes.extensions.observe
 import com.luisfelipe.search.R
 import com.luisfelipe.search.databinding.FragmentSearchBinding
-import com.luisfelipe.utils.GridSpacingItemDecoration
+import com.luisfagundes.utils.GridSpacingItemDecoration
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -33,8 +35,43 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
         setupObservers()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.search_menu, menu)
+
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView?
+
+        searchView?.setupSearchView()
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    private fun SearchView.setupSearchView() {
+        queryHint = getString(R.string.hint_search_movies)
+
+        setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let {
+                    viewModel.dispatchViewAction(
+                        SearchViewAction.SearchMoviesAndTvShows(query = it)
+                    )
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(query: String?): Boolean {
+                query?.let {
+                    viewModel.dispatchViewAction(
+                        SearchViewAction.SearchMoviesAndTvShows(query = it)
+                    )
+                }
+                return false
+            }
+        })
+    }
+
     private fun setupViews() {
-        setupSearchView()
+        setHasOptionsMenu(true)
         setupRecyclerView()
     }
 
@@ -56,48 +93,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
         setHasFixedSize(true)
         this.layoutManager = layoutManager
         this.adapter = searchMovieAdapter
-    }
-
-    private fun setupSearchView() = with(binding.svRecipes) {
-        setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let {
-                    viewModel.dispatchViewAction(
-                        SearchViewAction.SearchMoviesAndTvShows(query = it)
-                    )
-                }
-                return false
-            }
-
-            override fun onQueryTextChange(query: String?): Boolean {
-                query?.let {
-                    viewModel.dispatchViewAction(
-                        SearchViewAction.SearchMoviesAndTvShows(query = it)
-                    )
-                }
-                return false
-            }
-        })
-
-        setupSearchViewCloseButtonListener()
-    }
-
-    private fun SearchView.setupSearchViewCloseButtonListener() {
-        val searchViewCloseButtonId = requireContext().resources.getIdentifier(
-            SEARCH_VIEW_CLOSE_BUTTON_DEFAULT_ID,
-            null,
-            null
-        )
-        val searchViewCloseButton = findViewById<ImageView>(searchViewCloseButtonId)
-
-        searchViewCloseButton.setOnClickListener {
-            setDefaultSearchViewState()
-        }
-    }
-
-    private fun SearchView.setDefaultSearchViewState() {
-        setQuery(String.empty(), false)
-        clearFocus()
     }
 
     private fun setupObservers() {
@@ -136,7 +131,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
     }
 
     private companion object {
-        const val SEARCH_VIEW_CLOSE_BUTTON_DEFAULT_ID = "android:id/search_close_btn"
         const val DEFAULT_ITEM_SPAN_COUNT = 3
     }
 }

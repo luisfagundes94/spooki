@@ -3,25 +3,25 @@ package com.luisfelipe.search.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.luisfelipe.domain.model.Movie
-import com.luisfelipe.extensions.loadPoster
+import com.luisfagundes.domain.model.Movie
+import com.luisfagundes.extensions.loadPoster
 import com.luisfelipe.search.databinding.SearchMovieItemBinding
 
 class SearchMovieAdapter(
     private val navigateToMovieDetails: (Int) -> Unit
 ): RecyclerView.Adapter<SearchMovieAdapter.ViewHolder>() {
 
-    private val medias = mutableListOf<Movie>()
+    private val movies = mutableListOf<Movie>()
 
     fun updateList(movies: List<Movie>) {
-        this.medias.clear()
-        this.medias.addAll(movies)
+        this.movies.clear()
+        this.movies.addAll(movies)
 
         notifyDataSetChanged()
     }
 
     fun clearMediaList() {
-        this.medias.clear()
+        this.movies.clear()
 
         notifyDataSetChanged()
     }
@@ -32,10 +32,10 @@ class SearchMovieAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(medias[position])
+        holder.bind(movies[position])
     }
 
-    override fun getItemCount() = medias.count()
+    override fun getItemCount() = movies.count()
 
     class ViewHolder(
         private val navigateToMovieDetails: (Int) -> Unit,

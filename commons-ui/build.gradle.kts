@@ -1,3 +1,5 @@
+import com.luisfelipe.buildSrc.Dependencies
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -13,4 +15,7 @@ android {
 
 dependencies {
     implementation(project(":domain"))
+
+    // UI
+    implementation(Dependencies.UI.picasso)
 }

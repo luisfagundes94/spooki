@@ -1,8 +1,8 @@
 package com.luisfelipe.search.domain.usecase
 
-import com.luisfelipe.base.Response
-import com.luisfelipe.domain.model.Movie
-import com.luisfelipe.domain.repository.MovieRepository
+import com.luisfagundes.base.Response
+import com.luisfagundes.domain.model.Movie
+import com.luisfagundes.domain.repository.MovieRepository
 
 class SearchMoviesUseCase(
     private val movieRepository: MovieRepository,

@@ -1,10 +1,11 @@
 package com.luisfelipe.domain.usecase
 
-import com.luisfelipe.base.Response
-import com.luisfelipe.domain.factory.MovieCategoryFactory
-import com.luisfelipe.domain.model.Movie
-import com.luisfelipe.domain.model.MovieCategory
-import com.luisfelipe.domain.repository.MovieRepository
+import com.luisfagundes.base.Response
+import com.luisfagundes.domain.factory.MovieCategoryFactory
+import com.luisfagundes.domain.model.Movie
+import com.luisfagundes.domain.model.MovieCategory
+import com.luisfagundes.domain.repository.MovieRepository
+import com.luisfagundes.domain.usecase.GetMovieCategoryUseCase
 import io.mockk.coEvery
 import io.mockk.coVerifySequence
 import io.mockk.mockk
@@ -29,7 +30,7 @@ class GetMovieCategoryUseCaseTest {
     }
 
     @Test
-    fun `SHOULD delegate call to repository WHEN executed`() = runBlockingTest {
+    fun `SHOULD delegate call to repository WHEN invoked`() = runBlockingTest {
         // Arrange
         val response: Response<List<Movie>> = mockk()
 
@@ -53,7 +54,7 @@ class GetMovieCategoryUseCaseTest {
     }
 
     @Test
-    fun `SHOULD return success WHEN executed`() = runBlockingTest {
+    fun `SHOULD return success WHEN invoked`() = runBlockingTest {
         // Arrange
         val movies: List<Movie> = mockk()
         val response = Response.Success(movies)
@@ -75,7 +76,7 @@ class GetMovieCategoryUseCaseTest {
     }
 
     @Test
-    fun `SHOULD return error WHEN executed`() = runBlockingTest {
+    fun `SHOULD return error WHEN invoked`() = runBlockingTest {
         // Arrange
         val exception: Exception = mockk()
         val response = Response.Error<List<Movie>>(exception)

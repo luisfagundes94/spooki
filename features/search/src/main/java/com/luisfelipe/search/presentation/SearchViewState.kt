@@ -1,8 +1,9 @@
 package com.luisfelipe.search.presentation
 
 import androidx.lifecycle.MutableLiveData
-import com.luisfelipe.base.BaseViewState
+import com.luisfagundes.base.BaseViewState
+import com.luisfagundes.domain.model.Movie
 
 class SearchViewState : BaseViewState() {
-    val movies = MutableLiveData<List<com.luisfelipe.domain.model.Movie>>()
+    val movies = MutableLiveData<List<Movie>>()
 }

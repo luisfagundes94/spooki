@@ -2,11 +2,13 @@ package com.luisfelipe.movies.presentation.categories
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.luisfelipe.base.BaseViewState
-import com.luisfelipe.base.Response
-import com.luisfelipe.common_testing.utils.CoroutinesTestRule
-import com.luisfelipe.domain.model.MovieCategory
-import com.luisfelipe.domain.usecase.GetMovieCategoryUseCase
+import com.luisfagundes.base.BaseViewState
+import com.luisfagundes.base.Response
+import com.luisfagundes.common_testing.utils.CoroutinesTestRule
+import com.luisfagundes.domain.model.MovieCategory
+import com.luisfagundes.domain.usecase.GetMovieCategoryUseCase
+import com.luisfagundes.movies.presentation.categories.MovieCategoriesViewAction
+import com.luisfagundes.movies.presentation.categories.MovieCategoryViewModel
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

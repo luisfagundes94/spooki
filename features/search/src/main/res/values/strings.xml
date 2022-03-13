@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="search_movies_and_tv_shows">Search movies, shows…</string>
+    <string name="hint_search_movies">Search movies…</string>
+    <string name="empty_movies">Search for specific movies</string>
     <plurals name="items_found">
         <item quantity="one">%s item found</item>
         <item quantity="few">%s items found</item>

@@ -1,8 +1,8 @@
 package com.luisfelipe.search.presentation
 
-import com.luisfelipe.base.BaseViewModel
-import com.luisfelipe.base.BaseViewState
-import com.luisfelipe.domain.model.Movie
+import com.luisfagundes.base.BaseViewModel
+import com.luisfagundes.base.BaseViewState
+import com.luisfagundes.domain.model.Movie
 import com.luisfelipe.search.domain.usecase.SearchMoviesUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

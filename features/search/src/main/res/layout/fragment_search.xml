@@ -5,20 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <SearchView
-        android:id="@+id/sv_recipes"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/mine_shaft"
-        android:iconifiedByDefault="false"
-        android:queryBackground="@android:color/transparent"
-        android:queryHint="@string/search_movies_and_tv_shows" />
-
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/search_success_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:visibility="gone"
         tools:visibility="visible">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -27,6 +19,8 @@
             android:layout_height="wrap_content" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <include layout="@layout/empty" />
 
     <include
         android:id="@+id/search_loading_container"

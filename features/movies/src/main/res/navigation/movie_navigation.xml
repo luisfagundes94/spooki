@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/movieCategoryFragment"
-        android:name="com.luisfelipe.movies.presentation.categories.MovieCategoryFragment"
+        android:name="com.luisfagundes.movies.presentation.categories.MovieCategoryFragment"
         android:label="@string/title_movies"
         tools:layout="@layout/fragment_movie_category">
 

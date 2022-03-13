@@ -15,7 +15,6 @@
             android:id="@+id/action_searchFragment_to_movieDetailsFragment"
             app:destination="@+id/movie_details_navigation">
 
-
             <argument
                 android:name="movieId"
                 app:argType="integer" />
