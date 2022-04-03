@@ -2,16 +2,10 @@ package com.luisfagundes.extensions
 
 import com.luisfagundes.base.Response
 
-fun <T> List<Response<List<T>>>.mergeResponses(): Response<List<T>> {
-    val responseList = mutableListOf<T>()
+fun <T> Response<T>.getResponse(): Response<T> =
+    getValue()?.let { Response.Success(it) }
+        ?: Response.Error(getError() ?: Exception())
 
-    this.forEach { response ->
-        if (response.isError()) return Response.Error(response.getError() ?: Exception())
-
-        response.getValue()?.let {
-            responseList.addAll(it)
-        }
-    }
-
-    return Response.Success(responseList)
-}
+fun <T> Response<T>.getResponse(onSuccess: (Any) -> T): Response<T> =
+    getValue()?.let { Response.Success(onSuccess.invoke(it)) }
+        ?: Response.Error(getError() ?: Exception())
