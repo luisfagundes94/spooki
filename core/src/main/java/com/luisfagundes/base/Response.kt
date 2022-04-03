@@ -24,11 +24,6 @@ sealed class Response<T> {
             is Error -> onError(getError())
         }
 
-    fun getResponse(): Response<T?> {
-        return if (isSuccess()) Success(getValue())
-        else Error(getError() ?: Exception())
-    }
-
     companion object {
         suspend fun <V : Any> of(suspendFunction: suspend () -> V): Response<V> = try {
             val value = suspendFunction()
