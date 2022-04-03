@@ -18,8 +18,8 @@ class GetMovieDetailsUseCase(
     }
 
     private fun Response<MovieDetails>.getResponseWithCast(cast: List<Actor>) =
-        if (isSuccess()) Response.Success(getMovieDetailsWithCast(getValue()!!, cast))
-        else Response.Error(getError() ?: Exception())
+        getValue()?.let { Response.Success(getMovieDetailsWithCast(it, cast)) }
+            ?: Response.Error(getError() ?: Exception())
 
     private fun getMovieDetailsWithCast(
         movieDetails: MovieDetails,
