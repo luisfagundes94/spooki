@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.luisfelipe.commons_ui.R
-import com.luisfelipe.commons_ui.databinding.MovieCategoryBinding
+import com.luisfagundes.commons_ui.R
+import com.luisfagundes.commons_ui.databinding.MovieCategoryBinding
 import com.luisfagundes.domain.model.MovieCategory
 import com.luisfagundes.extensions.dp
 import com.luisfagundes.extensions.readAs

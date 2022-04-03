@@ -1,7 +1,7 @@
 package com.luisfagundes.movies.utils
 
 import android.widget.ImageView
-import com.luisfelipe.movies.R
+import com.luisfagundes.movies.R
 import com.squareup.picasso.Picasso
 
 fun ImageView.loadBackdrop(url: String?) = Picasso

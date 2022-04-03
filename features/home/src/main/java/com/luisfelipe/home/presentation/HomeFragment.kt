@@ -1,10 +1,10 @@
-package com.luisfelipe.home.presentation
+package com.luisfagundes.home.presentation
 
 import androidx.fragment.app.commit
-import com.luisfelipe.base.BaseFragment
-import com.luisfelipe.home.R
-import com.luisfelipe.home.databinding.FragmentHomeBinding
-import com.luisfelipe.movies.presentation.categories.MovieCategoryFragment
+import com.luisfagundes.base.BaseFragment
+import com.luisfagundes.home.R
+import com.luisfagundes.home.databinding.FragmentHomeBinding
+import com.luisfagundes.movies.presentation.categories.MovieCategoryFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(
     successViewId = R.id.home_success_container,

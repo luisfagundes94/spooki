@@ -1,4 +1,4 @@
-import com.luisfelipe.buildSrc.Dependencies
+import com.luisfagundes.buildSrc.Dependencies
 
 plugins {
     id("com.android.library")
@@ -7,7 +7,7 @@ plugins {
 
 android {
     defaultConfig {
-        compileSdk = com.luisfelipe.buildSrc.Versions.compileSdk
+        compileSdk = com.luisfagundes.buildSrc.Versions.compileSdk
     }
 }
 

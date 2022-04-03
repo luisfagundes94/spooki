@@ -1,6 +1,6 @@
 package com.luisfagundes.domain.enum
 
-import com.luisfelipe.domain.R
+import com.luisfagundes.domain.R
 
 
 enum class MovieCategoryType {

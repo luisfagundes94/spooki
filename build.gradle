@@ -1,4 +1,4 @@
-import com.luisfelipe.buildSrc.Dependencies
+import com.luisfagundes.buildSrc.Dependencies
 
 buildscript {
     dependencies {

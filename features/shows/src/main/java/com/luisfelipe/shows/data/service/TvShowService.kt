@@ -1,4 +1,4 @@
-package com.luisfelipe.shows.data.service
+package com.luisfagundes.shows.data.service
 
 interface TvShowService {
 }

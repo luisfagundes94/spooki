@@ -1,8 +1,8 @@
-package com.luisfelipe.shows.presentation.categories
+package com.luisfagundes.shows.presentation.categories
 
-import com.luisfelipe.base.BaseFragment
-import com.luisfelipe.shows.R
-import com.luisfelipe.shows.databinding.FragmentShowCategoriesBinding
+import com.luisfagundes.base.BaseFragment
+import com.luisfagundes.shows.R
+import com.luisfagundes.shows.databinding.FragmentShowCategoriesBinding
 
 class ShowCategoriesFragment : BaseFragment<FragmentShowCategoriesBinding>(
     successViewId = R.id.show_categories_success_container,

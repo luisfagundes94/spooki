@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.luisfagundes.domain.model.Actor
 import com.luisfagundes.extensions.load
 import com.luisfagundes.extensions.loadPoster
-import com.luisfelipe.movies.databinding.CastItemBinding
+import com.luisfagundes.movies.databinding.CastItemBinding
 
 class CastAdapter : RecyclerView.Adapter<CastAdapter.ViewHolder>() {
 

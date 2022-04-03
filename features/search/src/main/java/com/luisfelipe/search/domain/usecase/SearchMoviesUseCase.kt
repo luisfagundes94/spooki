@@ -1,4 +1,4 @@
-package com.luisfelipe.search.domain.usecase
+package com.luisfagundes.search.domain.usecase
 
 import com.luisfagundes.base.Response
 import com.luisfagundes.domain.model.Movie

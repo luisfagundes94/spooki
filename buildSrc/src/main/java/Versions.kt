@@ -1,9 +1,9 @@
-package com.luisfelipe.buildSrc
+package com.luisfagundes.buildSrc
 
 object Versions {
 
     // Build.Gradle Config
-    const val appId = "com.luisfelipe.spooki"
+    const val appId = "com.luisfagundes.spooki"
     const val compileSdk = 31
     const val buildTools = "31.0.0"
     const val jvmTargetVersion = "1.8"

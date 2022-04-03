@@ -1,4 +1,4 @@
-package com.luisfelipe.spooki
+package com.luisfagundes.spooki
 
 import org.junit.Test
 

@@ -3,7 +3,7 @@ package com.luisfagundes.data.di
 import android.util.Log
 import com.ihsanbal.logging.Level
 import com.ihsanbal.logging.LoggingInterceptor
-import com.luisfelipe.data.BuildConfig
+import com.luisfagundes.data.BuildConfig
 import com.luisfagundes.data.repository.MovieRepositoryImpl
 import com.luisfagundes.data.service.MovieService
 import com.luisfagundes.domain.repository.MovieRepository

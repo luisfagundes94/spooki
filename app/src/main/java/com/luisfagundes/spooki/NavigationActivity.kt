@@ -12,8 +12,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.luisfagundes.extensions.hideVisibility
 import com.luisfagundes.extensions.showVisibility
-import com.luisfelipe.spooki.R
-import com.luisfelipe.spooki.databinding.ActivityNavigationBinding
+import com.luisfagundes.spooki.R
+import com.luisfagundes.spooki.databinding.ActivityNavigationBinding
 
 class NavigationActivity : AppCompatActivity() {
 
@@ -50,7 +50,7 @@ class NavigationActivity : AppCompatActivity() {
     ) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                com.luisfelipe.movies.R.id.movieDetailsFragment -> bottomNavView.hideVisibility()
+                com.luisfagundes.movies.R.id.movieDetailsFragment -> bottomNavView.hideVisibility()
                 else -> bottomNavView.showVisibility()
             }
         }

@@ -1,6 +1,6 @@
 package com.luisfagundes.common_testing.utils
 
-import com.luisfelipe.DispatcherProvider
+import com.luisfagundes.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

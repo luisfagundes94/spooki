@@ -1,4 +1,4 @@
-package com.luisfelipe.search.presentation
+package com.luisfagundes.search.presentation
 
 import androidx.lifecycle.MutableLiveData
 import com.luisfagundes.base.BaseViewState

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/savedFragment"
-        android:name="com.luisfelipe.saved.presentation.SavedFragment"
+        android:name="com.luisfagundes.saved.presentation.SavedFragment"
         android:label="@string/title_saved"
         tools:layout="@layout/fragment_saved" />
 

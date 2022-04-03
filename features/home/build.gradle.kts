@@ -1,4 +1,4 @@
-import com.luisfelipe.buildSrc.Versions
+import com.luisfagundes.buildSrc.Versions
 
 apply(from = "${rootProject.rootDir}/base_dependencies.gradle")
 

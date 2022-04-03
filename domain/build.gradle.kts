@@ -1,4 +1,4 @@
-com.luisfelipe.buildSrc.Versions
+com.luisfagundes.buildSrc.Versions
 
 plugins {
     id("com.android.library")
@@ -9,6 +9,6 @@ apply(from = "${rootProject.rootDir}/base_dependencies.gradle")
 
 android {
     defaultConfig {
-        minSdk = com.luisfelipe.buildSrc.Versions.minSdk
+        minSdk = com.luisfagundes.buildSrc.Versions.minSdk
     }
 }

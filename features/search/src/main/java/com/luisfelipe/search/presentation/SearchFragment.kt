@@ -1,4 +1,4 @@
-package com.luisfelipe.search.presentation
+package com.luisfagundes.search.presentation
 
 import android.view.Menu
 import android.view.MenuInflater
@@ -10,8 +10,8 @@ import com.luisfagundes.base.BaseFragment
 import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.extensions.hideVisibility
 import com.luisfagundes.extensions.observe
-import com.luisfelipe.search.R
-import com.luisfelipe.search.databinding.FragmentSearchBinding
+import com.luisfagundes.search.R
+import com.luisfagundes.search.databinding.FragmentSearchBinding
 import com.luisfagundes.utils.GridSpacingItemDecoration
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel

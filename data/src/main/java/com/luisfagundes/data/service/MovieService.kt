@@ -1,6 +1,6 @@
 package com.luisfagundes.data.service
 
-import com.luisfelipe.data.BuildConfig
+import com.luisfagundes.data.BuildConfig
 import com.luisfagundes.data.model.CastResponse
 import com.luisfagundes.data.model.MovieDetailsResponse
 import com.luisfagundes.data.model.MovieResultsResponse

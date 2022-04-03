@@ -1,7 +1,7 @@
 package com.luisfagundes.commons_ui
 
 import android.widget.ImageView
-import com.luisfelipe.base.R
+import com.luisfagundes.base.R
 import com.squareup.picasso.Picasso
 
 fun ImageView.loadLogo(url: String?) = Picasso

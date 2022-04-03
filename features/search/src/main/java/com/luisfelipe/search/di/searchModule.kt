@@ -1,8 +1,8 @@
-package com.luisfelipe.search.di
+package com.luisfagundes.search.di
 
-import com.luisfelipe.search.domain.usecase.SearchMoviesUseCase
-import com.luisfelipe.search.presentation.SearchMovieAdapter
-import com.luisfelipe.search.presentation.SearchViewModel
+import com.luisfagundes.search.domain.usecase.SearchMoviesUseCase
+import com.luisfagundes.search.presentation.SearchMovieAdapter
+import com.luisfagundes.search.presentation.SearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

@@ -1,11 +1,11 @@
-package com.luisfelipe.search.presentation
+package com.luisfagundes.search.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.extensions.loadPoster
-import com.luisfelipe.search.databinding.SearchMovieItemBinding
+import com.luisfagundes.search.databinding.SearchMovieItemBinding
 
 class SearchMovieAdapter(
     private val navigateToMovieDetails: (Int) -> Unit

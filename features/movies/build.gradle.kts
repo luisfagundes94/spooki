@@ -1,5 +1,5 @@
-import com.luisfelipe.buildSrc.Versions
-import com.luisfelipe.buildSrc.Dependencies
+import com.luisfagundes.buildSrc.Versions
+import com.luisfagundes.buildSrc.Dependencies
 
 plugins {
     id("com.android.library")

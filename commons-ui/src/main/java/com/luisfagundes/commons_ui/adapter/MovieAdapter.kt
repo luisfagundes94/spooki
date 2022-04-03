@@ -3,7 +3,7 @@ package com.luisfagundes.commons_ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.luisfelipe.commons_ui.databinding.MovieItemBinding
+import com.luisfagundes.commons_ui.databinding.MovieItemBinding
 import com.luisfagundes.extensions.load
 import com.luisfagundes.domain.model.Movie
 

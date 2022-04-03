@@ -1,4 +1,4 @@
-package com.luisfelipe.buildSrc
+package com.luisfagundes.buildSrc
 
 object Dependencies {
 

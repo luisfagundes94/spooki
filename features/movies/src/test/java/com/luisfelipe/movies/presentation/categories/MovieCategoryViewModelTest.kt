@@ -1,4 +1,4 @@
-package com.luisfelipe.movies.presentation.categories
+package com.luisfagundes.movies.presentation.categories
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer

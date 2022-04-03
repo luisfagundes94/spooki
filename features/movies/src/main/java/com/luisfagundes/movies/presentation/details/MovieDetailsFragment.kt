@@ -7,8 +7,8 @@ import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.domain.model.MovieDetails
 import com.luisfagundes.extensions.loadPoster
 import com.luisfagundes.extensions.observe
-import com.luisfelipe.movies.R
-import com.luisfelipe.movies.databinding.FragmentMovieDetailsBinding
+import com.luisfagundes.movies.R
+import com.luisfagundes.movies.databinding.FragmentMovieDetailsBinding
 import com.luisfagundes.movies.presentation.details.adapter.CastAdapter
 import com.luisfagundes.movies.utils.loadBackdrop
 import org.koin.android.ext.android.inject

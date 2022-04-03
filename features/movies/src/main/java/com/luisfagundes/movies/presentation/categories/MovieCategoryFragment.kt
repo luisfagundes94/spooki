@@ -6,8 +6,8 @@ import com.luisfagundes.base.BaseFragment
 import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.commons_ui.adapter.MovieCategoryAdapter
 import com.luisfagundes.extensions.observe
-import com.luisfelipe.movies.R
-import com.luisfelipe.movies.databinding.FragmentMovieCategoryBinding
+import com.luisfagundes.movies.R
+import com.luisfagundes.movies.databinding.FragmentMovieCategoryBinding
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf

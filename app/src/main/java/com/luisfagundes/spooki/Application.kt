@@ -6,8 +6,7 @@ import com.luisfagundes.data.di.dataModule
 import com.luisfagundes.domain.di.domainModule
 import com.luisfagundes.movies.di.movieCategoryModule
 import com.luisfagundes.movies.di.movieDetailsModule
-import com.luisfelipe.search.di.searchModule
-import com.luisfelipe.spooki.BuildConfig
+import com.luisfagundes.search.di.searchModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.logger.AndroidLogger
 import org.koin.core.context.startKoin

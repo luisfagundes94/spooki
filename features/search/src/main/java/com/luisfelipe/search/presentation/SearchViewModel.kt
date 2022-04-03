@@ -1,9 +1,9 @@
-package com.luisfelipe.search.presentation
+package com.luisfagundes.search.presentation
 
 import com.luisfagundes.base.BaseViewModel
 import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.domain.model.Movie
-import com.luisfelipe.search.domain.usecase.SearchMoviesUseCase
+import com.luisfagundes.search.domain.usecase.SearchMoviesUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import timber.log.Timber

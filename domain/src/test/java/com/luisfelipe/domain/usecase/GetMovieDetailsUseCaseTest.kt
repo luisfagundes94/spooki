@@ -1,4 +1,4 @@
-package com.luisfelipe.domain.usecase
+package com.luisfagundes.domain.usecase
 
 import com.luisfagundes.base.Response
 import com.luisfagundes.domain.model.Actor
