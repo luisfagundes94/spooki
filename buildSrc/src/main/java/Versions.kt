@@ -10,7 +10,7 @@ object Versions {
     const val minSdk = 21
     const val targetSdk = 30
     const val versionCode = 1
-    const val versionName = "1.0"
+    const val versionName = "0.5.0"
     const val ktlint = "0.43.2"
     const val gradle = "7.0.4"
 
