@@ -1,11 +1,10 @@
 package com.luisfagundes.domain.usecase
 
 import com.luisfagundes.base.Response
-import com.luisfagundes.domain.factory.MovieCategoryFactory
+import com.luisfagundes.domain.factory.MovieCategoryRepositoryFactory
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.domain.model.MovieCategory
 import com.luisfagundes.domain.repository.MovieRepository
-import com.luisfagundes.domain.usecase.GetMovieCategoryUseCase
 import io.mockk.coEvery
 import io.mockk.coVerifySequence
 import io.mockk.mockk
@@ -15,16 +14,16 @@ import org.junit.Before
 import org.junit.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class GetMovieCategoryUseCaseTest {
+class GetMovieListTest {
 
     private val repository: MovieRepository = mockk()
-    private val factory: MovieCategoryFactory = mockk()
-    private lateinit var useCase: GetMovieCategoryUseCase
+    private val repositoryFactory: MovieCategoryRepositoryFactory = mockk()
+    private lateinit var useCase: GetMovieList
 
     @Before
     fun setUp() {
-        useCase = GetMovieCategoryUseCase(
-            movieCategoryFactory = factory,
+        useCase = GetMovieList(
+            movieCategoryFactory = repositoryFactory,
             repository = repository
         )
     }
@@ -61,7 +60,7 @@ class GetMovieCategoryUseCaseTest {
 
         val movieCategory: MovieCategory = mockk()
 
-        coEvery { factory.create(any(), any()) } returns movieCategory
+        coEvery { repositoryFactory.create(any(), any()) } returns movieCategory
 
         coEvery { repository.fetchPopularMovies() } returns response
         coEvery { repository.fetchMoviesReleasedThisYear() } returns response
@@ -83,7 +82,7 @@ class GetMovieCategoryUseCaseTest {
 
         val movieCategory: MovieCategory = mockk()
 
-        coEvery { factory.create(any(), any()) } returns movieCategory
+        coEvery { repositoryFactory.create(any(), any()) } returns movieCategory
 
         coEvery { repository.fetchPopularMovies() } returns response
         coEvery { repository.fetchMoviesReleasedThisYear() } returns response
@@ -108,7 +107,7 @@ class GetMovieCategoryUseCaseTest {
 
         val movieCategory: MovieCategory = mockk()
 
-        coEvery { factory.create(any(), any()) } returns movieCategory
+        coEvery { repositoryFactory.create(any(), any()) } returns movieCategory
 
         coEvery { repository.fetchPopularMovies() } returns errorResponse
         coEvery { repository.fetchMoviesReleasedThisYear() } returns successResponse

@@ -7,10 +7,18 @@ import com.luisfagundes.commons_ui.databinding.MovieItemBinding
 import com.luisfagundes.extensions.load
 import com.luisfagundes.domain.model.Movie
 
-class MovieAdapter(
-    private val navigateToMovieDetails: (id: Int) -> Unit,
-    private val movies: List<Movie>
-) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+class MovieListAdapter(
+    private val navigateToMovieDetails: (id: Int) -> Unit
+) : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
+
+    private val movies = mutableListOf<Movie>()
+
+    fun updateMovies(movies: List<Movie>) {
+        this.movies.clear()
+        this.movies.addAll(movies)
+
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)

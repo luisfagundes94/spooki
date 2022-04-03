@@ -6,9 +6,9 @@ import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.base.Response
 import com.luisfagundes.common_testing.utils.CoroutinesTestRule
 import com.luisfagundes.domain.model.MovieCategory
-import com.luisfagundes.domain.usecase.GetMovieCategoryUseCase
-import com.luisfagundes.movies.presentation.categories.MovieCategoriesViewAction
-import com.luisfagundes.movies.presentation.categories.MovieCategoryViewModel
+import com.luisfagundes.domain.usecase.GetMovieList
+import com.luisfagundes.movies.presentation.baseCategory.MovieCategoryViewAction
+import com.luisfagundes.movies.presentation.baseCategory.MovieCategoryViewModel
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -29,7 +29,7 @@ class MovieCategoryViewModelTest {
     @get: Rule
     val coroutinesTestRule = CoroutinesTestRule()
 
-    private val useCase: GetMovieCategoryUseCase = mockk()
+    private val useCase: GetMovieList = mockk()
     private lateinit var stateObserver: Observer<BaseViewState.State>
     private lateinit var viewModel: MovieCategoryViewModel
 
@@ -47,7 +47,7 @@ class MovieCategoryViewModelTest {
             coEvery { useCase.invoke() } returns response
 
             // Act
-            viewModel.dispatchViewAction(MovieCategoriesViewAction.FetchMovieCategories)
+            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList)
 
             // Assert
             coVerify(exactly = 1) { useCase.invoke() }
@@ -64,7 +64,7 @@ class MovieCategoryViewModelTest {
             coEvery { useCase.invoke() } returns response
 
             // Act
-            viewModel.dispatchViewAction(MovieCategoriesViewAction.FetchMovieCategories)
+            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList)
 
             // Assert
             verifySequence {
@@ -84,7 +84,7 @@ class MovieCategoryViewModelTest {
             coEvery { useCase.invoke() } returns response
 
             // Act
-            viewModel.dispatchViewAction(MovieCategoriesViewAction.FetchMovieCategories)
+            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList)
 
             // Assert
             verifySequence {
