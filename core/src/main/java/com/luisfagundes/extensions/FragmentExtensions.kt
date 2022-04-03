@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
 import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigator
@@ -20,6 +21,14 @@ fun <F : Fragment, L> F.observe(
     liveData: LiveData<L>,
     onChanged: L.() -> Unit
 ) = liveData.observe(viewLifecycleOwner, onChanged)
+
+fun NavController.navigateWithDirections(navDirections: NavDirections) {
+    try {
+        navigate(navDirections)
+    } catch (exception: Exception) {
+        Timber.e(exception)
+    }
+}
 
 fun NavController.navigateWithDeepLink(
     deepLinkDestination: String

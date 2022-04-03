@@ -11,6 +11,8 @@
         android:label="@string/title_movie_details"
         tools:layout="@layout/fragment_movie_details">
 
+        <deepLink app:uri="@string/deep_link_movie_details" />
+
         <argument
             android:name="movieId"
             app:argType="integer" />

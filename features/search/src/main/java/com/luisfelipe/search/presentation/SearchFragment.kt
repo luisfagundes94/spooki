@@ -10,6 +10,7 @@ import com.luisfagundes.base.BaseFragment
 import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.extensions.hideVisibility
 import com.luisfagundes.extensions.observe
+import com.luisfagundes.movies.MovieNavigationDirections
 import com.luisfagundes.search.R
 import com.luisfagundes.search.databinding.FragmentSearchBinding
 import com.luisfagundes.utils.GridSpacingItemDecoration

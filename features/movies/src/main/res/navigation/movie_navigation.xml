@@ -3,24 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/movie_navigation"
-    app:startDestination="@id/movieCategoryFragment">
+    app:startDestination="@id/categoryListFragment">
 
     <fragment
-        android:id="@+id/movieCategoryFragment"
-        android:name="com.luisfagundes.movies.presentation.categories.MovieCategoryFragment"
+        android:id="@+id/categoryListFragment"
+        android:name="com.luisfagundes.movies.presentation.categoryList.CategoryListFragment"
         android:label="@string/title_movies"
-        tools:layout="@layout/fragment_movie_category">
-
-        <action
-            android:id="@+id/action_movieCategoryFragment_to_movieDetailsFragment"
-            app:destination="@id/movie_details_navigation">
-
-            <argument
-                android:name="movieId"
-                app:argType="integer" />
-        </action>
-
+        tools:layout="@layout/fragment_category_list">
     </fragment>
+
+    <action
+        android:id="@+id/action_to_movieDetailsFragment"
+        app:destination="@id/movie_details_navigation">
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </action>
 
     <include app:graph="@navigation/movie_details_navigation" />
 
