@@ -6,6 +6,7 @@ import com.luisfagundes.domain.model.MovieDetails
 import com.luisfagundes.domain.repository.MovieRepository
 import com.luisfagundes.domain.usecase.GetMovieDetailsUseCase
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.coVerifySequence
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -30,24 +31,16 @@ class GetMovieDetailsUseCaseTest {
         // Arrange
         val movieId = 10
 
-        val movieDetails: MovieDetails = mockk()
         val movieDetailsResponse: Response<MovieDetails> = mockk()
 
-        val movieCast: List<Actor> = mockk()
-        val movieCastResponse: Response<List<Actor>> = mockk()
-
-        coEvery { movieCastResponse.getValue() } returns movieCast
-        coEvery { movieDetailsResponse.getValue() } returns movieDetails
         coEvery { repository.fetchMovieDetails(movieId) } returns movieDetailsResponse
-        coEvery { repository.fetchMovieCast(movieId) } returns movieCastResponse
 
         // Act
         useCase.invoke(movieId)
 
         // Assert
-        coVerifySequence {
+        coVerify(exactly = 1) {
             repository.fetchMovieDetails(movieId)
-            repository.fetchMovieCast(movieId)
         }
     }
 
@@ -59,14 +52,9 @@ class GetMovieDetailsUseCaseTest {
         val movieDetails: MovieDetails = mockk()
         val movieDetailsResponse = Response.Success(movieDetails)
 
-        val movieCast: List<Actor> = mockk()
-        val movieCastResponse = Response.Success(movieCast)
-
         coEvery { movieDetailsResponse.getValue() } returns movieDetails
-        coEvery { movieCastResponse.getValue() } returns movieCast
 
         coEvery { repository.fetchMovieDetails(movieId) } returns movieDetailsResponse
-        coEvery { repository.fetchMovieCast(movieId) } returns movieCastResponse
 
         // Act
         val result = useCase.invoke(movieId)
@@ -83,10 +71,8 @@ class GetMovieDetailsUseCaseTest {
         val exception: Exception = mockk()
 
         val movieDetailsResponse = Response.Error<MovieDetails>(exception)
-        val movieCastResponse: Response<List<Actor>> = mockk()
 
         coEvery { repository.fetchMovieDetails(movieId) } returns movieDetailsResponse
-        coEvery { repository.fetchMovieCast(movieId) } returns movieCastResponse
 
         // Act
         val result = useCase.invoke(movieId)

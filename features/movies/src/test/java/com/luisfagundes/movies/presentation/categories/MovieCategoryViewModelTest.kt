@@ -5,6 +5,8 @@ import androidx.lifecycle.Observer
 import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.base.Response
 import com.luisfagundes.common_testing.utils.CoroutinesTestRule
+import com.luisfagundes.domain.enum.MovieCategoryType
+import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.domain.model.MovieCategory
 import com.luisfagundes.domain.usecase.GetMovieList
 import com.luisfagundes.movies.presentation.baseCategory.MovieCategoryViewAction
@@ -43,14 +45,16 @@ class MovieCategoryViewModelTest {
     fun `dispatchViewAction SHOULD delegate call to useCase when viewAction is FetchMovieCategories`() {
         runBlockingTest {
             // Arrange
-            val response: Response<List<MovieCategory>> = mockk()
-            coEvery { useCase.invoke() } returns response
+            val response: Response<List<Movie>> = mockk()
+            val type = MovieCategoryType.POPULAR
+
+            coEvery { useCase.invoke(type) } returns response
 
             // Act
-            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList)
+            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList(type))
 
             // Assert
-            coVerify(exactly = 1) { useCase.invoke() }
+            coVerify(exactly = 1) { useCase.invoke(type) }
         }
     }
 
@@ -58,13 +62,14 @@ class MovieCategoryViewModelTest {
     fun `dispatchViewAction SHOULD should return success state viewAction is FetchMovieCategories`() {
         runBlockingTest {
             // Arrange
-            val movieCategoryList: List<MovieCategory> = mockk()
-            val response = Response.Success(movieCategoryList)
+            val movieList: List<Movie> = mockk()
+            val response = Response.Success(movieList)
+            val type = MovieCategoryType.POPULAR
 
-            coEvery { useCase.invoke() } returns response
+            coEvery { useCase.invoke(type) } returns response
 
             // Act
-            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList)
+            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList(type))
 
             // Assert
             verifySequence {
@@ -79,12 +84,14 @@ class MovieCategoryViewModelTest {
         runBlockingTest {
             // Arrange
             val exception: Exception = mockk()
-            val response = Response.Error<List<MovieCategory>>(exception)
+            val response = Response.Error<List<Movie>>(exception)
+            val type = MovieCategoryType.POPULAR
 
-            coEvery { useCase.invoke() } returns response
+
+            coEvery { useCase.invoke(type) } returns response
 
             // Act
-            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList)
+            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList(type))
 
             // Assert
             verifySequence {
@@ -101,7 +108,7 @@ class MovieCategoryViewModelTest {
 
     private fun setupViewModel() {
         viewModel = MovieCategoryViewModel(
-            getMovieCategoryUseCase = useCase,
+            getMovieList = useCase,
             dispatcher = coroutinesTestRule.dispatcher
         )
     }
