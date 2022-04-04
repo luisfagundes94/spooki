@@ -7,6 +7,7 @@
     <string name="title_saved">Saved</string>
     <string name="title_profile">Perfil</string>
     <string name="generic_error_message">Ops! Algo deu errado. Por favor, tente novamente.</string>
+    <string name="generic_error_message_without_retry">Ops! Parece que algo saiu do controle :(</string>
     <string name="generic_error_button_message">Tentar Novamente</string>
 
     <!-- Deep Links -->

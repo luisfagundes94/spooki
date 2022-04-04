@@ -60,7 +60,7 @@ interface MovieService {
         @Query("api_key") apiKey: String = BuildConfig.API_KEY
     ): MovieDetailsResponse
 
-    @GET("movie/{movie_id}/credits")
+    @GET("movie/{movie_id}/creditss")
     suspend fun fetchMovieCredits(
         @Path("movie_id") id: Int,
         @Query("api_key") apiKey: String = BuildConfig.API_KEY

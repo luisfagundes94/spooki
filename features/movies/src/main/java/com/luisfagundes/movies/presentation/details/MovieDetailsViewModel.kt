@@ -1,7 +1,6 @@
 package com.luisfagundes.movies.presentation.details
 
 import com.luisfagundes.base.BaseViewModel
-import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.domain.model.Actor
 import com.luisfagundes.domain.model.MovieDetails
 import com.luisfagundes.domain.usecase.GetMovieCast
@@ -28,7 +27,7 @@ class MovieDetailsViewModel(
         viewState.movie.value = MovieDetailsViewState.State.Loading
         executeCoroutines(dispatcher) {
             getMovieDetails.invoke(id).fold(
-                ::onGetMovieDetailsError, ::onGetMovieDetailsSuccess
+                ::onGetMovieDetailsSuccess, ::onGetMovieDetailsError
             )
         }
     }
@@ -40,14 +39,14 @@ class MovieDetailsViewModel(
 
     private fun onGetMovieDetailsError(exception: Exception) {
         Timber.e(exception.stackTraceToString())
-        viewState.cast.postValue(MovieDetailsViewState.State.Error)
+        viewState.movie.postValue(MovieDetailsViewState.State.Error)
     }
 
     private fun getMovieCast(movieId: Int) {
-        viewState.cast.value = MovieDetailsViewState.State.Loading
+        viewState.cast.postValue(MovieDetailsViewState.State.Loading)
         executeCoroutines(dispatcher) {
             getMovieCast.invoke(movieId).fold(
-                ::onGetCastError, ::onGetCastSuccess
+                ::onGetCastSuccess, ::onGetCastError
             )
         }
     }

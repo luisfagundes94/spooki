@@ -3,10 +3,12 @@ package com.luisfagundes.movies.presentation.details
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.luisfagundes.base.BaseFragment
-import com.luisfagundes.base.BaseViewState
+import com.luisfagundes.domain.model.Actor
 import com.luisfagundes.domain.model.MovieDetails
+import com.luisfagundes.extensions.hideVisibility
 import com.luisfagundes.extensions.loadPoster
 import com.luisfagundes.extensions.observe
+import com.luisfagundes.extensions.showVisibility
 import com.luisfagundes.movies.R
 import com.luisfagundes.movies.databinding.FragmentMovieDetailsBinding
 import com.luisfagundes.movies.presentation.details.adapter.CastAdapter
@@ -47,27 +49,63 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>(
     }
 
     private fun setupObservers() {
-        observe(viewModel.viewState.state) {
-            when (this) {
-                BaseViewState.State.SUCCESS -> showSuccess()
-                BaseViewState.State.LOADING -> showLoading()
-                BaseViewState.State.ERROR -> showError()
-                else -> showError()
-            }
-        }
+        observeMovieDetails()
+        observeCast()
+    }
 
-        observe(viewModel.viewState.movieDetails) {
-            setupMovieDetails(this)
+    private fun observeMovieDetails() {
+        observe(viewModel.viewState.movie) {
+            when (this) {
+                is MovieDetailsViewState.State.Success -> showMovieSuccess()
+                is MovieDetailsViewState.State.Loading -> super.showLoading()
+                is MovieDetailsViewState.State.Error -> super.showError()
+                else -> super.showError()
+            }
         }
     }
 
-    private fun setupMovieDetails(movie: MovieDetails) = with(binding) {
-        tvTitle.text = movie.title
-        tvReleaseDate.text = movie.releaseDate
-        imgPoster.imgPoster.loadPoster(movie.posterUrl)
-        tvTmdbScore.text = movie.voteAverage.toString()
-        tvOverview.text = movie.overview
-        imgBackdrop.loadBackdrop(movie.backDropUrl)
-        castAdapter.updateList(movie.cast)
+    private fun observeCast() {
+        observe(viewModel.viewState.cast) {
+            when (this) {
+                is MovieDetailsViewState.State.Success -> showCastSuccess()
+                is MovieDetailsViewState.State.Loading -> showCastProgressBar()
+                is MovieDetailsViewState.State.Error -> showCastError()
+                else -> showCastError()
+            }
+        }
+    }
+
+    private fun MovieDetailsViewState.State.Success<MovieDetails>.showMovieSuccess() {
+        super.showSuccess()
+        this.data.setupMovieDetails()
+    }
+
+
+    private fun MovieDetailsViewState.State.Success<List<Actor>>.showCastSuccess() {
+        binding.pbCast.hideVisibility()
+        binding.rvCast.showVisibility()
+        binding.castErrorContainer.rootContainer.hideVisibility()
+        castAdapter.updateList(this.data)
+    }
+
+    private fun showCastProgressBar() = with(binding) {
+        pbCast.showVisibility()
+        rvCast.hideVisibility()
+        binding.castErrorContainer.rootContainer.hideVisibility()
+    }
+
+    private fun showCastError() = with(binding) {
+        pbCast.hideVisibility()
+        rvCast.hideVisibility()
+        binding.castErrorContainer.rootContainer.showVisibility()
+    }
+
+    private fun MovieDetails.setupMovieDetails() = with(binding) {
+        tvTitle.text = title
+        tvReleaseDate.text = releaseDate
+        imgPoster.imgPoster.loadPoster(posterUrl)
+        tvTmdbScore.text = voteAverage.toString()
+        tvOverview.text = overview
+        imgBackdrop.loadBackdrop(backDropUrl)
     }
 }
