@@ -132,13 +132,28 @@
                     android:layout_marginTop="@dimen/default_vertical_margin"
                     android:text="@string/title_cast" />
 
+                <ProgressBar
+                    android:id="@+id/pb_cast"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_recycler_view_placeholder_padding" />
+
+                <include
+                    android:id="@+id/cast_error_container"
+                    layout="@layout/layout_generic_error_without_button"
+                    android:gravity="start" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvCast"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/default_margin"
                     android:layout_marginTop="@dimen/small_vertical_margin"
-                    android:clipToPadding="false" />
+                    android:clipToPadding="false" >
+
+                </androidx.recyclerview.widget.RecyclerView>
+
             </LinearLayout>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton

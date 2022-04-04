@@ -3,7 +3,7 @@ package com.luisfagundes.data.model
 import com.google.gson.annotations.SerializedName
 
 data class MovieDetailsResponse(
-    @SerializedName("id") val id: String,
+    @SerializedName("id") val id: Int,
     @SerializedName("title") val title: String,
     @SerializedName("adult") val isAdult: Boolean,
     @SerializedName("overview") val overview: String,

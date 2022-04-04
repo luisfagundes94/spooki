@@ -2,9 +2,9 @@ package com.luisfagundes.domain.usecase
 
 import com.luisfagundes.domain.repository.MovieRepository
 
-class GetMovieDetailsUseCase(
+class GetMovieDetails(
     private val repository: MovieRepository
 ) {
-    suspend operator fun invoke(id: Int) = repository.fetchMovieCast(id)
+    suspend operator fun invoke(id: Int) = repository.fetchMovieDetails(id)
 }
 
