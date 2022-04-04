@@ -88,8 +88,4 @@ abstract class BaseMovieCategoryFragment(
         val destination = MovieNavigationDirections.actionToMovieDetailsFragment(id)
         findNavController().navigateWithDirections(destination)
     }
-
-    private companion object {
-        const val DEFAULT_LEFT_ITEM_MARGIN = 16
-    }
 }
