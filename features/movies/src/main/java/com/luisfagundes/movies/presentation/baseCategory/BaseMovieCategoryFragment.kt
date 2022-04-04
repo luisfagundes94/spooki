@@ -63,10 +63,8 @@ abstract class BaseMovieCategoryFragment(
             LinearLayoutManager.HORIZONTAL,
             false
         )
-        val decoration = RecyclerViewLeftItemMargin(DEFAULT_LEFT_ITEM_MARGIN.dp)
 
         setHasFixedSize(true)
-        addItemDecoration(decoration)
         this.layoutManager = layoutManager
         this.adapter = movieListAdapter
     }
