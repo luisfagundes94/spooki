@@ -72,7 +72,7 @@ abstract class BaseMovieCategoryFragment(
     private fun setupObservers() {
         observe(viewModel.viewState.state) {
             when (this) {
-                BaseViewState.State.SUCCESS -> showSuccess()
+                BaseViewState.State.SUCCESS -> Unit //showSuccess()
                 BaseViewState.State.LOADING -> showLoading()
                 BaseViewState.State.ERROR -> showError()
                 else -> showError()

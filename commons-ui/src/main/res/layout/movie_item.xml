@@ -2,8 +2,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="112dp"
-    android:layout_height="153dp"
+    android:layout_width="@dimen/movie_poster_width"
+    android:layout_height="@dimen/movie_poster_height"
     android:layout_marginEnd="@dimen/small_horizontal_margin"
     app:cardCornerRadius="@dimen/default_button_radius"
     app:cardElevation="5dp">

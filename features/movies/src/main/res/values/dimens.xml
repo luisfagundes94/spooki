@@ -3,4 +3,7 @@
     <dimen name="movie_backdrop_height">250dp</dimen>
     <dimen name="movie_backdrop_fading_edge">250dp</dimen>
     <dimen name="movie_poster_translation_y">-35dp</dimen>
+    <dimen name="movie_poster_height">153dp</dimen>
+    <dimen name="movie_poster_width">112dp</dimen>
+    <dimen name="default_placeholder_height">30dp</dimen>
 </resources>
