@@ -42,34 +42,4 @@ abstract class BindFragment<Binding : ViewBinding>: Fragment() {
 
     open fun setupUpActionButton() =
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-    open fun showSuccess(
-        successContainer: ViewGroup,
-        loadingContainer: ViewGroup,
-        errorContainer: ViewGroup
-    ) {
-        successContainer.showVisibility()
-        loadingContainer.hideVisibility()
-        errorContainer.hideVisibility()
-    }
-
-    open fun showLoading(
-        successContainer: ViewGroup,
-        loadingContainer: ViewGroup,
-        errorContainer: ViewGroup
-    ) {
-        successContainer.hideVisibility()
-        loadingContainer.showVisibility()
-        errorContainer.hideVisibility()
-    }
-
-    open fun showError(
-        successContainer: ViewGroup,
-        loadingContainer: ViewGroup,
-        errorContainer: ViewGroup
-    ) {
-        successContainer.hideVisibility()
-        loadingContainer.hideVisibility()
-        errorContainer.showVisibility()
-    }
 }
