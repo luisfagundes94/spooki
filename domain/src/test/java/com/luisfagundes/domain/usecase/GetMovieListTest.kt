@@ -2,13 +2,11 @@ package com.luisfagundes.domain.usecase
 
 import com.luisfagundes.base.Response
 import com.luisfagundes.domain.enum.MovieCategoryType
-import com.luisfagundes.domain.factory.MovieCategoryRepositoryFactory
+import com.luisfagundes.domain.factory.MovieCategoryRepositoryStrategy
 import com.luisfagundes.domain.model.Movie
-import com.luisfagundes.domain.model.MovieCategory
 import com.luisfagundes.domain.repository.MovieRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.coVerifySequence
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -19,13 +17,13 @@ import org.junit.Test
 class GetMovieListTest {
 
     private val repository: MovieRepository = mockk()
-    private val repositoryFactory: MovieCategoryRepositoryFactory = mockk()
+    private val repositoryStrategy: MovieCategoryRepositoryStrategy = mockk()
     private lateinit var useCase: GetMovieList
 
     @Before
     fun setUp() {
         useCase = GetMovieList(
-            movieCategoryRepositoryFactory = repositoryFactory,
+            repositoryStrategy = repositoryStrategy,
             repository = repository
         )
     }
@@ -35,6 +33,7 @@ class GetMovieListTest {
         // Arrange
         val response: Response<List<Movie>> = mockk()
 
+        coEvery { repositoryStrategy.call(MovieCategoryType.POPULAR, repository) } returns response
         coEvery { repository.fetchPopularMovies() } returns response
 
         // Act
@@ -42,7 +41,7 @@ class GetMovieListTest {
 
         // Assert
         coVerify(exactly = 1) {
-            repository.fetchPopularMovies()
+            repositoryStrategy.call(MovieCategoryType.POPULAR, repository)
         }
     }
 
@@ -52,12 +51,13 @@ class GetMovieListTest {
         val movies: List<Movie> = mockk()
         val response = Response.Success(movies)
 
+        coEvery { repositoryStrategy.call(MovieCategoryType.POPULAR, repository) } returns response
         coEvery { repository.fetchPopularMovies() } returns response
         // Act
         val result = useCase.invoke(MovieCategoryType.POPULAR)
 
         // Assert
-        assert(result.isSuccess())
+        assert(result.isSuccess)
     }
 
     @Test
@@ -66,12 +66,13 @@ class GetMovieListTest {
         val exception: Exception = mockk()
         val response = Response.Error<List<Movie>>(exception)
 
+        coEvery { repositoryStrategy.call(MovieCategoryType.POPULAR, repository) } returns response
         coEvery { repository.fetchPopularMovies() } returns response
 
         // Act
         val result = useCase.invoke(MovieCategoryType.POPULAR)
 
         // Assert
-        assert(result.isError())
+        assert(result.isError)
     }
 }
