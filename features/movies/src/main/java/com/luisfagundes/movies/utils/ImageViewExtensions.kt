@@ -7,7 +7,7 @@ import com.squareup.picasso.Picasso
 fun ImageView.loadBackdrop(url: String?) = Picasso
     .get()
     .load(url)
-    .placeholder(R.drawable.media_backdrop_placeholder)
+    .placeholder(com.luisfagundes.base.R.color.mine_shaft)
     .error(R.drawable.media_backdrop_placeholder)
     .into(this)
 
