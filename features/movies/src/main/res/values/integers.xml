@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="default_poster_width" type="integer" format="integer">112</item>
+</resources>

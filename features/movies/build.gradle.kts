@@ -30,5 +30,6 @@ dependencies {
     implementation(Dependencies.UI.shimmerEffect)
     implementation(Dependencies.UI.fadingEdgeLayout)
     implementation(Dependencies.UI.picasso)
+    implementation(Dependencies.UI.flexboxLayout)
 }
 

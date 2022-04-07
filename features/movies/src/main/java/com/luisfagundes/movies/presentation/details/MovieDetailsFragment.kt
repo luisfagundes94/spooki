@@ -1,7 +1,6 @@
 package com.luisfagundes.movies.presentation.details
 
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.luisfagundes.base.BaseFragment
 import com.luisfagundes.domain.model.MovieDetails
 import com.luisfagundes.extensions.loadPoster

@@ -54,7 +54,7 @@
         tools:ignore="SpeakableTextPresentCheck"
         tools:itemCount="5"
         tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/movie_item"
+        tools:listitem="@layout/movie_item_rounded"
         tools:orientation="horizontal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

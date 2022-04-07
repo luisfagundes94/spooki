@@ -1,17 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/imgPoster"
     android:layout_width="@dimen/movie_poster_width"
     android:layout_height="@dimen/movie_poster_height"
-    android:layout_marginEnd="@dimen/small_horizontal_margin"
-    app:cardCornerRadius="@dimen/default_button_radius"
-    app:cardElevation="5dp">
-
-    <ImageView
-        android:id="@+id/imgPoster"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        tools:srcCompat="@tools:sample/avatars" />
-</androidx.cardview.widget.CardView>
+    android:scaleType="centerCrop"
+    app:layout_constraintDimensionRatio="1"
+    tools:srcCompat="@tools:sample/avatars" />

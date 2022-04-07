@@ -8,8 +8,8 @@ import com.luisfagundes.common_testing.utils.CoroutinesTestRule
 import com.luisfagundes.domain.enum.MovieCategoryType
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.domain.usecase.GetMovieList
-import com.luisfagundes.movies.presentation.baseCategory.MovieCategoryViewAction
-import com.luisfagundes.movies.presentation.baseCategory.MovieCategoryViewModel
+import com.luisfagundes.movies.presentation.list.MovieListViewAction
+import com.luisfagundes.movies.presentation.list.MovieListViewModel
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -32,7 +32,7 @@ class MovieCategoryViewModelTest {
 
     private val useCase: GetMovieList = mockk()
     private lateinit var stateObserver: Observer<BaseViewState.State>
-    private lateinit var viewModel: MovieCategoryViewModel
+    private lateinit var viewModel: MovieListViewModel
 
     @Before
     fun setUp() {
@@ -50,7 +50,7 @@ class MovieCategoryViewModelTest {
             coEvery { useCase.invoke(type) } returns response
 
             // Act
-            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList(type))
+            viewModel.dispatchViewAction(MovieListViewAction.FetchMovieList(type))
 
             // Assert
             coVerify(exactly = 1) { useCase.invoke(type) }
@@ -68,7 +68,7 @@ class MovieCategoryViewModelTest {
             coEvery { useCase.invoke(type) } returns response
 
             // Act
-            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList(type))
+            viewModel.dispatchViewAction(MovieListViewAction.FetchMovieList(type))
 
             // Assert
             verifySequence {
@@ -90,7 +90,7 @@ class MovieCategoryViewModelTest {
             coEvery { useCase.invoke(type) } returns response
 
             // Act
-            viewModel.dispatchViewAction(MovieCategoryViewAction.FetchMovieList(type))
+            viewModel.dispatchViewAction(MovieListViewAction.FetchMovieList(type))
 
             // Assert
             verifySequence {
@@ -106,7 +106,7 @@ class MovieCategoryViewModelTest {
     }
 
     private fun setupViewModel() {
-        viewModel = MovieCategoryViewModel(
+        viewModel = MovieListViewModel(
             getMovieList = useCase,
             dispatcher = coroutinesTestRule.dispatcher
         )

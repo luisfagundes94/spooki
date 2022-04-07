@@ -1,5 +1,6 @@
 package com.luisfagundes.search.presentation
 
+import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.widget.ImageView
