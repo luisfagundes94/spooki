@@ -12,12 +12,12 @@ object MovieMapper {
     fun Response<List<MovieResponse>>.mapToDomain(): Response<List<Movie>> {
         return when (this) {
             is Response.Success -> mapToDomain()
-            is Response.Error -> Response.Error(getError())
+            is Response.Error -> Response.Error(exception)
         }
     }
 
     private fun Response.Success<List<MovieResponse>>.mapToDomain(): Response<List<Movie>> {
-        return Response.Success(this.getValue().map { it.toDomain() })
+        return Response.Success(this.data.map { it.toDomain() })
     }
 
     private fun MovieResponse.toDomain(): Movie {

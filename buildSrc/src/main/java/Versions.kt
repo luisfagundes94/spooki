@@ -4,18 +4,18 @@ object Versions {
 
     // Build.Gradle Config
     const val appId = "com.luisfagundes.spooki"
-    const val compileSdk = 31
-    const val buildTools = "31.0.0"
+    const val compileSdk = 32
+    const val buildTools = "32.0.0"
     const val jvmTargetVersion = "1.8"
     const val minSdk = 21
-    const val targetSdk = 30
-    const val versionCode = 3
-    const val versionName = "0.5.0"
+    const val targetSdk = 32
+    const val versionCode = 4
+    const val versionName = "0.6.0"
     const val ktlint = "0.43.2"
     const val gradle = "7.0.4"
 
     // Core
-    const val kotlin = "1.6.10"
+    const val kotlin = "1.6.20"
     const val appcompat = "1.4.1"
     const val material = "1.5.0"
     const val coreKtx = "1.7.0"
@@ -38,6 +38,7 @@ object Versions {
     const val shimmer = "0.5.0"
     const val tagGroup = "1.0.8"
     const val fadingEdgeLayout = "1.0.0"
+    const val flexboxLayout = "3.0.0"
 
     // DI
     const val koin = "3.1.4"

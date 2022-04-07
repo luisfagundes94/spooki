@@ -57,16 +57,12 @@ interface MovieService {
     @GET("movie/{movie_id}")
     suspend fun fetchMovieDetails(
         @Path("movie_id") id: Int,
-        @Query("api_key") apiKey: String = BuildConfig.API_KEY
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+        @Query("append_to_response") appendToResponse: String = APPEND_TO_RESPONSE_MOVIE_DETAILS
     ): MovieDetailsResponse
-
-    @GET("movie/{movie_id}/credits")
-    suspend fun fetchMovieCredits(
-        @Path("movie_id") id: Int,
-        @Query("api_key") apiKey: String = BuildConfig.API_KEY
-    ): CastResponse
 
     private companion object {
         const val HORROR_GENRE_ID = 27
+        const val APPEND_TO_RESPONSE_MOVIE_DETAILS = "credits,videos"
     }
 }

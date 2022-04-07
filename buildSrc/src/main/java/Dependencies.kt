@@ -32,8 +32,8 @@ object Dependencies {
         const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
         const val lottieAnimation = "com.airbnb.android:lottie:${Versions.lottieAnimation}"
         const val shimmerEffect = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
-        const val tagGroup = "com.github.pchmn:MaterialChipsInput:${Versions.tagGroup}"
         const val fadingEdgeLayout = "com.github.bosphere.android-fadingedgelayout:fadingedgelayout:${Versions.fadingEdgeLayout}"
+        const val flexboxLayout = "com.google.android.flexbox:flexbox:${Versions.flexboxLayout}"
     }
 
     object DI {

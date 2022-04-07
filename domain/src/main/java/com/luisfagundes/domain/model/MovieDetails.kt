@@ -1,7 +1,7 @@
 package com.luisfagundes.domain.model
 
 data class MovieDetails(
-    val id: String,
+    val id: Int,
     val title: String,
     val posterUrl: String?,
     val budget: Int?,
@@ -13,5 +13,6 @@ data class MovieDetails(
     val voteAverage: Float,
     val voteCount: Int,
     val releaseDate: String?,
-    val cast: List<Actor> = emptyList(),
+    val cast: List<Actor>,
+    val trailers: List<Trailer>
 )

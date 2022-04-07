@@ -12,13 +12,11 @@ android {
 
         debug {
             minifyEnabled false
-            debuggable true
             shrinkResources false
         }
 
         release {
             minifyEnabled true
-            debuggable false
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
 
@@ -35,7 +33,6 @@ android {
 
     testOptions {
         unitTests.returnDefaultValues = true
-        unitTests.includeAndroidResources = true
         animationsDisabled = true
     }
 }

@@ -1,7 +1,6 @@
 package com.luisfagundes.domain.repository
 
 import com.luisfagundes.base.Response
-import com.luisfagundes.domain.model.Actor
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.domain.model.MovieDetails
 
@@ -13,5 +12,4 @@ interface MovieRepository {
     suspend fun fetchUpcomingMovies(): Response<List<Movie>>
     suspend fun searchMovies(query: String): Response<List<Movie>>
     suspend fun fetchMovieDetails(id: Int): Response<MovieDetails>
-    suspend fun fetchMovieCast(movieId: Int): Response<List<Actor>>
 }

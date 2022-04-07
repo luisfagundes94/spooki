@@ -46,6 +46,7 @@
         android:layout_marginTop="@dimen/small_vertical_margin"
         android:clipToPadding="false"
         android:importantForAccessibility="yes"
+        android:paddingStart="@dimen/default_horizontal_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +54,7 @@
         tools:ignore="SpeakableTextPresentCheck"
         tools:itemCount="5"
         tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/movie_item"
+        tools:listitem="@layout/movie_item_rounded"
         tools:orientation="horizontal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

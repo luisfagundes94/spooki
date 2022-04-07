@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvErrorMessage"
+        style="@style/Title"
+        android:textColor="@color/mine_shaft_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/generic_error_message_without_retry" />
+
+</LinearLayout>

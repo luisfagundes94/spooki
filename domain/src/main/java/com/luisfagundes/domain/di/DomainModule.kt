@@ -1,9 +1,9 @@
 package com.luisfagundes.domain.di
 
-import com.luisfagundes.domain.factory.MovieCategoryFactory
-import com.luisfagundes.domain.factory.MovieCategoryFactoryImpl
-import com.luisfagundes.domain.usecase.GetMovieCategoryUseCase
-import com.luisfagundes.domain.usecase.GetMovieDetailsUseCase
+import com.luisfagundes.domain.factory.MovieCategoryRepositoryStrategy
+import com.luisfagundes.domain.factory.MovieCategoryRepositoryStrategyImpl
+import com.luisfagundes.domain.usecase.GetMovieList
+import com.luisfagundes.domain.usecase.GetMovieDetails
 import com.luisfagundes.utils.StringProvider
 import com.luisfagundes.utils.StringProviderImpl
 import org.koin.android.ext.koin.androidContext
@@ -11,18 +11,21 @@ import org.koin.dsl.module
 
 @Suppress("RemoveExplicitTypeArguments", "USELESS_CAST")
 val domainModule = module {
+    // UseCases
     factory {
-        GetMovieCategoryUseCase(get(), get())
+        GetMovieList(get(), get())
     }
 
     factory {
-        GetMovieDetailsUseCase(get())
+        GetMovieDetails(get())
     }
 
+    // Repository
     factory {
-        MovieCategoryFactoryImpl(get()) as MovieCategoryFactory
+        MovieCategoryRepositoryStrategyImpl() as MovieCategoryRepositoryStrategy
     }
 
+    // Utils
     factory {
         StringProviderImpl(androidContext()) as StringProvider
     }
