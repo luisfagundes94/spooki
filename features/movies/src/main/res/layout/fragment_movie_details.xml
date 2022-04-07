@@ -67,7 +67,7 @@
 
             <include
                 android:id="@+id/imgPosterContainer"
-                layout="@layout/movie_item"
+                layout="@layout/movie_item_rounded"
                 android:layout_width="112dp"
                 android:layout_height="153dp"
                 android:layout_marginStart="24dp"

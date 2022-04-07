@@ -38,6 +38,7 @@ object Versions {
     const val shimmer = "0.5.0"
     const val tagGroup = "1.0.8"
     const val fadingEdgeLayout = "1.0.0"
+    const val flexboxLayout = "3.0.0"
 
     // DI
     const val koin = "3.1.4"

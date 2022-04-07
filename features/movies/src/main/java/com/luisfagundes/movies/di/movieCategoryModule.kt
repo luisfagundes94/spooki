@@ -1,6 +1,6 @@
 package com.luisfagundes.movies.di
 
-import com.luisfagundes.movies.presentation.baseCategory.MovieCategoryViewModel
+import com.luisfagundes.movies.presentation.list.MovieListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -8,6 +8,6 @@ import org.koin.dsl.module
 val movieCategoryModule = module {
     // ViewModel
     viewModel {
-        MovieCategoryViewModel(get())
+        MovieListViewModel(get())
     }
 }

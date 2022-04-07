@@ -1,4 +1,4 @@
-package com.luisfagundes.movies.presentation.baseCategory
+package com.luisfagundes.movies.presentation.list
 
 import com.luisfagundes.base.BaseViewModel
 import com.luisfagundes.base.BaseViewState
@@ -9,16 +9,16 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import timber.log.Timber
 
-class MovieCategoryViewModel(
+class MovieListViewModel(
     private val getMovieList: GetMovieList,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
-) : BaseViewModel<MovieCategoryViewState, MovieCategoryViewAction>() {
+) : BaseViewModel<MovieListViewState, MovieListViewAction>() {
 
-    override val viewState: MovieCategoryViewState = MovieCategoryViewState()
+    override val viewState: MovieListViewState = MovieListViewState()
 
-    override fun dispatchViewAction(viewAction: MovieCategoryViewAction) {
+    override fun dispatchViewAction(viewAction: MovieListViewAction) {
         when (viewAction) {
-            is MovieCategoryViewAction.FetchMovieList -> fetchMovieList(viewAction.movieCategoryType)
+            is MovieListViewAction.FetchMovieList -> fetchMovieList(viewAction.movieCategoryType)
         }
     }
 

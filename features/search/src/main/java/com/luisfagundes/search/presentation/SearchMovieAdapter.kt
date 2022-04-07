@@ -3,9 +3,9 @@ package com.luisfagundes.search.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.luisfagundes.commons_ui.databinding.MovieItemBinding
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.extensions.loadPoster
-import com.luisfagundes.search.databinding.SearchMovieItemBinding
 
 class SearchMovieAdapter(
     private val navigateToMovieDetails: (Int) -> Unit
@@ -27,7 +27,7 @@ class SearchMovieAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = SearchMovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(navigateToMovieDetails, binding)
     }
 
@@ -39,7 +39,7 @@ class SearchMovieAdapter(
 
     class ViewHolder(
         private val navigateToMovieDetails: (Int) -> Unit,
-        private val binding: SearchMovieItemBinding
+        private val binding: MovieItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: Movie) = with(binding) {

@@ -1,11 +1,15 @@
 package com.luisfagundes.commons_ui.adapter
 
+import android.content.Context
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.luisfagundes.commons_ui.databinding.MovieItemBinding
 import com.luisfagundes.extensions.load
 import com.luisfagundes.domain.model.Movie
+import kotlin.math.roundToInt
 
 class MovieListAdapter(
     private val navigateToMovieDetails: (id: Int) -> Unit

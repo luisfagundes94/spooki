@@ -1,5 +1,7 @@
 package com.luisfagundes.extensions
 
+import android.util.DisplayMetrics
+import android.view.Display
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
@@ -14,6 +16,7 @@ import androidx.navigation.fragment.FragmentNavigator
 import org.koin.core.component.getScopeName
 import timber.log.Timber
 import java.lang.Exception
+import kotlin.math.roundToInt
 
 fun <F : Fragment> F.requireString(any: Any?) = requireContext().requireString(any)
 
@@ -47,3 +50,11 @@ fun Fragment.showToast(message: String, duration: Int = Toast.LENGTH_SHORT) =
 
 fun Fragment.showToast(messageList: List<CharSequence>, duration: Int = Toast.LENGTH_SHORT) =
     Toast.makeText(requireContext(), messageList.toString(), duration).show()
+
+fun Fragment.getBestGridSpanCount(posterWidth: Int): Int {
+    val display: Display = requireActivity().windowManager.defaultDisplay
+    val outMetrics = DisplayMetrics()
+    display.getMetrics(outMetrics)
+    val screenWidth = outMetrics.widthPixels.toFloat()
+    return (screenWidth / posterWidth).roundToInt()
+}
