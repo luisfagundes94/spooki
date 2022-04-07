@@ -35,6 +35,15 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>(
         setupMoviesRecyclerView()
         setupFilterSelectionListener()
         setupObservers()
+        Timber.d("onCreated")
+        viewModel.dispatchViewAction(
+            MovieListViewAction.FetchMovieList(getFilterType(checkedTagId))
+        )
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.chipFilterGroup.check(R.id.chipPopularTag)
     }
 
     private fun setCheckedId(savedInstanceState: Bundle?) {
