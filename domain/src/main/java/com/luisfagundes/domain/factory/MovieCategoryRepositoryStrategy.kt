@@ -3,20 +3,18 @@ package com.luisfagundes.domain.factory
 import com.luisfagundes.base.Response
 import com.luisfagundes.domain.enum.MovieCategoryType
 import com.luisfagundes.domain.model.Movie
-import com.luisfagundes.domain.model.MovieCategory
 import com.luisfagundes.domain.repository.MovieRepository
-import com.luisfagundes.utils.StringProvider
 
-interface MovieCategoryRepositoryFactory {
-    suspend fun create(
+interface MovieCategoryRepositoryStrategy {
+    suspend fun call(
         type: MovieCategoryType,
         movieRepository: MovieRepository
     ): Response<List<Movie>>
 }
 
-class MovieCategoryRepositoryFactoryImpl : MovieCategoryRepositoryFactory {
+class MovieCategoryRepositoryStrategyImpl : MovieCategoryRepositoryStrategy {
 
-    override suspend fun create(
+    override suspend fun call(
         type: MovieCategoryType,
         movieRepository: MovieRepository
     ) = when (type) {

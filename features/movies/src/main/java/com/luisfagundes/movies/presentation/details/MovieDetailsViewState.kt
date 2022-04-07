@@ -1,7 +1,6 @@
 package com.luisfagundes.movies.presentation.details
 
 import androidx.lifecycle.MutableLiveData
-import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.domain.model.Actor
 import com.luisfagundes.domain.model.MovieDetails
 

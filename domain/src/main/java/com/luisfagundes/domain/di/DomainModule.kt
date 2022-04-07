@@ -1,8 +1,7 @@
 package com.luisfagundes.domain.di
 
-import com.luisfagundes.domain.factory.MovieCategoryRepositoryFactory
-import com.luisfagundes.domain.factory.MovieCategoryRepositoryFactoryImpl
-import com.luisfagundes.domain.usecase.GetMovieCast
+import com.luisfagundes.domain.factory.MovieCategoryRepositoryStrategy
+import com.luisfagundes.domain.factory.MovieCategoryRepositoryStrategyImpl
 import com.luisfagundes.domain.usecase.GetMovieList
 import com.luisfagundes.domain.usecase.GetMovieDetails
 import com.luisfagundes.utils.StringProvider
@@ -21,13 +20,9 @@ val domainModule = module {
         GetMovieDetails(get())
     }
 
-    factory {
-        GetMovieCast(get())
-    }
-
     // Repository
     factory {
-        MovieCategoryRepositoryFactoryImpl() as MovieCategoryRepositoryFactory
+        MovieCategoryRepositoryStrategyImpl() as MovieCategoryRepositoryStrategy
     }
 
     // Utils

@@ -12,5 +12,7 @@ data class MovieDetails(
     val status: String,
     val voteAverage: Float,
     val voteCount: Int,
-    val releaseDate: String?
+    val releaseDate: String?,
+    val cast: List<Actor>,
+    val trailers: List<Trailer>
 )
