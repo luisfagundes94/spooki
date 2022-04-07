@@ -13,6 +13,5 @@
     <!-- Deep Links -->
     <string name="deep_link_movie_details">android-app://com.luisfagundes.spooki/movie-details/{id}</string>
     <string name="deep_link_movie_details_impl">android-app://com.luisfagundes.spooki/movie-details/%1$d</string>
-
     <string name="deep_link_home">android-app://com.luisfagundes.spooki/home</string>
 </resources>
