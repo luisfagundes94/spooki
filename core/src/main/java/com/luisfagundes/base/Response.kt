@@ -2,26 +2,17 @@ package com.luisfagundes.base
 
 @Suppress("UNCHECKED_CAST")
 sealed class Response<T> {
-    abstract fun getValue(): T?
-    abstract fun getError(): Exception?
 
-    fun isError() = getError() != null
-    fun isSuccess() = getValue() != null
+    data class Success<T>(val data: T) : Response<T>()
+    data class Error<T>(val exception: Exception) : Response<T>()
 
-    data class Success<T>(private val value: T) : Response<T>() {
-        override fun getValue() = value
-        override fun getError() = null
-    }
-
-    data class Error<T>(private val exception: Exception) : Response<T>() {
-        override fun getValue() = null
-        override fun getError() = exception
-    }
+    val isSuccess get() = this is Success<T>
+    val isError get() = this is Error<T>
 
     fun fold(onSuccess: (T) -> Any, onError: (Exception) -> Any): Any =
         when (this) {
-            is Success -> onSuccess(getValue())
-            is Error -> onError(getError())
+            is Success -> onSuccess(data)
+            is Error -> onError(exception)
         }
 
     companion object {

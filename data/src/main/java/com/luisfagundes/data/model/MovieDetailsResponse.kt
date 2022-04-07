@@ -16,5 +16,7 @@ data class MovieDetailsResponse(
     @SerializedName("status") val status: String,
     @SerializedName("vote_average") val voteAverage: Float,
     @SerializedName("vote_count") val voteCount: Int,
-    @SerializedName("release_date") val releaseDate: String?
+    @SerializedName("release_date") val releaseDate: String?,
+    @SerializedName("credits") val credits: CastResponse,
+    @SerializedName("videos") val videos: VideoResponse
 )

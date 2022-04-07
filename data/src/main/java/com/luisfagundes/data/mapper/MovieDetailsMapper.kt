@@ -1,47 +1,61 @@
 package com.luisfagundes.data.mapper
 
 import com.luisfagundes.base.Response
+import com.luisfagundes.data.model.ActorResponse
 import com.luisfagundes.data.model.MovieDetailsResponse
-import com.luisfagundes.data.model.ProductionCompanyResponse
+import com.luisfagundes.data.model.TrailerResponse
+import com.luisfagundes.data.model.VideoResponse
+import com.luisfagundes.domain.model.Actor
 import com.luisfagundes.domain.model.MovieDetails
-import com.luisfagundes.domain.model.ProductionCompany
+import com.luisfagundes.domain.model.Trailer
 import com.luisfagundes.extensions.empty
 import com.luisfagundes.extensions.formatDate
 
 private const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
-private const val BASE_LOGO_URL = "https://image.tmdb.org/t/p/w300/"
+private const val BASE_YOUTUBE_URL = "https://www.youtube.com/watch?v="
 
 object MovieDetailsMapper {
     fun Response<MovieDetailsResponse>.mapToDomain(): Response<MovieDetails> {
         return when (this) {
-            is Response.Success -> Response.Success(getValue().mapToDomain())
-            is Response.Error -> Response.Error(getError())
+            is Response.Success -> mapToDomain()
+            is Response.Error -> Response.Error(exception)
         }
     }
 
-    private fun MovieDetailsResponse.mapToDomain(): MovieDetails {
-        return MovieDetails(
-            id = this.id,
-            title = this.title,
-            posterUrl = BASE_IMAGE_URL + this.posterUrl,
-            budget = this.budget ?: 0,
-            revenue = this.revenue ?: 0,
-            backDropUrl = BASE_IMAGE_URL + this.backDropUrl,
-            overview = this.overview,
-            popularity = this.popularity,
-            status = this.status,
-            voteAverage = this.voteAverage,
-            voteCount = this.voteCount,
-            releaseDate = this.releaseDate?.formatDate() ?: String.empty(),
+    private fun Response.Success<MovieDetailsResponse>.mapToDomain(): Response<MovieDetails> {
+        return Response.Success(
+            MovieDetails(
+                id = this.data.id,
+                title = this.data.title,
+                posterUrl = BASE_IMAGE_URL + this.data.posterUrl,
+                budget = this.data.budget ?: 0,
+                revenue = this.data.revenue ?: 0,
+                backDropUrl = BASE_IMAGE_URL + this.data.backDropUrl,
+                overview = this.data.overview,
+                popularity = this.data.popularity,
+                status = this.data.status,
+                voteAverage = this.data.voteAverage,
+                voteCount = this.data.voteCount,
+                releaseDate = this.data.releaseDate?.formatDate() ?: String.empty(),
+                cast = this.data.credits.cast.mapToDomain(),
+                trailers = this.data.videos.mapToDomain()
+            )
         )
     }
 
-    private fun List<ProductionCompanyResponse>.toDomain() =
+    private fun List<ActorResponse>.mapToDomain(): List<Actor> =
         this.map { it.toDomain() }
 
-    private fun ProductionCompanyResponse.toDomain() =
-        ProductionCompany(
-            logoUrl = BASE_LOGO_URL + this.logoPath,
-            name = this.name
+    private fun ActorResponse.toDomain(): Actor =
+        Actor(
+            profilePath = BASE_IMAGE_URL + this.profilePath
+        )
+
+    private fun VideoResponse.mapToDomain() =
+        this.results.map { it.toDomain() }
+
+    private fun TrailerResponse.toDomain() =
+        Trailer(
+            youtubeUrl = BASE_YOUTUBE_URL + this.key
         )
 }

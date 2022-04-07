@@ -1,11 +1,9 @@
 package com.luisfagundes.data.repository
 
 import com.luisfagundes.base.Response
-import com.luisfagundes.data.mapper.MovieCastMapper.mapToDomain
 import com.luisfagundes.data.mapper.MovieMapper.mapToDomain
 import com.luisfagundes.data.mapper.MovieDetailsMapper.mapToDomain
 import com.luisfagundes.data.service.MovieService
-import com.luisfagundes.domain.model.Actor
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.domain.model.MovieDetails
 import com.luisfagundes.domain.repository.MovieRepository
@@ -61,13 +59,6 @@ class MovieRepositoryImpl(
     override suspend fun fetchMovieDetails(id: Int): Response<MovieDetails> {
         val response = Response.of {
             movieService.fetchMovieDetails(id = id)
-        }
-        return response.mapToDomain()
-    }
-
-    override suspend fun fetchMovieCast(movieId: Int): Response<List<Actor>> {
-        val response = Response.of {
-            movieService.fetchMovieCredits(movieId).results
         }
         return response.mapToDomain()
     }

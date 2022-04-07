@@ -7,7 +7,6 @@ import com.luisfagundes.base.Response
 import com.luisfagundes.common_testing.utils.CoroutinesTestRule
 import com.luisfagundes.domain.enum.MovieCategoryType
 import com.luisfagundes.domain.model.Movie
-import com.luisfagundes.domain.model.MovieCategory
 import com.luisfagundes.domain.usecase.GetMovieList
 import com.luisfagundes.movies.presentation.baseCategory.MovieCategoryViewAction
 import com.luisfagundes.movies.presentation.baseCategory.MovieCategoryViewModel

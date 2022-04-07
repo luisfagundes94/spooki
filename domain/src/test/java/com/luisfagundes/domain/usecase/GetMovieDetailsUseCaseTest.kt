@@ -1,13 +1,10 @@
 package com.luisfagundes.domain.usecase
 
 import com.luisfagundes.base.Response
-import com.luisfagundes.domain.model.Actor
 import com.luisfagundes.domain.model.MovieDetails
 import com.luisfagundes.domain.repository.MovieRepository
-import com.luisfagundes.domain.usecase.GetMovieDetailsUseCase
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.coVerifySequence
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -19,11 +16,11 @@ import org.junit.Test
 class GetMovieDetailsUseCaseTest {
 
     private val repository: MovieRepository = mockk()
-    private lateinit var useCase: GetMovieDetailsUseCase
+    private lateinit var useCase: GetMovieDetails
 
     @Before
     fun setUp() {
-        useCase = GetMovieDetailsUseCase(repository)
+        useCase = GetMovieDetails(repository)
     }
 
     @Test
@@ -52,15 +49,13 @@ class GetMovieDetailsUseCaseTest {
         val movieDetails: MovieDetails = mockk()
         val movieDetailsResponse = Response.Success(movieDetails)
 
-        coEvery { movieDetailsResponse.getValue() } returns movieDetails
-
         coEvery { repository.fetchMovieDetails(movieId) } returns movieDetailsResponse
 
         // Act
         val result = useCase.invoke(movieId)
 
         // Assert
-        assert(result.isSuccess())
+        assert(result.isSuccess)
     }
 
     @Test
@@ -78,6 +73,6 @@ class GetMovieDetailsUseCaseTest {
         val result = useCase.invoke(movieId)
 
         // Assert
-        assert(result.isError())
+        assert(result.isError)
     }
 }
