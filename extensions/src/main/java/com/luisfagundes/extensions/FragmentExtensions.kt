@@ -1,5 +1,6 @@
 package com.luisfagundes.extensions
 
+import android.content.res.Resources
 import android.util.DisplayMetrics
 import android.view.Display
 import android.widget.Toast
@@ -46,9 +47,6 @@ fun Fragment.showToast(messageList: List<CharSequence>, duration: Int = Toast.LE
     Toast.makeText(requireContext(), messageList.toString(), duration).show()
 
 fun Fragment.getBestGridSpanCount(posterWidth: Int): Int {
-    val display: Display = requireActivity().windowManager.defaultDisplay
-    val outMetrics = DisplayMetrics()
-    display.getMetrics(outMetrics)
-    val screenWidth = outMetrics.widthPixels.toFloat()
-    return (screenWidth / posterWidth).roundToInt()
+    val screenWidth = Resources.getSystem().displayMetrics.widthPixels
+    return (screenWidth / posterWidth)
 }
