@@ -7,8 +7,6 @@ import com.luisfagundes.data.BuildConfig
 import com.luisfagundes.data.repository.MovieRepositoryImpl
 import com.luisfagundes.data.service.MovieService
 import com.luisfagundes.domain.repository.MovieRepository
-import com.luisfagundes.utils.StringProvider
-import com.luisfagundes.utils.StringProviderImpl
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.qualifier.named
@@ -40,9 +38,6 @@ val dataModule =  module {
     factory {
         createOkHttpClient()
     }
-
-    // Utils
-    factory { StringProviderImpl(androidContext()) as StringProvider }
 }
 
 private fun getMovieService(retrofit: Retrofit): MovieService =

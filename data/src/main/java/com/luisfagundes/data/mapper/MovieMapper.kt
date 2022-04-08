@@ -1,6 +1,6 @@
 package com.luisfagundes.data.mapper
 
-import com.luisfagundes.base.Response
+import com.luisfagundes.core.Response
 import com.luisfagundes.data.model.MovieResponse
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.extensions.empty

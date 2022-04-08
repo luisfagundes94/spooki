@@ -1,23 +1,18 @@
 package com.luisfagundes.search.presentation
 
-import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
-import android.widget.ImageView
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.luisfagundes.base.BaseFragment
 import com.luisfagundes.base.BaseViewState
-import com.luisfagundes.extensions.hideVisibility
 import com.luisfagundes.extensions.observe
-import com.luisfagundes.movies.MovieNavigationDirections
 import com.luisfagundes.search.R
 import com.luisfagundes.search.databinding.FragmentSearchBinding
-import com.luisfagundes.utils.GridSpacingItemDecoration
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(
     successViewId = R.id.search_success_container,
@@ -85,13 +80,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
             false
         )
 
-        val itemDecoration = GridSpacingItemDecoration(
-            DEFAULT_ITEM_SPAN_COUNT,
-            0,
-            false
-        )
-
-        addItemDecoration(itemDecoration)
         setHasFixedSize(true)
         this.layoutManager = layoutManager
         this.adapter = searchMovieAdapter

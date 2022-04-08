@@ -3,4 +3,18 @@
     <string name="btn_see_all">SEE ALL</string>
     <string name="desc_movie">movie</string>
     <string name="desc_movie_recycler_view">Movie List</string>
+    <string name="title_home">Home</string>
+    <string name="title_movies">Movies</string>
+    <string name="title_movie_details">Movie Details</string>
+    <string name="title_search">Search</string>
+    <string name="title_saved">Saved</string>
+    <string name="title_profile">Profile</string>
+    <string name="generic_error_message">Oops, something went wrong. Please try again..</string>
+    <string name="generic_error_message_without_retry">Oops! It looks like something weird happened :(</string>
+    <string name="generic_error_button_message">Try Again</string>
+
+    <!-- Deep Links -->
+    <string name="deep_link_movie_details">android-app://com.luisfagundes.spooki/movie-details/{id}</string>
+    <string name="deep_link_movie_details_impl">android-app://com.luisfagundes.spooki/movie-details/%1$d</string>
+    <string name="deep_link_home">android-app://com.luisfagundes.spooki/home</string>
 </resources>
