@@ -37,7 +37,11 @@ class CastAdapter : RecyclerView.Adapter<CastAdapter.ViewHolder>() {
         private val binding: CastItemBinding
     ): RecyclerView.ViewHolder(binding.root) {
         fun bind(actor: Actor) = with(binding) {
-            imgActor.loadPoster(actor.profilePath)
+            imgActor.loadPoster(
+                url = actor.profilePath,
+                placeholder = com.luisfagundes.commons_ui.R.color.mine_shaft,
+                error = com.luisfagundes.commons_ui.R.drawable.spooki_media_placeholder
+            )
         }
     }
 }

@@ -5,6 +5,7 @@ import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.domain.enum.MovieCategoryType
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.domain.usecase.GetMovieList
+import com.luisfagundes.movies.utils.strategy.MovieTypeStrategyImpl
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import timber.log.Timber
@@ -18,18 +19,25 @@ class MovieListViewModel(
 
     override fun dispatchViewAction(viewAction: MovieListViewAction) {
         when (viewAction) {
-            is MovieListViewAction.FetchMovieList -> fetchMovieList(viewAction.movieCategoryType)
+            is MovieListViewAction.FetchMovieList -> fetchMovieList()
         }
     }
 
-    private fun fetchMovieList(movieCategoryType: MovieCategoryType) {
+    fun updateCheckedFilterTag(id: Int) {
+        viewState.movieType.value = MovieTypeStrategyImpl.getFilterType(id)
+    }
+
+    private fun fetchMovieList() {
+        val movieType = getMovieType()
         viewState.state.postValue(BaseViewState.State.LOADING)
         executeCoroutines(dispatcher) {
-            getMovieList.invoke(movieCategoryType).fold(
+            getMovieList.invoke(movieType).fold(
                 ::onGetListSuccess, ::onGetListFailure
             )
         }
     }
+
+    private fun getMovieType() = viewState.movieType.value ?: MovieCategoryType.POPULAR
 
     private fun onGetListSuccess(movies: List<Movie>) {
         viewState.state.postValue(BaseViewState.State.SUCCESS)

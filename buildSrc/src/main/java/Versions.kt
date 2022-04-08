@@ -9,8 +9,8 @@ object Versions {
     const val jvmTargetVersion = "1.8"
     const val minSdk = 21
     const val targetSdk = 32
-    const val versionCode = 4
-    const val versionName = "0.6.0"
+    const val versionCode = 5
+    const val versionName = "0.6.2"
     const val ktlint = "0.43.2"
     const val gradle = "7.0.4"
 
@@ -45,7 +45,7 @@ object Versions {
 
     // Test
     const val junit = "4.13.1"
-    const val coroutines = "1.3.6"
+    const val coroutines = "1.6.1"
     const val mockk = "1.12.1"
     const val archCore = "2.1.0"
 
