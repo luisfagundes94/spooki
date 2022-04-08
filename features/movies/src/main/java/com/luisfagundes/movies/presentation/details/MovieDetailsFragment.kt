@@ -10,8 +10,8 @@ import com.luisfagundes.movies.R
 import com.luisfagundes.movies.databinding.FragmentMovieDetailsBinding
 import com.luisfagundes.movies.presentation.details.adapter.CastAdapter
 import com.luisfagundes.movies.presentation.details.adapter.TrailerAdapter
-import com.luisfagundes.movies.utils.formatValueIfZero
-import com.luisfagundes.movies.utils.loadBackdrop
+import com.luisfagundes.movies.utils.extensions.formatValueIfZero
+import com.luisfagundes.movies.utils.extensions.loadBackdrop
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

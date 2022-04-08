@@ -1,4 +1,4 @@
-package com.luisfagundes.movies.utils
+package com.luisfagundes.movies.utils.extensions
 
 import android.widget.ImageView
 import com.luisfagundes.movies.R

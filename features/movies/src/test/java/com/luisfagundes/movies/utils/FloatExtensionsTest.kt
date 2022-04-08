@@ -2,6 +2,7 @@ package com.luisfagundes.movies.utils
 
 import android.content.Context
 import com.luisfagundes.movies.R
+import com.luisfagundes.movies.utils.extensions.formatValueIfZero
 import io.mockk.every
 import io.mockk.mockk
 import junit.framework.Assert.assertEquals
