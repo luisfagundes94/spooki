@@ -1,4 +1,4 @@
-package com.luisfagundes.movies.utils
+package com.luisfagundes.movies.utils.extensions
 
 import android.content.Context
 import com.luisfagundes.movies.R

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.luisfagundes.domain.model.Trailer
 import com.luisfagundes.movies.databinding.TrailerItemBinding
-import com.luisfagundes.movies.utils.loadThumbnail
+import com.luisfagundes.movies.utils.extensions.loadThumbnail
 
 class TrailerAdapter : RecyclerView.Adapter<TrailerAdapter.ViewHolder>() {
 
