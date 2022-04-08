@@ -2,7 +2,7 @@
 An Android application for browsing horror movies.
 
 ## Screenshots
-<img src="/screenshots/screenshot1.jpg" width="200" /> <img src="/screenshots/screenshot2.jpg" width="200" />
+<img src="/screenshots/screenshot1.jpg" width="200" /> <img src="/screenshots/screenshot2.jpg" width="200" /> <img src="/screenshots/screenshot3.jpg" width="200" />
 
 ## Stack
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
