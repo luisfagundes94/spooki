@@ -3,7 +3,7 @@ package com.luisfagundes.movies.presentation.categories
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.luisfagundes.base.BaseViewState
-import com.luisfagundes.base.Response
+import com.luisfagundes.core.Response
 import com.luisfagundes.common_testing.utils.CoroutinesTestRule
 import com.luisfagundes.domain.enum.MovieCategoryType
 import com.luisfagundes.domain.model.Movie

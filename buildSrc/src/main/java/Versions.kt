@@ -45,7 +45,7 @@ object Versions {
 
     // Test
     const val junit = "4.13.1"
-    const val coroutines = "1.3.6"
+    const val coroutines = "1.6.1"
     const val mockk = "1.12.1"
     const val archCore = "2.1.0"
 

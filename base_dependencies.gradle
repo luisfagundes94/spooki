@@ -38,18 +38,18 @@ android {
 }
 
 dependencies {
-    // Projects
+    // Modules
     implementation project(":core")
+    implementation project(":base")
+    implementation project(":extensions")
     implementation project(":ui-components")
 
     // Core
     implementation Dependencies.Core.kotlinStdlib
-    implementation Dependencies.Core.appCompat
-    implementation Dependencies.Core.coroutines
-    implementation Dependencies.Core.navigationFragment
     implementation Dependencies.Core.navigationUi
-    implementation Dependencies.Core.timber
+    implementation Dependencies.Core.navigationFragment
     implementation Dependencies.Core.constraintLayout
+    implementation Dependencies.Core.timber
     implementation Dependencies.Core.material
 
     // Data
@@ -59,8 +59,8 @@ dependencies {
     implementation Dependencies.Data.loggingInterceptor
 
     // DI
-    implementation Dependencies.DI.koin
-    implementation Dependencies.DI.koinCore
+    implementation(Dependencies.DI.koin)
+    implementation(Dependencies.DI.koinCore)
 
     // Testing
     testImplementation Dependencies.Test.mockk

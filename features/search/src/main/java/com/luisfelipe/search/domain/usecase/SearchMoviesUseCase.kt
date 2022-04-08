@@ -1,6 +1,6 @@
 package com.luisfagundes.search.domain.usecase
 
-import com.luisfagundes.base.Response
+import com.luisfagundes.core.Response
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.domain.repository.MovieRepository
 

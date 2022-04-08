@@ -1,6 +1,6 @@
 package com.luisfagundes.data.repository
 
-import com.luisfagundes.base.Response
+import com.luisfagundes.core.Response
 import com.luisfagundes.data.mapper.MovieMapper.mapToDomain
 import com.luisfagundes.data.mapper.MovieDetailsMapper.mapToDomain
 import com.luisfagundes.data.service.MovieService

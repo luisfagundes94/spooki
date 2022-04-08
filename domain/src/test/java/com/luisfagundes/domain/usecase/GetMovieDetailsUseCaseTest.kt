@@ -1,6 +1,6 @@
 package com.luisfagundes.domain.usecase
 
-import com.luisfagundes.base.Response
+import com.luisfagundes.core.Response
 import com.luisfagundes.domain.model.MovieDetails
 import com.luisfagundes.domain.repository.MovieRepository
 import io.mockk.coEvery

@@ -1,6 +1,6 @@
 package com.luisfagundes.domain.repository
 
-import com.luisfagundes.base.Response
+import com.luisfagundes.core.Response
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.domain.model.MovieDetails
 

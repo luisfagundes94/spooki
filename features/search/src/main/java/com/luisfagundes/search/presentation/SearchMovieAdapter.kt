@@ -43,7 +43,11 @@ class SearchMovieAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: Movie) = with(binding) {
-            this.imgPoster.loadPoster(movie.imageUrl)
+            this.imgPoster.loadPoster(
+                url = movie.imageUrl,
+                placeholder = com.luisfagundes.commons_ui.R.color.mine_shaft,
+                error = com.luisfagundes.commons_ui.R.drawable.spooki_media_placeholder
+            )
             root.setOnClickListener {
                 navigateToMovieDetails(movie.id)
             }
