@@ -2,10 +2,9 @@ package com.luisfagundes.movies.utils
 
 import android.content.Context
 import com.luisfagundes.movies.R
-import com.luisfagundes.movies.utils.extensions.formatValueIfZero
+import com.luisfagundes.movies.utils.extensions.formatRating
 import io.mockk.every
 import io.mockk.mockk
-import junit.framework.Assert.assertEquals
 import org.junit.Test
 
 class FloatExtensionsTest {
@@ -19,8 +18,8 @@ class FloatExtensionsTest {
 
         val floatNumber = 0.0f
 
-        val result = floatNumber.formatValueIfZero(context)
-        assertEquals(result, notAvailableString)
+        val result = floatNumber.formatRating(context)
+        assert(result == notAvailableString)
     }
 
     @Test
@@ -29,7 +28,7 @@ class FloatExtensionsTest {
 
         val floatNumber = 5.6f
 
-        val result = floatNumber.formatValueIfZero(context)
-        assertEquals(result, floatNumber.toString())
+        val result = floatNumber.formatRating(context)
+        assert(result == floatNumber.toString())
     }
 }
