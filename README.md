@@ -19,7 +19,7 @@ to keep you focused on your app, not on your tools
 - [Gson](https://github.com/google/gson) - A Java library that can be used to convert Java Objects into their JSON representation.
 - [OkHttp](https://github.com/square/okhttp) - An HTTP client for making network calls.
 - [Retrofit](https://square.github.io/retrofit/) - A library for building REST API clients.
-- [Ktlint](https://github.com/pinterest/ktlint) - A library for formatting Kotlin code according to official guidelines.
+- [Detekt](https://detekt.dev/) - A library for formatting Kotlin code according to official guidelines.
 - [MockK](https://mockk.io/) - MockK is a mocking library for Kotlin.
 - [JUnit4](https://junit.org/junit4/) - JUnit is a simple framework to write repeatable tests. 
 - [Gradle's Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - Gradle’s Kotlin DSL is an alternative syntax to the Groovy DSL with an enhanced editing experience.
