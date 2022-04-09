@@ -13,8 +13,6 @@ import androidx.navigation.NavDirections
 import timber.log.Timber
 import kotlin.math.roundToInt
 
-fun <F : Fragment> F.requireString(any: Any?) = requireContext().requireString(any)
-
 fun <F : Fragment, L> F.observe(
     liveData: LiveData<L>,
     onChanged: L.() -> Unit
@@ -23,7 +21,9 @@ fun <F : Fragment, L> F.observe(
 fun NavController.navigateWithDirections(navDirections: NavDirections) {
     try {
         navigate(navDirections)
-    } catch (exception: Exception) {
+    } catch (exception: IllegalStateException) {
+        Timber.e(exception)
+    } catch (exception: IllegalArgumentException) {
         Timber.e(exception)
     }
 }
@@ -33,7 +33,7 @@ fun NavController.navigateWithDeepLink(
 ) {
     try {
         navigate(deepLinkDestination.toUri())
-    } catch (exception: Exception) {
+    } catch (exception: IllegalArgumentException) {
         Timber.e(exception)
     }
 }

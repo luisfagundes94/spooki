@@ -22,6 +22,5 @@ class MovieCategoryRepositoryStrategyImpl : MovieCategoryRepositoryStrategy {
         MovieCategoryType.TOP_RATED -> movieRepository.fetchTopRatedMovies()
         MovieCategoryType.UPCOMING -> movieRepository.fetchUpcomingMovies()
         MovieCategoryType.RELEASED_THIS_YEAR -> movieRepository.fetchMoviesReleasedThisYear()
-        else -> movieRepository.fetchPopularMovies()
     }
 }

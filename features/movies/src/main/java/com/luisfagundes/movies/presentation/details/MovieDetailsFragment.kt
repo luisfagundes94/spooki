@@ -23,7 +23,6 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>(
 
     private val viewModel: MovieDetailsViewModel by viewModel()
     private val castAdapter: CastAdapter by inject()
-    private val trailerAdapter: TrailerAdapter by inject()
     private val args: MovieDetailsFragmentArgs by navArgs()
 
     override fun onBind() = FragmentMovieDetailsBinding.inflate(layoutInflater)
@@ -45,11 +44,6 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>(
         setupDefaultConfig()
         this.adapter = castAdapter
     }
-
-//    private fun setupTrailersRecyclerView() = with(binding.rvTrailers) {
-//        setupDefaultConfig()
-//        this.adapter = trailerAdapter
-//    }
 
     private fun setupObservers() {
         observe(viewModel.viewState.movie) {
@@ -79,6 +73,5 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>(
         tvOverview.text = overview
         imgBackdrop.loadBackdrop(backDropUrl)
         castAdapter.updateList(cast)
-        //trailerAdapter.updateList(trailers)
     }
 }

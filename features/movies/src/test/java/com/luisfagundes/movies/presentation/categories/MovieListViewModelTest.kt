@@ -2,7 +2,6 @@ package com.luisfagundes.movies.presentation.categories
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.common_testing.utils.CoroutinesTestRule
 import com.luisfagundes.core.Response
 import com.luisfagundes.domain.enum.MovieCategoryType
@@ -11,6 +10,7 @@ import com.luisfagundes.domain.usecase.GetMovieList
 import com.luisfagundes.movies.R
 import com.luisfagundes.movies.presentation.list.MovieListViewAction
 import com.luisfagundes.movies.presentation.list.MovieListViewModel
+import com.luisfagundes.movies.presentation.list.MovieListViewState
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
@@ -29,7 +29,7 @@ class MovieListViewModelTest {
     val coroutinesTestRule = CoroutinesTestRule()
 
     private val useCase: GetMovieList = mockk()
-    private lateinit var stateObserver: Observer<BaseViewState.State>
+    private lateinit var stateObserver: Observer<MovieListViewState.State>
     private lateinit var checkedFilterTagObserver: Observer<MovieCategoryType>
     private lateinit var viewModel: MovieListViewModel
 
@@ -72,8 +72,8 @@ class MovieListViewModelTest {
 
             // Assert
             verifySequence {
-                stateObserver.onChanged(BaseViewState.State.LOADING)
-                stateObserver.onChanged(BaseViewState.State.SUCCESS)
+                stateObserver.onChanged(MovieListViewState.State.LOADING)
+                stateObserver.onChanged(MovieListViewState.State.SUCCESS)
             }
         }
     }
@@ -93,8 +93,8 @@ class MovieListViewModelTest {
 
             // Assert
             verifySequence {
-                stateObserver.onChanged(BaseViewState.State.LOADING)
-                stateObserver.onChanged(BaseViewState.State.SUCCESS)
+                stateObserver.onChanged(MovieListViewState.State.LOADING)
+                stateObserver.onChanged(MovieListViewState.State.SUCCESS)
             }
         }
     }
@@ -115,8 +115,8 @@ class MovieListViewModelTest {
 
             // Assert
             verifySequence {
-                stateObserver.onChanged(BaseViewState.State.LOADING)
-                stateObserver.onChanged(BaseViewState.State.ERROR)
+                stateObserver.onChanged(MovieListViewState.State.LOADING)
+                stateObserver.onChanged(MovieListViewState.State.ERROR)
             }
         }
     }

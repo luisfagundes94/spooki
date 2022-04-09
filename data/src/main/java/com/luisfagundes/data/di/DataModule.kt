@@ -1,7 +1,7 @@
 package com.luisfagundes.data.di
 
 import com.luisfagundes.data.BuildConfig
-import com.luisfagundes.data.interceptor.AuthInterception
+import com.luisfagundes.data.interceptor.AuthInterceptor
 import com.luisfagundes.data.repository.MovieRepositoryImpl
 import com.luisfagundes.data.service.MovieService
 import com.luisfagundes.domain.repository.MovieRepository
@@ -31,7 +31,7 @@ val dataModule =  module {
     }
 
     factory {
-        createOkHttpClient(get<HttpLoggingInterceptor>(), get<AuthInterception>())
+        createOkHttpClient(get<HttpLoggingInterceptor>(), get<AuthInterceptor>())
     }
 
     factory { createAuthInterception() }
@@ -39,7 +39,7 @@ val dataModule =  module {
     factory { createLoggingInterceptor() }
 }
 
-private fun createAuthInterception() = AuthInterception(BuildConfig.API_KEY)
+private fun createAuthInterception() = AuthInterceptor(BuildConfig.API_KEY)
 
 private fun getMovieService(retrofit: Retrofit): MovieService =
     retrofit.create(MovieService::class.java)
@@ -52,10 +52,10 @@ private fun createRecipeRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofi
 
 private fun createOkHttpClient(
     loggingInterceptor: HttpLoggingInterceptor,
-    authInterception: AuthInterception
+    authInterceptor: AuthInterceptor
 ) = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
-        .addInterceptor(authInterception)
+        .addInterceptor(authInterceptor)
         .readTimeout(TIME_OUT, TimeUnit.SECONDS)
         .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
         .build()
