@@ -10,7 +10,7 @@ import com.luisfagundes.movies.R
 import com.luisfagundes.movies.databinding.FragmentMovieDetailsBinding
 import com.luisfagundes.movies.presentation.details.adapter.CastAdapter
 import com.luisfagundes.movies.presentation.details.adapter.TrailerAdapter
-import com.luisfagundes.movies.utils.extensions.formatValueIfZero
+import com.luisfagundes.movies.utils.extensions.formatRating
 import com.luisfagundes.movies.utils.extensions.loadBackdrop
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,7 +23,6 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>(
 
     private val viewModel: MovieDetailsViewModel by viewModel()
     private val castAdapter: CastAdapter by inject()
-    private val trailerAdapter: TrailerAdapter by inject()
     private val args: MovieDetailsFragmentArgs by navArgs()
 
     override fun onBind() = FragmentMovieDetailsBinding.inflate(layoutInflater)
@@ -45,11 +44,6 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>(
         setupDefaultConfig()
         this.adapter = castAdapter
     }
-
-//    private fun setupTrailersRecyclerView() = with(binding.rvTrailers) {
-//        setupDefaultConfig()
-//        this.adapter = trailerAdapter
-//    }
 
     private fun setupObservers() {
         observe(viewModel.viewState.movie) {
@@ -75,10 +69,9 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>(
             placeholder = com.luisfagundes.commons_ui.R.color.mine_shaft,
             error = com.luisfagundes.commons_ui.R.drawable.spooki_media_placeholder
         )
-        tvTmdbScore.text = voteAverage.formatValueIfZero(requireContext())
+        tvTmdbScore.text = voteAverage.formatRating(requireContext())
         tvOverview.text = overview
         imgBackdrop.loadBackdrop(backDropUrl)
         castAdapter.updateList(cast)
-        //trailerAdapter.updateList(trailers)
     }
 }

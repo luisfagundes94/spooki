@@ -6,7 +6,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.luisfagundes.base.BaseFragment
-import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.extensions.observe
 import com.luisfagundes.search.R
 import com.luisfagundes.search.databinding.FragmentSearchBinding
@@ -88,9 +87,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
     private fun setupObservers() {
         observe(viewModel.viewState.state) {
             when (this) {
-                BaseViewState.State.SUCCESS -> showSuccess()
-                BaseViewState.State.LOADING -> showLoading()
-                BaseViewState.State.ERROR -> showError()
+                SearchViewState.State.SUCCESS -> showSuccess()
+                SearchViewState.State.LOADING -> showLoading()
+                SearchViewState.State.ERROR -> showError()
                 else -> showError()
             }
         }

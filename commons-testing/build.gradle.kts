@@ -8,6 +8,7 @@ plugins {
 android {
     defaultConfig {
         compileSdk = com.luisfagundes.buildSrc.Versions.compileSdk
+        minSdk = com.luisfagundes.buildSrc.Versions.minSdk
     }
 }
 

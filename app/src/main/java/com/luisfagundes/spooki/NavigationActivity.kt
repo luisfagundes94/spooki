@@ -20,13 +20,19 @@ class NavigationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setViewBinding()
-
         setupBottomNavigation()
+    }
+
+    private fun setViewBinding() {
+        binding = ActivityNavigationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
     private fun setupBottomNavigation() {
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_nav)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(
+            R.id.nav_host_fragment_container
+        ) as NavHostFragment
         val navController = navHostFragment.navController
         val appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -54,11 +60,8 @@ class NavigationActivity : AppCompatActivity() {
         }
     }
 
-    private fun setViewBinding() {
-        binding = ActivityNavigationBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-    }
-
     override fun onSupportNavigateUp() =
-        findNavController(R.id.nav_host_fragment_container).navigateUp() || super.onSupportNavigateUp()
+        findNavController(
+            R.id.nav_host_fragment_container
+        ).navigateUp() || super.onSupportNavigateUp()
 }

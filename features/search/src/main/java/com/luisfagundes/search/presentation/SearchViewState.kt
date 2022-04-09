@@ -1,9 +1,13 @@
 package com.luisfagundes.search.presentation
 
 import androidx.lifecycle.MutableLiveData
-import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.domain.model.Movie
 
-class SearchViewState : BaseViewState() {
+class SearchViewState {
+    val state = MutableLiveData<State>()
     val movies = MutableLiveData<List<Movie>>()
+
+    enum class State {
+        SUCCESS, LOADING, ERROR
+    }
 }
