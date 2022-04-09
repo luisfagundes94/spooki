@@ -9,7 +9,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
 
@@ -29,7 +29,7 @@ class GetMovieListTest {
     }
 
     @Test
-    fun `SHOULD delegate call to repository WHEN invoked`() = runBlockingTest {
+    fun `SHOULD delegate call to repository WHEN invoked`() = runTest {
         // Arrange
         val response: Response<List<Movie>> = mockk()
 
@@ -46,7 +46,7 @@ class GetMovieListTest {
     }
 
     @Test
-    fun `SHOULD return success WHEN invoked`() = runBlockingTest {
+    fun `SHOULD return success WHEN invoked`() = runTest {
         // Arrange
         val movies: List<Movie> = mockk()
         val response = Response.Success(movies)
@@ -61,7 +61,7 @@ class GetMovieListTest {
     }
 
     @Test
-    fun `SHOULD return error WHEN invoked`() = runBlockingTest {
+    fun `SHOULD return error WHEN invoked`() = runTest {
         // Arrange
         val exception: Exception = mockk()
         val response = Response.Error<List<Movie>>(exception)

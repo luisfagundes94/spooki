@@ -1,7 +1,6 @@
 package com.luisfagundes.search.presentation
 
 import com.luisfagundes.base.BaseViewModel
-import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.search.domain.usecase.SearchMoviesUseCase
 import kotlinx.coroutines.CoroutineDispatcher
@@ -22,7 +21,7 @@ class SearchViewModel(
     }
 
     private fun searchMovies(query: String) {
-        viewState.state.postValue(BaseViewState.State.LOADING)
+        viewState.state.postValue(SearchViewState.State.LOADING)
         executeCoroutines(dispatcher) {
             searchMoviesUseCase.invoke(query = query).fold(
                 ::onSearchMoviesSuccess, ::onSearchMoviesError
@@ -31,12 +30,12 @@ class SearchViewModel(
     }
 
     private fun onSearchMoviesSuccess(movieList: List<Movie>) {
-        viewState.state.postValue(BaseViewState.State.SUCCESS)
+        viewState.state.postValue(SearchViewState.State.SUCCESS)
         viewState.movies.postValue(movieList)
     }
 
     private fun onSearchMoviesError(exception: Exception) {
         Timber.e(exception)
-        viewState.state.postValue(BaseViewState.State.ERROR)
+        viewState.state.postValue(SearchViewState.State.ERROR)
     }
 }

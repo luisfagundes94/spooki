@@ -3,7 +3,6 @@ package com.luisfagundes.movies.presentation.list
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.luisfagundes.base.BaseFragment
-import com.luisfagundes.base.BaseViewState
 import com.luisfagundes.commons_ui.adapter.MovieListAdapter
 import com.luisfagundes.extensions.getBestGridSpanCount
 import com.luisfagundes.extensions.navigateWithDirections
@@ -39,7 +38,7 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>(
     }
 
     private fun setupFilterSelectionListener() {
-        binding.chipFilterGroup.setOnCheckedChangeListener { group, checkedId ->
+        binding.chipFilterGroup.setOnCheckedChangeListener { _, checkedId ->
             viewModel.updateCheckedFilterTag(checkedId)
             viewModel.dispatchViewAction(MovieListViewAction.FetchMovieList)
         }
@@ -62,9 +61,10 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>(
     private fun observeState() {
         observe(viewModel.viewState.state) {
             when (this) {
-                BaseViewState.State.SUCCESS -> showSuccess()
-                BaseViewState.State.LOADING -> showLoading()
-                BaseViewState.State.ERROR -> showError()
+                MovieListViewState.State.SUCCESS -> showSuccess()
+                MovieListViewState.State.LOADING -> showLoading()
+                MovieListViewState.State.ERROR -> showError()
+                else -> showError()
             }
         }
     }

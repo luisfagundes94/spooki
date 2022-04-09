@@ -6,6 +6,7 @@ plugins {
 }
 
 apply from: "$rootDir/base_dependencies.gradle"
+apply from: '../config/detekt/detekt.gradle'
 
 android {
     defaultConfig {
@@ -35,7 +36,6 @@ dependencies {
     // Projects
     implementation project(':features:search')
     implementation project(':features:saved')
-    implementation project(':features:profile')
     implementation project(':features:movies')
     implementation project(':domain')
     implementation project(':data')
