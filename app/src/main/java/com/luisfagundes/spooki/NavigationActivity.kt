@@ -20,8 +20,12 @@ class NavigationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setViewBinding()
-
         setupBottomNavigation()
+    }
+
+    private fun setViewBinding() {
+        binding = ActivityNavigationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
     private fun setupBottomNavigation() {
@@ -52,11 +56,6 @@ class NavigationActivity : AppCompatActivity() {
                 else -> bottomNavView.showVisibility()
             }
         }
-    }
-
-    private fun setViewBinding() {
-        binding = ActivityNavigationBinding.inflate(layoutInflater)
-        setContentView(binding.root)
     }
 
     override fun onSupportNavigateUp() =
