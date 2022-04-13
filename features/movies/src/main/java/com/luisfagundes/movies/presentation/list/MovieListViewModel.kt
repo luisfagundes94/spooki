@@ -4,6 +4,7 @@ import com.luisfagundes.base.BaseViewModel
 import com.luisfagundes.domain.enum.MovieCategoryType
 import com.luisfagundes.domain.model.Movie
 import com.luisfagundes.domain.usecase.GetMovieList
+import com.luisfagundes.movies.utils.strategy.MovieTypeStrategy
 import com.luisfagundes.movies.utils.strategy.MovieTypeStrategyImpl
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -11,6 +12,7 @@ import timber.log.Timber
 
 class MovieListViewModel(
     private val getMovieList: GetMovieList,
+    private val movieTypeStrategy: MovieTypeStrategy,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : BaseViewModel<MovieListViewState, MovieListViewAction>() {
 
@@ -23,7 +25,7 @@ class MovieListViewModel(
     }
 
     fun updateCheckedFilterTag(id: Int) {
-        viewState.movieType.value = MovieTypeStrategyImpl.getFilterType(id)
+        viewState.movieType.value = movieTypeStrategy.getFilterType(id)
     }
 
     private fun fetchMovieList() {

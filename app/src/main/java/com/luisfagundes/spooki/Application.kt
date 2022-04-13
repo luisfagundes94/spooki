@@ -4,7 +4,7 @@ import android.app.Application
 import com.luisfagundes.commons_ui.di.commonsUiModule
 import com.luisfagundes.data.di.dataModule
 import com.luisfagundes.domain.di.domainModule
-import com.luisfagundes.movies.di.movieCategoryModule
+import com.luisfagundes.movies.di.movieListModule
 import com.luisfagundes.movies.di.movieDetailsModule
 import com.luisfagundes.search.di.searchModule
 import org.koin.android.ext.koin.androidContext
@@ -31,7 +31,7 @@ class Application : Application() {
             modules(
                 dataModule,
                 domainModule,
-                movieCategoryModule,
+                movieListModule,
                 movieDetailsModule,
                 searchModule,
                 commonsUiModule

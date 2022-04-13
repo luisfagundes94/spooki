@@ -11,6 +11,7 @@ import com.luisfagundes.movies.R
 import com.luisfagundes.movies.presentation.list.MovieListViewAction
 import com.luisfagundes.movies.presentation.list.MovieListViewModel
 import com.luisfagundes.movies.presentation.list.MovieListViewState
+import com.luisfagundes.movies.utils.strategy.MovieTypeStrategy
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
@@ -29,6 +30,7 @@ class MovieListViewModelTest {
     val coroutinesTestRule = CoroutinesTestRule()
 
     private val useCase: GetMovieList = mockk()
+    private val movieTypeStrategy: MovieTypeStrategy = mockk()
     private lateinit var stateObserver: Observer<MovieListViewState.State>
     private lateinit var checkedFilterTagObserver: Observer<MovieCategoryType>
     private lateinit var viewModel: MovieListViewModel
@@ -46,6 +48,7 @@ class MovieListViewModelTest {
             val response: Response<List<Movie>> = mockk()
             val type = MovieCategoryType.POPULAR
 
+            coEvery { movieTypeStrategy.getFilterType(any()) } returns type
             coEvery { useCase.invoke(type) } returns response
 
             // Act
@@ -64,6 +67,7 @@ class MovieListViewModelTest {
             val response = Response.Success(movieList)
             val type = MovieCategoryType.TOP_RATED
 
+            coEvery { movieTypeStrategy.getFilterType(any()) } returns type
             coEvery { useCase.invoke(type) } returns response
 
             // Act
@@ -86,6 +90,7 @@ class MovieListViewModelTest {
             val response = Response.Success(movieList)
             val type = MovieCategoryType.POPULAR
 
+            coEvery { movieTypeStrategy.getFilterType(any()) } returns type
             coEvery { useCase.invoke(type) } returns response
 
             // Act
@@ -108,6 +113,7 @@ class MovieListViewModelTest {
             val type = MovieCategoryType.POPULAR
 
 
+            coEvery { movieTypeStrategy.getFilterType(any()) } returns type
             coEvery { useCase.invoke(type) } returns response
 
             // Act
@@ -126,6 +132,8 @@ class MovieListViewModelTest {
         // Arrange
         val upcomingTagId = R.id.chipUpcomingTag
 
+        every { movieTypeStrategy.getFilterType(upcomingTagId) } returns MovieCategoryType.UPCOMING
+
         // Act
         viewModel.updateCheckedFilterTag(upcomingTagId)
 
@@ -142,6 +150,7 @@ class MovieListViewModelTest {
     private fun setupViewModel() {
         viewModel = MovieListViewModel(
             getMovieList = useCase,
+            movieTypeStrategy = movieTypeStrategy,
             dispatcher = coroutinesTestRule.dispatcher
         )
     }
